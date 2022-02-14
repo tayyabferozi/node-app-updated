@@ -12,7 +12,7 @@ import ModalOrder from "../modals/ModalOrder";
 const ClientsList = () => {
   const [activityOpenState, setActivityOpenState] = useState(false);
   const [orderModalOpenState, setOrderModalOpenState] = useState(false);
-  const [clientSelected, setClientSelected] = useState(true);
+  const [clientSelected, setClientSelected] = useState(false);
 
   const modalOpenHandler = (func) => {
     func(true);
