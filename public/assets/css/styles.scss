@@ -2630,10 +2630,12 @@ button {
             height: 18px;
 
             .slider {
-              background: $color64;
               border: none;
+              background-color: $color116;
+              transition: 0.4s ease;
 
               &::before {
+                background-color: #fff;
                 width: 19px;
                 height: 19px;
                 bottom: 0px;
@@ -2644,7 +2646,6 @@ button {
 
             input:checked + .slider::before {
               // transform: translateX(14px);
-              background-color: #fff;
             }
           }
 
@@ -2725,7 +2726,7 @@ button {
       }
 
       .card-head {
-        .slider {
+        input:checked ~ .slider {
           @extend %bg-grad-pink;
         }
       }
@@ -2757,7 +2758,7 @@ button {
       }
 
       .card-head {
-        .slider {
+        input:checked ~ .slider {
           @extend %bg-grad-blue;
         }
       }
@@ -2789,7 +2790,7 @@ button {
       }
 
       .card-head {
-        .slider {
+        input:checked ~ .slider {
           @extend %bg-grad-cyan;
         }
       }

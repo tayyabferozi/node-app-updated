@@ -58,7 +58,7 @@
           box-shadow: inset -18px -18px 30px rgba(255, 255, 255, 0.6), inset 10px 10px 30px rgba(209, 217, 230, 0.7);
 }
 
-#workshop-main-content .realtime-container .next-up .card-head .slider {
+#workshop-main-content .realtime-container .next-up .card-head input:checked ~ .slider {
   background: -webkit-gradient(linear, left top, right top, from(#eca0a0), to(#f54545)) !important;
   background: linear-gradient(to right, #eca0a0, #f54545) !important;
 }
@@ -70,7 +70,7 @@
   background: linear-gradient(to right, #eca0a0, #f54545);
 }
 
-#workshop-main-content .realtime-container .in-progress .card-head .slider {
+#workshop-main-content .realtime-container .in-progress .card-head input:checked ~ .slider {
   background: -webkit-gradient(linear, left top, right top, from(#2bbfc7), to(#0c88a4)) !important;
   background: linear-gradient(to right, #2bbfc7, #0c88a4) !important;
 }
@@ -82,7 +82,7 @@
   background: linear-gradient(to right, #2bbfc7, #0c88a4);
 }
 
-#workshop-main-content .realtime-container .done .card-head .slider {
+#workshop-main-content .realtime-container .done .card-head input:checked ~ .slider {
   background: -webkit-gradient(linear, left top, right top, from(#1e55a9), to(#0d3a7d)) !important;
   background: linear-gradient(to right, #1e55a9, #0d3a7d) !important;
 }
@@ -5715,21 +5715,20 @@ button {
 }
 
 #workshop-main-content .realtime-container .cards .card-wrap .card .switch .slider {
-  background: rgba(33, 33, 33, 0.08);
   border: none;
+  background-color: #cad4e3;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
 }
 
 #workshop-main-content .realtime-container .cards .card-wrap .card .switch .slider::before {
+  background-color: #fff;
   width: 19px;
   height: 19px;
   bottom: 0px;
   left: 0;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.241);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.241);
-}
-
-#workshop-main-content .realtime-container .cards .card-wrap .card .switch input:checked + .slider::before {
-  background-color: #fff;
 }
 
 #workshop-main-content .realtime-container .cards .card-wrap .card .btn-plus {
