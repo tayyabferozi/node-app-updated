@@ -4,6 +4,10 @@
   border-radius: 6px;
 }
 
+%br-8 {
+  border-radius: 8px;
+}
+
 %br-10 {
   border-radius: 10px;
 }
@@ -22,6 +26,13 @@
 
 %emboss {
   background: $color115;
+  box-shadow: inset 5px 5px 6px $color102, inset 18px 18px 30px $color103;
+
+  @extend %br-10;
+}
+
+%emboss-t {
+  background: transparent;
   box-shadow: inset 5px 5px 6px $color102, inset 18px 18px 30px $color103;
 
   @extend %br-10;
@@ -201,6 +212,10 @@ button,
 
 .emboss {
   @extend %emboss;
+}
+
+.emboss-t {
+  @extend %emboss-t;
 }
 
 .emboss-c {

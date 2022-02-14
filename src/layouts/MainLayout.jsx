@@ -176,7 +176,7 @@ const MainLayout = ({
                 {
                   vector: "./assets/vectors/nav-elevate.svg",
                   vectorActive: "./assets/vectors/nav-elevate-active.svg",
-                  to: "#0",
+                  to: "/business-360",
                   thisActiveLink: "elevate",
                   text: "Let's elevate",
                 },

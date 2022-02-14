@@ -9,7 +9,7 @@
   border-radius: 6px;
 }
 
-.emboss, .main-search .custom-form-control .input input, #main #sidenav .desc .main .nav a.active, .tabs.img .tab.active, .emboss-md, .emboss-md-inner, .br-10, .tabs.img .tab {
+.emboss, .main-search .custom-form-control .input input, #main #sidenav .desc .main .nav a.active, .tabs.img .tab.active, .emboss-t, .emboss-md, .emboss-md-inner, .br-10, .tabs.img .tab {
   border-radius: 10px;
 }
 
@@ -17,12 +17,18 @@
   border-radius: 12px;
 }
 
-.emboss-c, .br-16, #client-overview-main-content .user-jumbotron-wrap, #client-overview-main-content .user-jumbotron {
+.emboss-c, .br-16, #client-overview-main-content .user-jumbotron-wrap, #client-overview-main-content .user-jumbotron, #finances-overview .custom-grid .quick-report {
   border-radius: 16px !important;
 }
 
 .emboss, .main-search .custom-form-control .input input, #main #sidenav .desc .main .nav a.active, .tabs.img .tab.active {
   background: #f4f6f8;
+  -webkit-box-shadow: inset 5px 5px 6px rgba(209, 217, 230, 0.7), inset 18px 18px 30px rgba(255, 255, 255, 0.6);
+          box-shadow: inset 5px 5px 6px rgba(209, 217, 230, 0.7), inset 18px 18px 30px rgba(255, 255, 255, 0.6);
+}
+
+.emboss-t {
+  background: transparent;
   -webkit-box-shadow: inset 5px 5px 6px rgba(209, 217, 230, 0.7), inset 18px 18px 30px rgba(255, 255, 255, 0.6);
           box-shadow: inset 5px 5px 6px rgba(209, 217, 230, 0.7), inset 18px 18px 30px rgba(255, 255, 255, 0.6);
 }
@@ -37,7 +43,7 @@
           box-shadow: inset 10px 10px 10px rgba(218, 226, 235, 0.8), inset -10px -10px 10px rgba(255, 255, 255, 0.6);
 }
 
-.emboss-white, #client-overview-main-content .user-jumbotron-wrap, #workshop-main-content .realtime-container .cards, #workshop-main-content .appointment-container .schedule-control-section-wrap {
+.emboss-white, #client-overview-main-content .user-jumbotron-wrap, #finances-overview .custom-grid .quick-report, #workshop-main-content .realtime-container .cards, #workshop-main-content .appointment-container .schedule-control-section-wrap {
   -webkit-box-shadow: -18px -18px 30px rgba(255, 255, 255, 0.6), 18px 18px 30px rgba(209, 217, 230, 0.7);
           box-shadow: -18px -18px 30px rgba(255, 255, 255, 0.6), 18px 18px 30px rgba(209, 217, 230, 0.7);
 }
@@ -3221,20 +3227,16 @@ button {
   width: 100%;
 }
 
-#dashboard-main-content {
-  overflow: hidden;
-}
-
 #dashboard-main-content .row {
-  height: 100%;
-}
-
-#dashboard-main-content .card {
   height: 100%;
 }
 
 #dashboard-main-content .card .heading {
   margin-bottom: 35px;
+}
+
+#dashboard-main-content .card.stats .item {
+  min-width: 64px;
 }
 
 #dashboard-main-content .card.stats .top {
@@ -3396,9 +3398,39 @@ button {
   font-family: "Work Sans", sans-serif;
 }
 
+#dashboard-main-content .card.clients .table-card tr {
+  padding: 15px;
+}
+
 #dashboard-main-content .card.clients .table-card td {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 9.5px;
+  padding-bottom: 9.5px;
+}
+
+#dashboard-main-content .card.clients .table-card td .emboss-c {
+  padding: 29.5px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+#dashboard-main-content .card.clients .table-card td .badge {
+  background-color: #cad4e3;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+#dashboard-main-content .card.clients .table-card td .badge,
+#dashboard-main-content .card.clients .table-card td .badge * {
+  color: #fff;
 }
 
 #dashboard-main-content.dashboard-business .recently-viewed .table-card .aligned .img {
@@ -3448,6 +3480,14 @@ button {
 
 #dashboard-main-content.dashboard-business .performance-item {
   margin-bottom: 14px;
+}
+
+#dashboard-main-content.dashboard-business .performance-item .progress-bar {
+  background-color: rgba(30, 85, 169, 0.25);
+}
+
+#dashboard-main-content.dashboard-business .performance-item .progress {
+  background-color: #1e55a9;
 }
 
 #dashboard-main-content.dashboard-business .noded-percent {
@@ -4151,10 +4191,15 @@ button {
 #finances-overview .custom-grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
   gap: 25px;
   padding-top: 20px;
+}
+
+@media screen and (min-width: 576px) {
+  #finances-overview .custom-grid {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
 }
 
 #finances-overview .custom-grid .quick-report,
@@ -4168,7 +4213,8 @@ button {
 }
 
 #finances-overview .custom-grid .quick-report {
-  background-color: rgba(30, 85, 169, 0.08);
+  padding-top: 25px;
+  padding-bottom: 20px;
 }
 
 #finances-overview .custom-grid .quick-report div:last-child {
@@ -4176,28 +4222,23 @@ button {
   text-decoration: underline;
 }
 
-#finances-overview .custom-grid .average {
-  background-color: #1e55a9;
+#finances-overview .custom-grid .quick-report > * {
+  width: 100%;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #finances-overview .custom-grid .average * {
-  color: white;
-}
-
-#finances-overview .custom-grid .upcomming {
-  background-color: #4acbd3;
+  color: #1e55a9;
 }
 
 #finances-overview .custom-grid .upcomming * {
-  color: white;
-}
-
-#finances-overview .custom-grid .refund {
-  background-color: #eca0a0;
+  color: #4acbd3;
 }
 
 #finances-overview .custom-grid .refund * {
-  color: white;
+  color: #eca0a0;
 }
 
 #finances-overview .circle {

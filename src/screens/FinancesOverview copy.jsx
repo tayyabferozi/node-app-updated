@@ -1,21 +1,28 @@
 import React from "react";
-import DashboardLayout from "../layouts/DashboardLayout";
+// import { Line } from 'react-chartjs-2';
+// import { NavLink } from 'react-router-dom';
+import ExploreNavItemWithIcon from "../components/ExploreNavItemWithIcon";
+import MainLayout from "../layouts/MainLayout";
 
 const FinancesOverview = () => {
   return (
-    <DashboardLayout title="Finances Board">
+    <MainLayout
+      headVector="./assets/vectors/wallet.svg"
+      sideNavVector="./assets/vectors/sidenav-right-2.svg"
+      title={"wallet"}
+    >
       <div id="finances-overview" className="container-fluid">
-        <div className="row gx-xxl-5">
+        <div className="row">
           <div className="col-12 col-lg-6">
             <div className="row">
               <div className="col-12">
-                <div className="overview-chart emboss-white br-16 p-4">
+                <div className="overview-chart">
                   <div className="row gx-2">
                     <div className="col-6">
                       <div className="overview-title">Overview Chart</div>
                     </div>
                     <div className="col-6 d-flex justify-content-end align-items-center gap-3 pt-3">
-                      <div className="text-dark-3 text-poppins text-bold fs-14 year-overview emboss-t ps-3 pt-2">
+                      <div className="text-dark-3 text-poppins text-bold fs-14 year-overview">
                         Year
                       </div>
                       <div className="text-light-5 text-manrope fs-14 month-overview">
@@ -36,14 +43,7 @@ const FinancesOverview = () => {
                       </div>
                     </div>
                   </div>
-                  <img
-                    src="./assets/vectors/graph-placeholder-1.svg"
-                    style={{
-                      width: "100%",
-                    }}
-                    alt="graph"
-                  />
-                  {/* <svg
+                  <svg
                     width="100%"
                     height="157"
                     viewBox="0 0 572 157"
@@ -55,11 +55,11 @@ const FinancesOverview = () => {
                       stroke="#4ACBD3"
                       strokeWidth="2"
                     />
-                  </svg> */}
+                  </svg>
                   <div className="row py-3">
                     <div className="col-4 d-flex justify-content-center align-items-center">
                       <div className="d-flex flex-column align-items-end">
-                        <div className="text-poppins fw-600 text-dark-3 fs-22">
+                        <div className="text-poppins text-dark-3 fs-22">
                           342$
                         </div>
                         <div className="text-manrope text-light-5 fs-10">
@@ -69,7 +69,7 @@ const FinancesOverview = () => {
                     </div>
                     <div className="col-4 d-flex justify-content-center align-items-center">
                       <div className="d-flex flex-column align-items-end">
-                        <div className="text-poppins fw-600 text-dark-3 fs-22">
+                        <div className="text-poppins text-dark-3 fs-22">
                           200$
                         </div>
                         <div className="text-manrope text-light-5 fs-10">
@@ -79,7 +79,7 @@ const FinancesOverview = () => {
                     </div>
                     <div className="col-4 d-flex justify-content-center align-items-center">
                       <div className="d-flex flex-column align-items-end">
-                        <div className="text-poppins fw-600 text-dark-3 fs-22">
+                        <div className="text-poppins text-dark-3 fs-22">
                           143$
                         </div>
                         <div className="text-manrope text-light-5 fs-10">
@@ -91,9 +91,9 @@ const FinancesOverview = () => {
                 </div>
               </div>
             </div>
-            <div className="custom-grid mt-4">
+            <div className="custom-grid">
               <div className="p-4 d-flex flex-column align-items-start justify-content-center gap-2 quick-report">
-                <div className="text-dark-3 text-manrope fw-800 fs-18">
+                <div className="text-dark-3 text-manrope fw-800 fs-18 pb-3">
                   Quick Reports
                 </div>
                 <div className="text-poppins fs-12 text-dark-3">
@@ -101,13 +101,13 @@ const FinancesOverview = () => {
                   who must be paid Receivable invoices from Clients
                 </div>
               </div>
-              <div className="p-4 d-flex flex-column align-items-center text-center justify-content-center gap-2 average emboss-c br-16">
+              <div className="p-4 d-flex flex-column align-items-center text-center justify-content-center gap-2 average">
                 <div className="text-manrope fw-800 fs-18">
                   Average customer value
                 </div>
                 <div className="text-manrope fw-600 fs-34">2389.64$</div>
               </div>
-              <div className="p-4 d-flex flex-column align-items-center text-center justify-content-center gap-2 upcomming emboss-c br-16">
+              <div className="p-4 d-flex flex-column align-items-center text-center justify-content-center gap-2 upcomming">
                 <div className="text-manrope fs-18 fw-800">
                   Upcoming CC funds
                 </div>
@@ -117,7 +117,7 @@ const FinancesOverview = () => {
                   <div className="text-poppins fs-12">February 02, 2022</div>
                 </div>
               </div>
-              <div className="p-4 d-flex flex-column align-items-center text-center justify-content-center gap-2 refund emboss-c br-16">
+              <div className="p-4 d-flex flex-column align-items-center text-center justify-content-center gap-2 refund">
                 <div className="text-manrope fs-18 fw-800">
                   CC Refund to be made
                 </div>
@@ -145,13 +145,8 @@ const FinancesOverview = () => {
                     </div>
                   </div>
                   <div className="col-12 d-flex justify-content-center align-items-center position-relative">
-                    {/* <div className="total-price">5102$</div> */}
-                    <img
-                      style={{ maxWidth: "270px" }}
-                      src="./assets/vectors/graph-placeholder-2.svg"
-                      alt="graph"
-                    />
-                    {/* <gr
+                    <div className="total-price">5102$</div>
+                    <svg
                       width="278"
                       height="239"
                       viewBox="0 0 278 239"
@@ -221,9 +216,9 @@ const FinancesOverview = () => {
                           />
                         </clipPath>
                       </defs>
-                    </svg> */}
+                    </svg>
                   </div>
-                  <div className="row gx-5 gy-3 mt-0 mb-4">
+                  <div className="row gx-5 gy-3 mt-0">
                     <div className="col-6 d-flex justify-content-between align-items center">
                       <div className="d-flex gap-3 align-items-center">
                         <div
@@ -245,7 +240,7 @@ const FinancesOverview = () => {
                           className="circle"
                         ></div>
                         <div className="text-manrope text-dark-3 fs-14">
-                          Parts
+                          Services
                         </div>
                       </div>
                       <div className="text-manrope text-dark-3 fs-14 fw-800">
@@ -285,7 +280,7 @@ const FinancesOverview = () => {
               </div>
               <div className="col-12">
                 <div className="row">
-                  <div className="col-6 mt-5 pt-5 text-manrope text-dark-3 fs-18 text-bold">
+                  <div className="col-6 text-manrope text-dark-3 fs-18 text-bold">
                     Incomes <br /> Breakdown
                   </div>
                   <div className="col-6 d-flex justify-content-end align-items-center">
@@ -297,8 +292,8 @@ const FinancesOverview = () => {
                     </div>
                   </div>
                   <div className="col-12 d-flex justify-content-center align-items-center position-relative">
-                    {/* <div className="total-price">4102$</div> */}
-                    {/* <svg
+                    <div className="total-price">4102$</div>
+                    <svg
                       width="278"
                       height="239"
                       viewBox="0 0 278 239"
@@ -368,12 +363,7 @@ const FinancesOverview = () => {
                           />
                         </clipPath>
                       </defs>
-                    </svg> */}
-                    <img
-                      style={{ maxWidth: "270px" }}
-                      src="./assets/vectors/graph-placeholder-3.svg"
-                      alt="graph"
-                    />
+                    </svg>
                   </div>
                   <div className="row gx-5 gy-3 mt-0">
                     <div className="col-6 d-flex justify-content-between align-items center">
@@ -436,7 +426,7 @@ const FinancesOverview = () => {
           </div>
         </div>
       </div>
-    </DashboardLayout>
+    </MainLayout>
   );
 };
 

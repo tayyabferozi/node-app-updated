@@ -43,7 +43,7 @@ function App() {
           <Route path="/signup-1" element={<SignUp />} />
           <Route path="/signup-2" element={<SignUp2 />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/360" element={<Dashboard />} />
+          <Route path="/360" element={<Navigate to="/business-360" />} />
           <Route path="/business-360" element={<Business360 />} />
           <Route path="/way" element={<ClientsList />} />
           <Route path="/finances-income" element={<FinancesIncome />} />

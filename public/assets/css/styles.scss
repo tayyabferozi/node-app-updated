@@ -161,20 +161,22 @@ button {
 // ***********************************************************************************************************************************
 
 #dashboard-main-content {
-  overflow: hidden;
+  // overflow: hidden;
 
   .row {
     height: 100%;
   }
 
   .card {
-    height: 100%;
-
     .heading {
       margin-bottom: 35px;
     }
 
     &.stats {
+      .item {
+        min-width: 64px;
+      }
+
       .top {
         font-weight: 600;
       }
@@ -298,9 +300,33 @@ button {
 
   .card.clients {
     .table-card {
+      tr {
+        padding: 15px;
+      }
+
       td {
-        padding-top: 12px;
-        padding-bottom: 12px;
+        padding-top: 9.5px;
+        padding-bottom: 9.5px;
+
+        .emboss-c {
+          padding: 29.5px 30px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+        }
+
+        .badge {
+          background-color: $color116;
+          font-weight: 600;
+          padding: 2px 6px;
+          border-radius: 4px;
+
+          &,
+          * {
+            color: #fff;
+          }
+        }
       }
     }
   }
@@ -361,6 +387,14 @@ button {
 
     .performance-item {
       margin-bottom: 14px;
+
+      .progress-bar {
+        background-color: rgba(30, 85, 169, 0.25);
+      }
+
+      .progress {
+        background-color: $color108;
+      }
     }
 
     .noded-percent {
@@ -1021,9 +1055,11 @@ button {
   }
   .custom-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: 25px;
     padding-top: 20px;
+    @media screen and (min-width: 576px) {
+      grid-template-columns: 1fr 1fr;
+    }
 
     .quick-report,
     .average,
@@ -1035,29 +1071,40 @@ button {
       padding: 20px !important;
     }
     .quick-report {
-      background-color: rgba($color: $color4, $alpha: 0.08);
+      padding-top: 25px;
+      padding-bottom: 20px;
+
+      @extend %emboss-white;
+      @extend %br-16;
 
       div:last-child {
         line-height: 20px;
         text-decoration: underline;
       }
+
+      & > * {
+        width: 100%;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
     .average {
-      background-color: $color4;
       * {
-        color: white;
+        // color: white;
+        color: $color4;
       }
     }
     .upcomming {
-      background-color: $color6;
       * {
-        color: white;
+        // color: white;
+        color: $color6;
       }
     }
     .refund {
-      background-color: $color23;
       * {
-        color: white;
+        // color: white;
+        color: $color23;
       }
     }
   }
