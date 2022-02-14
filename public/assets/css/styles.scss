@@ -2578,11 +2578,16 @@ button {
   }
 
   .realtime-container {
+    margin-bottom: 2rem;
+
     .row > * {
       border-right: 1px dashed $color28;
 
       &:last-child {
         border-right: 0;
+      }
+      & > * {
+        height: 100%;
       }
     }
 
@@ -2596,6 +2601,7 @@ button {
     }
 
     .cards {
+      height: 100%;
       margin-top: 20px;
       padding-top: 30px;
       padding-left: 28px;

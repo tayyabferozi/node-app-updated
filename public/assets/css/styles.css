@@ -5663,12 +5663,20 @@ button {
   margin-left: 50px;
 }
 
+#workshop-main-content .realtime-container {
+  margin-bottom: 2rem;
+}
+
 #workshop-main-content .realtime-container .row > * {
   border-right: 1px dashed #f0f0f3;
 }
 
 #workshop-main-content .realtime-container .row > *:last-child {
   border-right: 0;
+}
+
+#workshop-main-content .realtime-container .row > * > * {
+  height: 100%;
 }
 
 #workshop-main-content .realtime-container .next-up .section-title,
@@ -5679,6 +5687,7 @@ button {
 }
 
 #workshop-main-content .realtime-container .cards {
+  height: 100%;
   margin-top: 20px;
   padding-top: 30px;
   padding-left: 28px;
