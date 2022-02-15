@@ -13,7 +13,8 @@ const AddBtn = ({ small, pale, black, blue, title, className, onClick }) => {
         "btn btn-add",
         { blue, black, pale },
         { "p-0": small },
-        { "justify-content-center": small }
+        { "justify-content-center": small },
+        className
       )}
     >
       {blue || black || pale ? (

@@ -197,7 +197,7 @@ const MainLayout = ({
                 {
                   vector: "./assets/vectors/nav-inventory.svg",
                   vectorActive: "./assets/vectors/nav-inventory-active.svg",
-                  to: "#0",
+                  to: "/inventory",
                   thisActiveLink: "inventory",
                   text: "Inventory",
                 },
@@ -211,7 +211,7 @@ const MainLayout = ({
                 {
                   vector: "./assets/vectors/nav-treasury.svg",
                   vectorActive: "./assets/vectors/nav-treasury-active.svg",
-                  to: "#0",
+                  to: "/finances-income",
                   thisActiveLink: "treasury",
                   text: "Treasury",
                 },

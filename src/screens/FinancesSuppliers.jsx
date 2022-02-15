@@ -86,7 +86,7 @@ const FinancesIncome = () => {
   };
   return (
     <MainLayout
-      title={"Invoices"}
+      title={"Suppliers"}
       activeLink={"treasury"}
       tabData={{
         img: true,
@@ -96,16 +96,19 @@ const FinancesIncome = () => {
           {
             icon: "./assets/vectors/tab-finances-income.svg",
             iconActive: "./assets/vectors/tab-finances-income-active.svg",
+            target: "dashboard",
             to: "/finances-income",
           },
           {
             icon: "./assets/vectors/tab-finances-expense.svg",
             iconActive: "./assets/vectors/tab-finances-expense-active.svg",
+            target: "finances",
             to: "/finances-expense",
           },
           {
             icon: "./assets/vectors/tab-finances-suppliers.svg",
             iconActive: "./assets/vectors/tab-finances-suppliers-active.svg",
+            target: "finances",
             to: "/finances-suppliers",
           },
         ],
@@ -119,17 +122,11 @@ const FinancesIncome = () => {
         {!incomeConvertedSelected ? (
           <div className="container-fluid">
             <div className="row">
-              <div className="col-1 d-flex justify-content-center align-items-center">
-                <img src="./assets/vectors/filter-contained.svg" alt="filter" />
-              </div>
-              <div className="col-11 col-md-4">
-                <SearchInput placeholder="Search Users by Name or Email" />
-              </div>
-              <div className="col-4 d-flex align-items-center">
+              <div className="col-12">
                 <Tabs
                   verticalButtons
                   tabClassName="mb-4 mb-sm-0"
-                  className="mt-1 flex-column flex-sm-row w-100"
+                  className="mt-4 flex-column flex-sm-row w-100"
                   tabGroupName="client-overview-tabs"
                   data={[
                     {
@@ -152,11 +149,19 @@ const FinancesIncome = () => {
                   ]}
                 />
               </div>
-              <div className="col-12 col-md-3 py-md-0 py-3 d-flex justify-content-end align-items-center">
-                <AddBtn pale title="New" />
+            </div>
+            <div className="row pt-5">
+              <div className="col-1 d-flex justify-content-center align-items-center">
+                <img src="./assets/vectors/filter-contained.svg" alt="filter" />
+              </div>
+              <div className="col-11 col-md-4">
+                <SearchInput placeholder="Search Users by Name or Email" />
+              </div>
+              <div className="col-12 col-md-7 py-md-0 py-3 d-flex justify-content-end align-items-center">
+                <AddBtn blue title="New" />
               </div>
             </div>
-            <div className="table-wrapper px-3 short-vertical-scrollbar">
+            <div className="table-wrapper short-vertical-scrollbar">
               <div className="table">
                 <div className="container-fluid px-0 mt-3">
                   <div className="row gx-0 table-heading">
@@ -179,7 +184,7 @@ const FinancesIncome = () => {
                   return (
                     <div
                       key={"li" + idx}
-                      className="row align-items-center mb-4 gx-0 py-2 emboss-row dummy-data"
+                      className="row align-items-center gx-0 py-2 dummy-data"
                     >
                       <div className="col-1 d-flex justify-content-center align-items-center">
                         <div
@@ -229,13 +234,13 @@ const FinancesIncome = () => {
                       </div>
                       <div
                         onClick={() => setIncomeConvertedSelected(true)}
-                        className="col-2 d-flex justify-content-center align-items-center gap-3 pe-2 more-menu"
+                        className="col-2 d-flex justify-content-end align-items-center gap-5 pe-2 more-menu"
                       >
+                        Open
                         <img
                           src="./assets/vectors/vertical-menu.svg"
                           alt="menu"
                         />
-                        Open
                       </div>
                     </div>
                   );

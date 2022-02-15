@@ -139,7 +139,25 @@ const Inventory = () => {
     <MainLayout
       headVector="./assets/vectors/inventory.svg"
       sideNavVector="./assets/vectors/sidenav-right-8.svg"
-      title="inventory"
+      title="Services"
+      activeLink={"inventory"}
+      tabData={{
+        img: true,
+        tabLinks: true,
+        tabGroupName: "finances-tabs",
+        data: [
+          {
+            icon: "./assets/vectors/tab-inventory-services.svg",
+            iconActive: "./assets/vectors/tab-inventory-services-active.svg",
+            to: "/inventory",
+          },
+          {
+            icon: "./assets/vectors/tab-inventory-articles.svg",
+            iconActive: "./assets/vectors/tab-inventory-articles-active.svg",
+            to: "/inventory-articles",
+          },
+        ],
+      }}
     >
       <div id="inventory-main-content">
         <ModalArticle
@@ -160,28 +178,6 @@ const Inventory = () => {
         />
         {!serviceBrakeSelected ? (
           <div className="container-fluid">
-            <div className="row">
-              <div className="col-12">
-                <Tabs
-                  className="mt-4 flex-column flex-sm-row w-100"
-                  tabGroupName="inventory-tabs"
-                  data={[
-                    {
-                      icon: "./assets/vectors/mail.svg",
-                      label: "Articles",
-                      target: "articles",
-                      active: true,
-                    },
-                    {
-                      icon: "./assets/vectors/invoices.svg",
-                      label: "Services Offer",
-                      target: "services-offer",
-                      // active: true,
-                    },
-                  ]}
-                />
-              </div>
-            </div>
             <div className="row py-4">
               <div className="col-1 d-flex justify-content-center align-items-center">
                 <img src="./assets/vectors/filter-contained.svg" alt="" />
@@ -190,430 +186,337 @@ const Inventory = () => {
                 <SearchInput placeholder="Search by Name or SKU" />
               </div>
               <div className="col-12 col-md-7 py-md-0 py-3 d-flex justify-content-end align-items-center">
-                <AddBtn blue title="New" />
+                <AddBtn pale title="New" />
               </div>
             </div>
-            <TabContents tabGroupName="inventory-tabs">
-              <TabContentItem target="services-offer">
-                <div className="table-wrapper short-vertical-scrollbar">
-                  <div className="table">
-                    {servicesOfferData.map((data, idx) => {
-                      return (
-                        <div
-                          key={"services-offer-data" + idx}
-                          className="row my-2 align-items-center py-3 gx-0 services-offer-record"
-                        >
-                          <div className="col-4 d-flex gap-3 ps-4 align-items-center">
-                            {/* <div className="box"></div> */}
-                            {/* <input type="checkbox" name="" id="" /> */}
-                            <label className="checkbox-container-5">
-                              <input type="checkbox" />
-                              <div className="checkmark"></div>
-                            </label>
-                            <div className="name">{data.name}</div>
-                          </div>
-                          <div className="col-4">
-                            <div className="complete-brake">
-                              Complete brake...{" "}
-                              <span className="px-4">{data.completeBrake}</span>
-                            </div>
-                          </div>
-                          <div className="col-1 price">{data.price}$</div>
-                          <div className="col-2">
-                            <button className="py-2 px-4">
-                              {data.isLocation ? "Location" : "Recurring"}
-                            </button>
-                          </div>
-                          <div className="col-1 d-flex justify-content-center align-items-center">
-                            <div className="services-offer-menu">
-                              <img src="./assets/vectors/delete.svg" alt="" />
-                            </div>
-                          </div>
+            <div className="table-wrapper short-vertical-scrollbar">
+              <div className="table px-3">
+                {servicesOfferData.map((data, idx) => {
+                  return (
+                    <div
+                      key={"services-offer-data" + idx}
+                      className="row my-2 align-items-center emboss-row py-3 mb-4 gx-0 services-offer-record"
+                    >
+                      <div className="col-3 d-flex gap-3 ps-4 align-items-center">
+                        {/* <div className="box"></div> */}
+                        {/* <input type="checkbox" name="" id="" /> */}
+                        <label className="checkbox-container-5">
+                          <input type="checkbox" />
+                          <div className="checkmark"></div>
+                        </label>
+                        <div className="name text-poppins fw-500 fs-18">{data.name}</div>
+                      </div>
+                      <div className="col-3">
+                        <div className="complete-brake">
+                          Complete brake Service
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-12 d-flex flex-column align-items-center py-3">
-                    <img
-                      width={10}
-                      src="./assets/vectors/scroll-down-arrow.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </TabContentItem>
-              <TabContentItem target="articles">
-                <div className="table-wrapper short-vertical-scrollbar">
-                  <div className="table">
-                    {inventoryData.map((data, idx) => {
-                      return (
-                        <div
-                          key={"articles" + idx}
-                          className={`row my-2 p-3 gx-0 align-items-center inventory-record ${
-                            data.isChecked ? "checked" : ""
-                          }`}
-                        >
-                          <div className="col-5 d-flex align-items-center ps-2 gap-4 info">
-                            {/* <div className="checkbox">
-                              <input
-                                type="checkbox"
-                                checked={data.isChecked}
-                                onChange={() => {}}
-                                name=""
-                                id=""
-                              />
-                            </div> */}
-
-                            <label className="checkbox-container-5">
-                              <input type="checkbox" />
-                              <div className="checkmark"></div>
-                            </label>
-                            <img src="./assets/img/inventory-1.png" alt="" />
-                            <div className="name">
-                              <div
-                                className="title c-pointer"
-                                onClick={() =>
-                                  modalOpenHandler(setArticleModalOpenState)
-                                }
-                              >
-                                {data.name}
-                              </div>
-                              <div className="caption text-light-5">
-                                {data.number}
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-3">
-                            <div className="quantity">
-                              {data.quantity.toLocaleString()}
-                              <div>Qty.</div>
-                            </div>
-                          </div>
-                          <div className="col-1">
-                            <div className="price">
-                              {data.price}$<div>Price</div>
-                            </div>
-                          </div>
-                          <div className="col-2 d-flex justify-content-center align-items-center">
-                            <button
-                              onClick={() => setServiceBrakeSelected(true)}
-                              className={`${
-                                data.isBrake ? "is-brake" : "is-engine"
-                              }  py-2 px-5`}
-                            >
-                              {data.isBrake ? "Brake" : "Engine"}
-                            </button>
-                          </div>
-                          <div className="col-1 d-flex justify-content-center align-items-center">
-                            <div className="inventory-menu">
-                              <img src="./assets/vectors/delete.svg" alt="" />
-                            </div>
-                          </div>
+                      </div>
+                      <div className="col-2 d-flex justify-content-center text-lato fw-400 fs-16">
+                        {data.completeBrake} Variants
+                      </div>
+                      <div className="col-1 price fw-700">{data.price}$</div>
+                      <div className="col-2">
+                        <button className="py-2 px-4" onClick={() => { setServiceBrakeSelected(true) }}>
+                          Location
+                        </button>
+                      </div>
+                      <div className="col-1 d-flex justify-content-center align-items-center">
+                        <div className="services-offer-menu">
+                          <img src="./assets/vectors/delete.svg" alt="" />
                         </div>
-                      );
-                    })}
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-12 d-flex flex-column align-items-center py-3">
-                    <img
-                      width={10}
-                      src="./assets/vectors/scroll-down-arrow.svg"
-                      alt=""
-                    />
-                  </div>
-                </div>
-              </TabContentItem>
-            </TabContents>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         ) : (
           <div className="container-fluid service-brake">
             <div className="row pt-5 gx-sm-5">
-              <div className="col-12 col-lg-7 pt-2 pe-3">
-                <div className="row gx-0">
-                  <div className="col-12 d-flex justify-content-between flex-sm-row flex-column align-items-sm-center align-items-start py-3 title">
-                    <div className="service-brake-text">Service Brake</div>
-                    <label class="checkbox-container-5">
-                      Available To Book
-                      <input type="checkbox" />
-                      <span class="checkmark"></span>
-                    </label>
+              <div className="col-12 col-lg-7">
+                <div className="emboss-white px-5 br-16 pt-2">
+                  <div className="row gx-0">
+                    <div className="col-12 d-flex justify-content-between flex-sm-row flex-column align-items-sm-center align-items-start py-3 title">
+                      <div className="service-brake-text">Service Brake</div>
+                      <label class="checkbox-container-5">
+                        Available To Book
+                        <input type="checkbox" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-6">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          Default Location
+                        </label>
+                        <div className="input">
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-3"
+                            type="text"
+                            value="Select Location"
+                            onChange={() => { }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="custom-form-control my-3">
+                            <label className="text-light-5 fs-14" htmlFor="">
+                              Price
+                            </label>
+                            <div className="input">
+                              <input
+                                className="text-dark-3 fs-14 pt-2 pb-3"
+                                type="text"
+                                value="1900"
+                                onChange={() => { }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-sm-6">
+                          <div className="custom-form-control my-3">
+                            <label className="text-light-5 fs-14" htmlFor="">
+                              Duration
+                            </label>
+                            <div className="input">
+                              <input
+                                className="text-dark-3 fs-14 pt-2 pb-3"
+                                type="text"
+                                value="19 min."
+                                onChange={() => { }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          Category
+                        </label>
+                        <div className="input">
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-3"
+                            type="text"
+                            value="Select Category"
+                            onChange={() => { }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6">
+                      <div className="row">
+                        <div className="col-4 d-flex flex-column align-items-start justify-content-end">
+                          <div className="fs-14 text-dark-3 fw-600 text-poppins pb-2">
+                            Add Variant
+                          </div>
+                          <div
+                            onClick={() =>
+                              modalOpenHandler(setVariantModalOpenState)
+                            }
+                            className="rounded c-pointer d-flex justify-content-center align-items-center fs-16 text-manrope fw-600 box"
+                          >
+                            +
+                          </div>
+                        </div>
+                        <div className="col-4 d-flex flex-column align-items-start justify-content-end">
+                          <div className="fs-14 text-dark-3 fw-600 text-poppins pb-2">
+                            Node Form
+                          </div>
+                          <div
+                            onClick={() =>
+                              modalOpenHandler(setFormModalOpenState)
+                            }
+                            className="rounded c-pointer d-flex justify-content-center align-items-center fs-16 text-manrope fw-600 box"
+                          >
+                            +
+                          </div>
+                        </div>
+                        <div className="col-4 d-flex flex-column align-items-start justify-content-end">
+                          <div className="fs-14 text-dark-3 fw-600 text-poppins pb-2">
+                            Schedule
+                          </div>
+                          <div
+                            onClick={() =>
+                              modalOpenHandler(setScheduleModalOpenState)
+                            }
+                            className="rounded c-pointer d-flex justify-content-center align-items-center fs-16 text-manrope fw-600 box"
+                          >
+                            +
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          Type Of Service
+                        </label>
+                        <div className="input">
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-3"
+                            type="text"
+                            value="Select Category"
+                            onChange={() => { }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6">
+                      <div className="row">
+                        <div className="col-8">
+                          <div className="custom-form-control my-3">
+                            <label className="text-light-5 fs-14" htmlFor="">
+                              Start &amp; End Date
+                            </label>
+                            <div className="input">
+                              <input
+                                className="text-dark-3 fs-14 pt-2 pb-3"
+                                type="text"
+                                value="20-12-2022 to 22-12-2022"
+                                onChange={() => { }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-4">
+                          <div className="custom-form-control my-3">
+                            <label className="text-light-5 fs-14" htmlFor="">
+                              Capacity
+                            </label>
+                            <div className="input">
+                              <input
+                                className="text-dark-3 fs-14 pt-2 pb-3"
+                                type="text"
+                                value="10"
+                                onChange={() => { }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="row">
-                  <div className="col-sm-6">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        Default Location
-                      </label>
-                      <div className="input">
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-3"
-                          type="text"
-                          value="Select Location"
-                          onChange={() => {}}
-                        />
+                <div className="emboss-inner mt-5 br-16 px-5">
+                  <div className="row pt-5">
+                    <div className="col-6">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          Add Article
+                        </label>
+                        <div className="input">
+                          <img
+                            className="icon"
+                            src="./assets/vectors/add-basket.svg"
+                            alt=""
+                          />
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-2 ps-5 text-blue"
+                            type="text"
+                            value="Right Rear Light"
+                            onChange={() => { }}
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="row">
-                      <div className="col-6">
-                        <div className="custom-form-control my-3">
-                          <label className="text-light-5 fs-14" htmlFor="">
-                            Price
-                          </label>
-                          <div className="input">
-                            <input
-                              className="text-dark-3 fs-14 pt-2 pb-3"
-                              type="text"
-                              value="1900"
-                              onChange={() => {}}
-                            />
+                    <div className="col-6">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          SKU
+                        </label>
+                        <div className="input">
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-2"
+                            type="text"
+                            value="98736446237234-23"
+                            onChange={() => { }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="custom-form-control my-3">
+                            <label className="text-light-5 fs-14" htmlFor="">
+                              Quantity
+                            </label>
+                            <div className="input">
+                              <input
+                                className="text-dark-3 fs-14 pt-2 pb-3"
+                                type="text"
+                                value="2"
+                                onChange={() => { }}
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="col-sm-6">
-                        <div className="custom-form-control my-3">
-                          <label className="text-light-5 fs-14" htmlFor="">
-                            Duration
-                          </label>
-                          <div className="input">
-                            <input
-                              className="text-dark-3 fs-14 pt-2 pb-3"
-                              type="text"
-                              value="19 min."
-                              onChange={() => {}}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        Category
-                      </label>
-                      <div className="input">
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-3"
-                          type="text"
-                          value="Select Category"
-                          onChange={() => {}}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="row">
-                      <div className="col-4 d-flex flex-column align-items-start justify-content-end">
-                        <div className="fs-14 text-dark-3 fw-600 text-poppins pb-2">
-                          Add Variant
-                        </div>
-                        <div
-                          onClick={() =>
-                            modalOpenHandler(setVariantModalOpenState)
-                          }
-                          className="rounded c-pointer d-flex justify-content-center align-items-center fs-16 text-manrope fw-600 box"
-                        >
-                          +
-                        </div>
-                      </div>
-                      <div className="col-4 d-flex flex-column align-items-start justify-content-end">
-                        <div className="fs-14 text-dark-3 fw-600 text-poppins pb-2">
-                          Node Form
-                        </div>
-                        <div
-                          onClick={() =>
-                            modalOpenHandler(setFormModalOpenState)
-                          }
-                          className="rounded c-pointer d-flex justify-content-center align-items-center fs-16 text-manrope fw-600 box"
-                        >
-                          +
-                        </div>
-                      </div>
-                      <div className="col-4 d-flex flex-column align-items-start justify-content-end">
-                        <div className="fs-14 text-dark-3 fw-600 text-poppins pb-2">
-                          Schedule
-                        </div>
-                        <div
-                          onClick={() =>
-                            modalOpenHandler(setScheduleModalOpenState)
-                          }
-                          className="rounded c-pointer d-flex justify-content-center align-items-center fs-16 text-manrope fw-600 box"
-                        >
-                          +
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        Type Of Service
-                      </label>
-                      <div className="input">
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-3"
-                          type="text"
-                          value="Select Category"
-                          onChange={() => {}}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-sm-6">
-                    <div className="row">
-                      <div className="col-8">
-                        <div className="custom-form-control my-3">
-                          <label className="text-light-5 fs-14" htmlFor="">
-                            Start &amp; End Date
-                          </label>
-                          <div className="input">
-                            <input
-                              className="text-dark-3 fs-14 pt-2 pb-3"
-                              type="text"
-                              value="20-12-2022 to 22-12-2022"
-                              onChange={() => {}}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-4">
-                        <div className="custom-form-control my-3">
-                          <label className="text-light-5 fs-14" htmlFor="">
-                            Capacity
-                          </label>
-                          <div className="input">
-                            <input
-                              className="text-dark-3 fs-14 pt-2 pb-3"
-                              type="text"
-                              value="10"
-                              onChange={() => {}}
-                            />
+                        <div className="col-6">
+                          <div className="custom-form-control my-3">
+                            <label className="text-light-5 fs-14" htmlFor="">
+                              Amount
+                            </label>
+                            <div className="input">
+                              <input
+                                className="text-dark-3 fs-14 pt-2 pb-3"
+                                type="text"
+                                placeholder="37"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div className="row pt-5">
-                  <div className="col-6">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        Add Article
-                      </label>
-                      <div className="input">
-                        <img
-                          className="icon"
-                          src="./assets/vectors/add-basket.svg"
-                          alt=""
-                        />
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-2 ps-5 text-blue"
-                          type="text"
-                          value="Right Rear Light"
-                          onChange={() => {}}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        SKU
-                      </label>
-                      <div className="input">
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-2"
-                          type="text"
-                          value="98736446237234-23"
-                          onChange={() => {}}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-6">
-                    <div className="row">
-                      <div className="col-6">
-                        <div className="custom-form-control my-3">
-                          <label className="text-light-5 fs-14" htmlFor="">
-                            Quantity
-                          </label>
-                          <div className="input">
-                            <input
-                              className="text-dark-3 fs-14 pt-2 pb-3"
-                              type="text"
-                              value="2"
-                              onChange={() => {}}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="col-6">
-                        <div className="custom-form-control my-3">
-                          <label className="text-light-5 fs-14" htmlFor="">
-                            Amount
-                          </label>
-                          <div className="input">
-                            <input
-                              className="text-dark-3 fs-14 pt-2 pb-3"
-                              type="text"
-                              placeholder="37"
-                            />
-                          </div>
+                    <div className="col-6">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          Unit Price
+                        </label>
+                        <div className="input">
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-3"
+                            type="text"
+                            value="37.00$"
+                            onChange={() => { }}
+                          />
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="col-6">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        Unit Price
-                      </label>
-                      <div className="input">
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-3"
-                          type="text"
-                          value="37.00$"
-                          onChange={() => {}}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-4">
-                    <div className="custom-form-control my-3">
-                      <label className="text-light-5 fs-14" htmlFor="">
-                        Categorie
-                      </label>
-                      <div className="input">
-                        <input
-                          className="text-dark-3 fs-14 pt-2 pb-3"
-                          type="text"
-                          value="LIGHT"
-                          onChange={() => {}}
-                        />
+                    <div className="col-4">
+                      <div className="custom-form-control my-3">
+                        <label className="text-light-5 fs-14" htmlFor="">
+                          Categorie
+                        </label>
+                        <div className="input">
+                          <input
+                            className="text-dark-3 fs-14 pt-2 pb-3"
+                            type="text"
+                            value="LIGHT"
+                            onChange={() => { }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="row gx-0 py-3">
-                  <div className="col-12 d-flex gap-3">
-                    <button
-                      className={`btn btn-add`}
+                  <div className="col-12 d-flex justify-content-end mb-5">
+                    <AddBtn
+                      pale
                       onClick={() => modalOpenHandler(setArticleModalOpenState)}
-                    >
-                      Add Article
-                    </button>
-                    <button
-                      onClick={() => setServiceBrakeSelected(false)}
-                      className={`btn blue`}
-                    >
-                      Save &amp; Return
-                    </button>
+                      title={"Add"}
+                    />
+                  </div>
+                  <div className="d-flex justify-content-end mt-5" onClick={() => setServiceBrakeSelected(false)}>
+                    <div className="btn btn-gradient">Save &amp; Return</div>
                   </div>
                 </div>
               </div>
@@ -628,7 +531,7 @@ const Inventory = () => {
                   <div className="col-12">
                     <div className="row">
                       <div className="col-11 d-flex align-items-start gap-3">
-                        <div className="box">
+                        <div className="box emboss-inner br-16">
                           <img src="./assets/vectors/vehicle.svg" alt="" />
                         </div>
                         <div>
@@ -648,7 +551,7 @@ const Inventory = () => {
                   <div className="col-12">
                     <div className="row">
                       <div className="col-11 d-flex align-items-start gap-3">
-                        <div className="box">
+                        <div className="box emboss-inner br-16">
                           <img src="./assets/vectors/vehicle.svg" alt="" />
                         </div>
                         <div>
