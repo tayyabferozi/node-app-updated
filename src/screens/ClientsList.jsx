@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
 
 import MainLayout from "../layouts/MainLayout";
-import Tabs from "../components/Tabs";
 import TabContents from "../components/TabContents";
 import TabContentItem from "../components/TabContentItem";
 import AddBtn from "../components/AddBtn";
@@ -28,28 +27,30 @@ const ClientsList = () => {
       title="Users"
       lightBorder
       activeLink="connect"
-      tabData={{
-        img: true,
-        tabGroupName: "client-overview-tabs",
-        data: [
-          {
-            icon: "./assets/vectors/profile.svg",
-            iconActive: "./assets/vectors/profile-active.svg",
-            target: "profile",
-            active: true,
-          },
-          {
-            icon: "./assets/vectors/invoices.svg",
-            iconActive: "./assets/vectors/invoices-active.svg",
-            target: "invoices",
-          },
-          {
-            icon: "./assets/vectors/requests.svg",
-            iconActive: "./assets/vectors/requests-active.svg",
-            target: "requests",
-          },
-        ],
-      }}
+      tabData={
+        clientSelected && {
+          img: true,
+          tabGroupName: "client-overview-tabs",
+          data: [
+            {
+              icon: "./assets/vectors/profile.svg",
+              iconActive: "./assets/vectors/profile-active.svg",
+              target: "profile",
+              active: true,
+            },
+            {
+              icon: "./assets/vectors/invoices.svg",
+              iconActive: "./assets/vectors/invoices-active.svg",
+              target: "invoices",
+            },
+            {
+              icon: "./assets/vectors/requests.svg",
+              iconActive: "./assets/vectors/requests-active.svg",
+              target: "requests",
+            },
+          ],
+        }
+      }
     >
       <ModalLifeActivity
         isOpen={activityOpenState}

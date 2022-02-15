@@ -27,13 +27,18 @@ const Tabs = ({
     $(`.tabContents.${tabGroupName} .tabContent.${target}`).addClass("active");
   };
   useEffect(() => {
-    const activeTarget = $(`.tabs.${tabGroupName} .tab.active`).attr(
-      "data-target"
-    );
+    function showActive() {
+      const activeTarget = $(`.tabs.${tabGroupName} .tab.active`).attr(
+        "data-target"
+      );
 
-    $(`.tabContents.${tabGroupName} .tabContent.${activeTarget}`).addClass(
-      "active"
-    );
+      $(`.tabContents.${tabGroupName} .tabContent.${activeTarget}`).addClass(
+        "active"
+      );
+    }
+
+    showActive();
+    setTimeout(showActive, 500);
   }, [tabGroupName]);
 
   return (

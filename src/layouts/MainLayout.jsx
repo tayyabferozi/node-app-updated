@@ -315,8 +315,6 @@ const MainLayout = ({
 
               {tabData && (
                 <Tabs
-                  // tabLinks
-                  // verticalButtons
                   tabGroupName={tabData.groupName}
                   data={tabData.tabs}
                   img={tabData.img}
