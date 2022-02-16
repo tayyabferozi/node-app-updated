@@ -132,10 +132,19 @@ const ModalLifeActivity = ({ modalCloseHandler, ...rest }) => {
         <div className="right">
           <h3 className="section-title">Pay with</h3>
 
-          <div className="banks">
-            <img src="./assets/vectors/mastercard.svg" alt="mastercard" />
-            <img src="./assets/vectors/visa.svg" alt="visa" />
-            <img src="./assets/vectors/note.svg" alt="note" />
+          <div className="banks d-flex">
+            <div className="btn p-3 btn-emboss">
+              <img src="./assets/vectors/pay-visa.svg" alt="visa-mastercard" />
+            </div>
+            <div className="btn p-3 btn-emboss">
+              <img src="./assets/vectors/pay-phone.svg" alt="pay-phone" />
+            </div>
+            <div className="btn p-3 btn-emboss">
+              <img src="./assets/vectors/pay-check.svg" alt="pay-check" />
+            </div>
+            <div className="btn p-3 btn-emboss">
+              <img src="./assets/vectors/pay-money.svg" alt="pay-money" />
+            </div>
           </div>
 
           <div className="custom-form-control">

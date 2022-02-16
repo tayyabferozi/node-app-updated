@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import AddBtn from "../components/AddBtn";
-import ExploreNavItemWithIcon from "../components/ExploreNavItemWithIcon";
 import SearchInput from "../components/SearchInput";
-import TabContentItem from "../components/TabContentItem";
-import TabContents from "../components/TabContents";
-import Tabs from "../components/Tabs";
 import MainLayout from "../layouts/MainLayout";
 
 const dummyData = [
@@ -88,25 +84,22 @@ const dummySuppliersData = [
 ];
 const dummypurchase = [
   {
-    isSelected: true,
-    name: "Rear Brake Pad",
-    chipTitle: "Parts",
+    name: "CarQuest",
+    status: "Processing",
+    date: "23/02/2022",
     purchaseNo: "8936746752-23",
     quantity: 2,
+    invoice: "FACTURE9872.pdf",
   },
   {
-    isSelected: true,
-    name: "Front Light",
-    chipTitle: "Parts",
+    name: "CarQuest",
+    status: "Done",
+    date: "23/02/2022",
+    processNum: "FHS34324-2",
     purchaseNo: "8936746752-23",
     quantity: 3,
-  },
-  {
-    isSelected: true,
-    name: "Oil Filter",
-    chipTitle: "Office",
-    purchaseNo: "8936746752-23",
-    quantity: 1,
+    numOfItems: 1,
+    invoice: "FACTURE9871.pdf",
   },
 ];
 const purchases = [
@@ -140,7 +133,7 @@ const purchases = [
 ];
 
 const FinancesExpense = () => {
-  const [purchaseAddSelected, setPurchaseAddSelected] = useState(false);
+  const [purchaseAddSelected, setPurchaseAddSelected] = useState(true);
   return (
     <MainLayout
       title={"Expenses"}
@@ -169,15 +162,15 @@ const FinancesExpense = () => {
       }}
     >
       <div className="finances-invoice-main-content">
-        <div className="container-fluid">
+        <div className="container-fluid px-0">
           <div className="row pt-5">
-            <div className="col-1 d-flex justify-content-center align-items-center">
-              <img src="./assets/vectors/filter-contained.svg" alt="filter" />
+            <div className="col-12 col-lg-7">
+              <SearchInput
+                withFilter
+                placeholder="Search supplier, invoice number or amount"
+              />
             </div>
-            <div className="col-11 col-md-4">
-              <SearchInput placeholder="Search by Suppliers or Invoice #" />
-            </div>
-            <div className="col-12 col-md-7 py-md-0 py-3 d-flex justify-content-end align-items-center">
+            <div className="col-12 col-lg-5 pt-5 pt-lg-0 d-flex justify-content-lg-end align-items-center">
               <AddBtn
                 pale
                 onClick={() =>
@@ -186,6 +179,9 @@ const FinancesExpense = () => {
                 className={purchaseAddSelected && "upload-btn"}
                 title={purchaseAddSelected ? "UPLOAD" : "New"}
               />
+              <button className="ms-2 ms-sm-4 btn btn-emboss">
+                or New from scratch
+              </button>
             </div>
           </div>
           {!purchaseAddSelected ? (
@@ -235,8 +231,7 @@ const FinancesExpense = () => {
                         </div>
                         <div className="col-2 d-flex flex-column gap-1">
                           <div
-                            className={`chip ${data.paidDate ? "" : "unpaid"
-                              }`}
+                            className={`chip ${data.paidDate ? "" : "unpaid"}`}
                           >
                             <div className="chip-circle"></div>
                             <div className="chip-text">
@@ -244,9 +239,7 @@ const FinancesExpense = () => {
                             </div>
                           </div>
                           <div className="paid-date">
-                            {data.paidDate
-                              ? `Paid on ${data.paidDate}`
-                              : " "}
+                            {data.paidDate ? `Paid on ${data.paidDate}` : " "}
                           </div>
                         </div>
                         <div className="col-1 d-flex flex-column gap-1 text-end">
@@ -267,191 +260,215 @@ const FinancesExpense = () => {
               </div>
             </>
           ) : (
-            <div className="table-wrapper short-vetical-scrollbar expense-add">
-              <div className="table">
-                <div className="container-fluid py-3">
-                  {dummypurchase.map((data, idx) => {
-                    return (
-                      <div
-                        className="row py-3 custom-border-bottom"
-                        key={"dummypurchase" + idx}
-                      >
-                        <div className="col-6 d-flex align-items-center">
-                          <input
-                            className="small-checkbox"
-                            type="checkbox"
-                            name=""
-                            id=""
-                          />
-                          <div className="text-poppins text-dark-3 fs-14 fw-600 ps-3">
-                            {data.name}
-                          </div>
-                        </div>
-                        <div className="col-1">
-                          <div className="chip blue">
-                            <div className="chip-text">
-                              {data.chipTitle}
-                            </div>
-                            <img
-                              width={7}
-                              src="./assets/vectors/chip-close-blue.svg"
-                              alt="close"
-                            />
-                          </div>
-                        </div>
-                        <div className="col-2">
-                          <div className="text-dark-3 text-manrope fs-12">
-                            {data.purchaseNo}
-                          </div>
-                        </div>
-                        <div className="col-1">
-                          <div className="text-dark-3 text-manrope fs-12">
-                            Qt. {data.quantity}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                  <div className="row py-4 gx-0">
-                    <div className="col-12 d-flex justify-content-end align-items-center">
-                      <button className="btn btn-dark add-to-purhase-btn">
-                        Add to Purchase
-                      </button>
-                    </div>
-                  </div>
-                  <div className="row py-5">
-                    <div className="col-12">
-                      <div className="text-dark-3 text-manrope fw-800 fs-18">
-                        Purchase
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row gap-4">
-                    <div className="col-3 custom-border-bottom d-flex flex-column gap-2">
-                      <div className="text-light-5 text-manrope fs-14">
-                        Supplier
-                      </div>
-                      <div className="text-dark-3 text-poppins fs-14 fw-700">
-                        CarQuest
-                      </div>
-                    </div>
-                    <div className="col-2 custom-border-bottom d-flex flex-column gap-2">
-                      <div className="text-light-5 text-manrope fs-14">
-                        Date
-                      </div>
-                      <div className="text-dark-3 text-poppins fs-14 fw-700">
-                        02-11-2022
-                      </div>
-                    </div>
-                    <div className="col-2 custom-border-bottom d-flex flex-column gap-2">
-                      <div className="text-light-5 text-manrope fs-14">
-                        Refrence Number
-                      </div>
-                      <div className="text-dark-3 text-poppins fs-14 fw-700">
-                        877346234
-                      </div>
-                    </div>
-                    <div className="col-xxl-1 col-2 custom-border-bottom d-flex flex-column gap-2">
-                      <div className="text-light-5 text-manrope fs-14">
-                        Terms (days)
-                      </div>
-                      <div className="text-dark-3 text-poppins fs-14 fw-700">
-                        14
-                      </div>
-                    </div>
-                    <div className="col-2 custom-border-bottom d-flex flex-column gap-2">
-                      <div className="text-light-5 text-manrope fs-14">
-                        Payment Source
-                      </div>
-                      <div className="text-dark-3 text-poppins fs-14 fw-700">
-                        Banking **7362
-                      </div>
-                    </div>
-                  </div>
-                  <div className="container-fluid pt-5 px-0">
-                    {purchases.map((data, idx) => {
+            <>
+              <div className="table-wrapper mt-5 short-vetical-scrollbar expense-add">
+                <div className="table" style={{ minWidth: 900 }}>
+                  <div className="container-fluid py-3">
+                    {dummypurchase.map((data, idx) => {
                       return (
                         <div
-                          className="row py-3 gx-0 align-items-center custom-border-bottom"
-                          key={"purchase" + idx}
+                          className="row emboss-row py-3 mb-3 custom-border-bottom"
+                          key={"dummypurchase" + idx}
                         >
-                          <div className="col-3 col-lg-4">
-                            <div className="text-dark-3 fs-14 fw-800 text-poppins">
+                          <div className="col-2 d-flex align-items-center">
+                            <div className="text-poppins text-dark-3 fs-14 fw-600 ps-3">
                               {data.name}
                             </div>
                           </div>
                           <div className="col-1">
                             <div className="text-dark-3 text-manrope fs-12">
-                              {data.highPrice}$
+                              {data.status}
                             </div>
                           </div>
                           <div className="col-1">
                             <div className="text-dark-3 text-manrope fs-12">
-                              {data.lowPrice}$
+                              {data.date}
                             </div>
                           </div>
-                          <div className="col-2 d-flex justify-content-end pe-5 chip-text-container">
-                            <div className="chip blue">
-                              <div className="chip-text">
-                                {data.chipName}
-                              </div>
-                              <img
-                                src="./assets/vectors/chip-close-blue.svg"
-                                alt="close"
-                              />
-                            </div>
-                          </div>
-                          <div className="col-2 col-lg-1">
+                          <div className="col-2 ps-5">
                             <div className="text-dark-3 text-manrope fs-12">
                               {data.purchaseNo}
                             </div>
                           </div>
-                          <div className="col-1">
+                          <div className="col-2">
                             <div className="text-dark-3 text-manrope fs-12">
-                              Qt. {data.quantity}
+                              Number of items: {data.numOfItems || "-"}
                             </div>
                           </div>
                           <div className="col-2">
                             <div className="text-dark-3 text-manrope fs-12">
-                              {data.purchaseId}
+                              {data.invoice}
+                            </div>
+                          </div>
+                          <div className="col-1"></div>
+                          <div className="col-1">
+                            <div className="text-blue d-flex text-inter fw-500 fs-12">
+                              Open
+                              <img
+                                className="ms-4"
+                                src="./assets/vectors/vertical-menu.svg"
+                                alt="menu"
+                              />
                             </div>
                           </div>
                         </div>
                       );
                     })}
-                    <div className="row py-4 gx-0">
-                      <div className="col-4">
-                        <AddBtn title="ADD NEW LINE" />
-                      </div>
-                      <div className="col-1">
-                        <div className="text-dark-3 text-manrope fw-800 fs-12">
-                          53,45$
+                  </div>
+                </div>
+              </div>
+              <div className="table-wrapper short-vertical-scrollbar">
+                <div className="table" style={{ minWidth: 900 }}>
+                  <div className="main-sec">
+                    <div className="head-sec">
+                      <div className="row gx-0 px-4">
+                        <div className="col-11">
+                          <div className="row gx-0 px-0">
+                            <div className="col-3 custom-border-bottom d-flex flex-column gap-2">
+                              <div className="text-light-5 text-manrope fs-14">
+                                Supplier
+                              </div>
+                              <div className="text-dark-3 text-poppins fs-14 fw-700">
+                                CarQuest
+                              </div>
+                            </div>
+                            <div className="col-2 custom-border-bottom d-flex flex-column gap-2">
+                              <div className="text-light-5 text-manrope fs-14">
+                                Date
+                              </div>
+                              <div className="text-dark-3 text-poppins fs-14 fw-700">
+                                02-11-2022
+                              </div>
+                            </div>
+                            <div className="col-2 ps-3 custom-border-bottom d-flex flex-column gap-2">
+                              <div className="text-light-5 text-manrope fs-14">
+                                Refrence Number
+                              </div>
+                              <div className="text-dark-3 text-poppins fs-14 fw-700">
+                                877346234
+                              </div>
+                            </div>
+                            <div className="col-2 custom-border-bottom d-flex flex-column gap-2">
+                              <div className="text-light-5 text-manrope fs-14">
+                                Terms (days)
+                              </div>
+                              <div className="text-dark-3 text-poppins fs-14 fw-700">
+                                14
+                              </div>
+                            </div>
+                            <div className="col-2 custom-border-bottom d-flex flex-column gap-2">
+                              <div className="text-light-5 text-manrope fs-14">
+                                Payment Source
+                              </div>
+                              <div className="text-dark-3 text-poppins fs-14 fw-700">
+                                Banking **7362
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div className="col-1">
-                        <div className="text-dark-3 text-manrope fw-800 fs-12">
-                          23,45$
+                        <div className="col-1 d-flex flex-column gap-2">
+                          <div className="text-light-5 text-manrope fs-14">
+                            Invoice
+                          </div>
+                          <div className="fs-16 text-underline fw-500">
+                            34253135.pdf
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div className="row py-4 gx-0">
-                      <div className="col-12 d-flex gap-3">
-                        <button className={`btn padding btn-add`}>
-                          Add & Pay Later
-                        </button>
-                        <button
-                          onClick={() => setPurchaseAddSelected(false)}
-                          className={`btn padding blue`}
-                        >
-                          Add Payment
-                        </button>
+                    <div className="container-fluid pt-5 px-4">
+                      <div className="row px-4">
+                        <div className="col-11">
+                          {purchases.map((data, idx) => {
+                            return (
+                              <div
+                                className="row px-0 py-3 gx-0 align-items-center custom-border-bottom"
+                                key={"purchase" + idx}
+                              >
+                                <div className="col-3">
+                                  <div className="text-dark-3 fs-14 fw-800 text-poppins">
+                                    {data.name}
+                                  </div>
+                                </div>
+                                <div className="col-1">
+                                  <div className="text-dark-3 text-manrope fs-12">
+                                    {data.highPrice}$
+                                  </div>
+                                </div>
+                                <div className="col-1">
+                                  <div className="text-dark-3 text-manrope fs-12">
+                                    {data.lowPrice}$
+                                  </div>
+                                </div>
+                                <div className="col-1 d-flex justify-content-end pe-4 chip-text-container">
+                                  <div className="chip">
+                                    <div className="chip-text text-blue me-2">
+                                      {data.chipName}
+                                    </div>
+                                    <img
+                                      src="./assets/vectors/chip-close-blue.svg"
+                                      alt="close"
+                                    />
+                                  </div>
+                                </div>
+                                <div className="col-2">
+                                  <div className="text-dark-3 text-manrope fs-12">
+                                    {data.purchaseNo}
+                                  </div>
+                                </div>
+                                <div className="col-1">
+                                  <div className="text-dark-3 text-manrope fs-12">
+                                    Qt. {data.quantity}
+                                  </div>
+                                </div>
+                                <div className="col-2">
+                                  <div className="text-dark-3 text-manrope fs-12">
+                                    {data.purchaseId}
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                        <div className="col-1 d-flex align-items-center">
+                          <img src="./assets/img/invoice.png" alt="invoice" />
+                        </div>
+                      </div>
+                      <div className="row py-4 px-0 gx-0">
+                        <div className="col-11">
+                          <div className="row px-0 gx-0">
+                            <div className="col-3">
+                              <AddBtn blue small />
+                            </div>
+                            <div className="col-1">
+                              <div className="text-dark-3 text-manrope fw-800 fs-12">
+                                53,45$
+                              </div>
+                            </div>
+                            <div className="col-1">
+                              <div className="text-dark-3 text-manrope fw-800 fs-12">
+                                23,45$
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </>
           )}
+
+          <div className="d-flex justify-content-between mt-5 gap-3">
+            <button className={`btn btn-emboss`}>Add &amp; Pay Later</button>
+            <button
+              onClick={() => setPurchaseAddSelected(false)}
+              className={`btn btn-gradient`}
+            >
+              Add Payment
+            </button>
+          </div>
         </div>
       </div>
     </MainLayout>

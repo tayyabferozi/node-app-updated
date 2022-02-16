@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import SignUp from "./screens/SignUp";
 import SignUp2 from "./screens/SignUp2";
 import Signin from "./screens/Signin";
-import Dashboard from "./screens/Dashboard";
 import Business360 from "./screens/Business360";
 import ClientsList from "./screens/ClientsList";
 import Conversations from "./screens/Conversations";
@@ -48,8 +47,8 @@ function App() {
           <Route path="/360" element={<Navigate to="/business-360" />} />
           <Route path="/business-360" element={<Business360 />} />
           <Route path="/way" element={<ClientsList />} />
-          <Route path="/finances-income" element={<FinancesIncome />} />
           <Route path="/conversations" element={<Conversations />} />
+          <Route path="/finances-income" element={<FinancesIncome />} />
           <Route path="finances-overview" element={<FinancesOverview />} />
           <Route path="finances-expense" element={<FinancesExpense />} />
           <Route path="finances-suppliers" element={<FinancesSuppliers />} />

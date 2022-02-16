@@ -1,65 +1,11 @@
 import React, { useState } from "react";
 import AddBtn from "../components/AddBtn";
 import SearchInput from "../components/SearchInput";
-import TabContentItem from "../components/TabContentItem";
-import TabContents from "../components/TabContents";
-import Tabs from "../components/Tabs";
 import MainLayout from "../layouts/MainLayout";
 import ModalArticle from "../modals/ModalArticle";
 import ModalForm from "../modals/ModalForm";
 import ModalNewVarient from "../modals/ModalNewVarient";
 import ModalSchedule from "../modals/ModalSchedule";
-
-const servicesOfferData = [
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: true,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: true,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: true,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: false,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: false,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: false,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: true,
-    price: 2700,
-  },
-  {
-    name: "Brake Service",
-    completeBrake: 3,
-    isLocation: true,
-    price: 2700,
-  },
-];
 
 const inventoryData = [
   {
@@ -182,7 +128,7 @@ const Inventory = () => {
               <img src="./assets/vectors/filter-contained.svg" alt="" />
             </div>
             <div className="col-11 col-md-4">
-              <SearchInput placeholder="Search by Name or SKU" />
+              <SearchInput placeholder="Search name" />
             </div>
             <div className="col-12 col-md-7 py-md-0 py-3 d-flex justify-content-end align-items-center">
               <AddBtn pale title="New" />
@@ -194,8 +140,9 @@ const Inventory = () => {
                 return (
                   <div
                     key={"articles" + idx}
-                    className={`row my-2 emboss-row mb-4 p-3 gx-0 align-items-center inventory-record ${data.isChecked ? "checked" : ""
-                      }`}
+                    className={`row my-2 emboss-row mb-4 p-3 gx-0 align-items-center inventory-record ${
+                      data.isChecked ? "checked" : ""
+                    }`}
                   >
                     <div className="col-5 d-flex align-items-center ps-2 gap-4 info">
                       {/* <div className="checkbox">
@@ -241,8 +188,9 @@ const Inventory = () => {
                     <div className="col-2 d-flex justify-content-center align-items-center">
                       <button
                         onClick={() => setServiceBrakeSelected(true)}
-                        className={`${data.isBrake ? "is-brake" : "is-engine"
-                          }  py-2 px-5`}
+                        className={`${
+                          data.isBrake ? "is-brake" : "is-engine"
+                        }  py-2 px-5`}
                       >
                         {data.isBrake ? "Brake" : "Engine"}
                       </button>

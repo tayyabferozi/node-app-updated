@@ -36,9 +36,9 @@ const FancyInput = ({
         "custom-form-control",
         { embossed },
         { prominant },
-        { prominantBlue },
         { small },
         { "s-margin": sMargin },
+        { "prominant-blue": prominantBlue },
         { "large-padding-bottom": largePaddingBottom },
         { "md-padding-bottom": mdPaddingBottom },
         rootClassName

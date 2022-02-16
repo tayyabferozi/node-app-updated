@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import AddBtn from "../components/AddBtn";
 import SearchInput from "../components/SearchInput";
-import TabContentItem from "../components/TabContentItem";
-import TabContents from "../components/TabContents";
-import Tabs from "../components/Tabs";
 import MainLayout from "../layouts/MainLayout";
 import ModalArticle from "../modals/ModalArticle";
 import ModalForm from "../modals/ModalForm";
@@ -183,7 +180,7 @@ const Inventory = () => {
                 <img src="./assets/vectors/filter-contained.svg" alt="" />
               </div>
               <div className="col-11 col-md-4">
-                <SearchInput placeholder="Search by Name or SKU" />
+                <SearchInput placeholder="Search name" />
               </div>
               <div className="col-12 col-md-7 py-md-0 py-3 d-flex justify-content-end align-items-center">
                 <AddBtn pale title="New" />
@@ -204,7 +201,9 @@ const Inventory = () => {
                           <input type="checkbox" />
                           <div className="checkmark"></div>
                         </label>
-                        <div className="name text-poppins fw-500 fs-18">{data.name}</div>
+                        <div className="name text-poppins fw-500 fs-18">
+                          {data.name}
+                        </div>
                       </div>
                       <div className="col-3">
                         <div className="complete-brake">
@@ -216,7 +215,12 @@ const Inventory = () => {
                       </div>
                       <div className="col-1 price fw-700">{data.price}$</div>
                       <div className="col-2">
-                        <button className="py-2 px-4" onClick={() => { setServiceBrakeSelected(true) }}>
+                        <button
+                          className="py-2 px-4"
+                          onClick={() => {
+                            setServiceBrakeSelected(true);
+                          }}
+                        >
                           Location
                         </button>
                       </div>
@@ -257,7 +261,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-3"
                             type="text"
                             value="Select Location"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -274,7 +278,7 @@ const Inventory = () => {
                                 className="text-dark-3 fs-14 pt-2 pb-3"
                                 type="text"
                                 value="1900"
-                                onChange={() => { }}
+                                onChange={() => {}}
                               />
                             </div>
                           </div>
@@ -289,7 +293,7 @@ const Inventory = () => {
                                 className="text-dark-3 fs-14 pt-2 pb-3"
                                 type="text"
                                 value="19 min."
-                                onChange={() => { }}
+                                onChange={() => {}}
                               />
                             </div>
                           </div>
@@ -306,7 +310,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-3"
                             type="text"
                             value="Select Category"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -364,7 +368,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-3"
                             type="text"
                             value="Select Category"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -381,7 +385,7 @@ const Inventory = () => {
                                 className="text-dark-3 fs-14 pt-2 pb-3"
                                 type="text"
                                 value="20-12-2022 to 22-12-2022"
-                                onChange={() => { }}
+                                onChange={() => {}}
                               />
                             </div>
                           </div>
@@ -396,7 +400,7 @@ const Inventory = () => {
                                 className="text-dark-3 fs-14 pt-2 pb-3"
                                 type="text"
                                 value="10"
-                                onChange={() => { }}
+                                onChange={() => {}}
                               />
                             </div>
                           </div>
@@ -422,7 +426,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-2 ps-5 text-blue"
                             type="text"
                             value="Right Rear Light"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -437,7 +441,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-2"
                             type="text"
                             value="98736446237234-23"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -454,7 +458,7 @@ const Inventory = () => {
                                 className="text-dark-3 fs-14 pt-2 pb-3"
                                 type="text"
                                 value="2"
-                                onChange={() => { }}
+                                onChange={() => {}}
                               />
                             </div>
                           </div>
@@ -485,7 +489,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-3"
                             type="text"
                             value="37.00$"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -500,7 +504,7 @@ const Inventory = () => {
                             className="text-dark-3 fs-14 pt-2 pb-3"
                             type="text"
                             value="LIGHT"
-                            onChange={() => { }}
+                            onChange={() => {}}
                           />
                         </div>
                       </div>
@@ -515,7 +519,10 @@ const Inventory = () => {
                       title={"Add"}
                     />
                   </div>
-                  <div className="d-flex justify-content-end mt-5" onClick={() => setServiceBrakeSelected(false)}>
+                  <div
+                    className="d-flex justify-content-end mt-5"
+                    onClick={() => setServiceBrakeSelected(false)}
+                  >
                     <div className="btn btn-gradient">Save &amp; Return</div>
                   </div>
                 </div>

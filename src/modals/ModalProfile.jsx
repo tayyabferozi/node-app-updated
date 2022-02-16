@@ -19,7 +19,7 @@ const ModalProfile = (props) => {
         //   value: "VEHICLE",
         // }}
         headInput={{
-          prominantBlue: true,
+          prominant: true,
           select: true,
           id: "type",
           name: "type",

@@ -1120,13 +1120,31 @@ button {
   .table-wrapper {
     width: 100%;
     overflow-x: auto;
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
 
     .table {
-      min-width: 800px;
+      min-width: 780px;
     }
   }
   .table-heading {
     // background-color: $color17;
+  }
+
+  .main-sec {
+    @extend %emboss-md-inner;
+    padding: 18px 20px;
+
+    .head-sec {
+      @extend %emboss-white;
+      @extend %br-16;
+    }
+
+    & > * {
+      padding: 16px 28px !important;
+    }
   }
 
   .label {
@@ -1185,6 +1203,18 @@ button {
       height: 54px;
     }
   }
+
+  .row {
+    @media screen and (min-width: 576px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    @media screen and (min-width: 992px) {
+      padding-right: 40px;
+    }
+  }
+
   .dummy-data {
     border-bottom: 1px solid $color5;
     .name,
@@ -3733,12 +3763,15 @@ button {
       .banks {
         margin-top: 20px;
 
-        img {
-          margin-right: 40px;
-          margin-bottom: 1rem;
+        .btn {
+          width: 56px;
+          height: 56px;
+          border-radius: 6px;
+          margin-right: 14px;
 
           &:last-child {
-            margin-right: 0;
+            box-shadow: inset 4px 4px 6px $color128,
+              inset -6px -6px 10px $color114;
           }
         }
       }

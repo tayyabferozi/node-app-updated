@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AddBtn from "../components/AddBtn";
-import ExploreNavItemWithIcon from "../components/ExploreNavItemWithIcon";
 import SearchInput from "../components/SearchInput";
 import FancyInput from "../components/FancyInput";
 import Tabs from "../components/Tabs";
@@ -74,7 +73,7 @@ const dummyData = [
 ];
 
 const FinancesIncome = () => {
-  const [incomeConvertedSelected, setIncomeConvertedSelected] = useState(false);
+  const [incomeConvertedSelected, setIncomeConvertedSelected] = useState(true);
   const [paymentModalOpenState, setPaymentModalOpenState] = useState(false);
 
   const modalOpenHandler = (func) => {
@@ -128,8 +127,8 @@ const FinancesIncome = () => {
               <div className="col-4 d-flex align-items-center">
                 <Tabs
                   verticalButtons
-                  tabClassName="mb-4 mb-sm-0"
-                  className="mt-1 flex-column flex-sm-row w-100"
+                  tabClassName="mb-4 mb-sm-0 px-2 mx-2"
+                  className="mt-1 flex-column flex-sm-row w-100 xp-1"
                   tabGroupName="client-overview-tabs"
                   data={[
                     {
@@ -277,7 +276,8 @@ const FinancesIncome = () => {
                           <div className="row">
                             <div className="col-6">
                               <FancyInput
-                                vector="./assets/vectors/cart.svg"
+                                embossed={false}
+                                icon="/vectors/cart.svg"
                                 prominantBlue
                                 mdPaddingBottom
                                 sMargin
@@ -290,6 +290,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -304,6 +305,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -318,6 +320,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -333,6 +336,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -347,6 +351,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -367,7 +372,8 @@ const FinancesIncome = () => {
                           <div className="row">
                             <div className="col-6">
                               <FancyInput
-                                vector="./assets/vectors/cart.svg"
+                                embossed={false}
+                                icon="/vectors/cart.svg"
                                 prominantBlue
                                 mdPaddingBottom
                                 sMargin
@@ -380,6 +386,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -394,6 +401,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -408,6 +416,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -423,6 +432,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -437,6 +447,7 @@ const FinancesIncome = () => {
                             </div>
                             <div className="col-6 col-sm-3">
                               <FancyInput
+                                embossed={false}
                                 prominant
                                 lightLabel
                                 thinlabel
@@ -450,18 +461,6 @@ const FinancesIncome = () => {
                               />
                             </div>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="foot">
-                      <div className="d-flex justify-content-end">
-                        <div className="btn btn-dark btn-update">
-                          <img
-                            className="update"
-                            src="./assets/vectors/update-2.svg"
-                            alt="update"
-                          />
-                          Update
                         </div>
                       </div>
                     </div>
@@ -497,13 +496,16 @@ const FinancesIncome = () => {
                 </div>
 
                 <div className="row pt-5 gx-0">
-                  <div className="col-12 d-flex gap-3">
-                    <button className={`btn padding btn-add`}>
-                      Add &amp; Pay Later
+                  <div className="col-12 d-flex justify-content-between gap-3">
+                    <button
+                      className="btn btn-emboss"
+                      onClick={() => setIncomeConvertedSelected(false)}
+                    >
+                      Back to ServiceSheet
                     </button>
                     <button
                       onClick={() => modalOpenHandler(setPaymentModalOpenState)}
-                      className={`btn padding blue`}
+                      className="btn text-white btn-gradient"
                     >
                       Add Payment
                     </button>
@@ -511,99 +513,116 @@ const FinancesIncome = () => {
                 </div>
               </div>
               <div className="col-0 col-lg-1"></div>
-              <div className="col-12 col-lg-4 py-5 py-lg-0 px-xxl-5">
-                <div className="row px-xxl-4">
-                  <div className="col-12">
-                    <div
-                      className="circle circle-large"
-                      style={{ backgroundColor: "#ECA0A0" }}
-                    >
-                      <img
-                        src="./assets/img/client-vector-8.png"
-                        alt="client"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12">
-                    <div className="text-blue text-poppins fs-22 fw-600">
-                      Bryandy Boyd
-                    </div>
-                  </div>
-                  <div className="col-12">
-                    <div className="text-dark-3 text-manrope fs-14 user-address">
-                      3452 av. de la Tour, Québec (QC) G1V 9J3 Canada
-                    </div>
-                  </div>
-                  <div className="col-12">
-                    <div className="text-dark-3 text-poppins fw-700 fs-14 lh-1">
-                      ernest.mason@gmail.com
-                    </div>
-                    <div className="text-light-5 text-manrope fs-12 pb-4">
-                      Email
-                    </div>
-                  </div>
-                  <div className="col-12 pb-5">
-                    <div className="text-dark-3 text-poppins fw-700 fs-14 lh-1">
-                      561-303-6106
-                    </div>
-                    <div className="text-light-5 text-manrope fs-12 pb-5">
-                      Phone
-                    </div>
-                  </div>
-                  <div className="col-12 pb-3">
-                    <div className="text-dark-3 text-manrope fw-800 fs-18">
-                      Work Order
-                    </div>
-                    <div className="text-light-5 text-manrope fw-200 fs-20">
-                      #329878316-23
-                    </div>
-                  </div>
-                  <div className="col-12 pb-4 d-flex gap-3">
-                    <img src="./assets/vectors/paste.svg" alt="client" />
-                    <div>
-                      <div className="text-dark-3 text-manrope fs-14">
-                        Noded with <b>2 profiles</b>
+              <div className="col-12 col-lg-4 py-5 py-lg-0">
+                <div className="row px-xxl-3">
+                  <div className="emboss-white br-16 py-4 px-5 mb-5">
+                    <div className="ps-xxl-5">
+                      <div className="col-12">
+                        <div
+                          className="circle circle-large"
+                          style={{ backgroundColor: "#ECA0A0" }}
+                        >
+                          <img
+                            src="./assets/img/client-vector-8.png"
+                            alt="client"
+                          />
+                        </div>
                       </div>
-                      <div className="text-light-5 text-manrope fs-12">
-                        Acura MDX 2020
+                      <div className="col-12">
+                        <div className="text-blue text-poppins fs-22 fw-600">
+                          Bryandy Boyd
+                        </div>
+                      </div>
+                      <div className="col-12">
+                        <div className="text-dark-3 text-manrope fs-14 user-address">
+                          3452 av. de la Tour, Québec (QC) G1V 9J3 Canada
+                        </div>
+                      </div>
+                      <div className="col-12">
+                        <div className="text-dark-3 text-poppins fw-700 fs-14 lh-1">
+                          ernest.mason@gmail.com
+                        </div>
+                        <div className="text-light-5 text-manrope fs-12 pb-4">
+                          Email
+                        </div>
+                      </div>
+                      <div className="col-12">
+                        <div className="text-dark-3 text-poppins fw-700 fs-14 lh-1">
+                          561-303-6106
+                        </div>
+                        <div className="text-light-5 text-manrope fs-12">
+                          Phone
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="col-12 pb-5 d-flex gap-3">
-                    <img src="./assets/vectors/calender-3.svg" alt="calender" />
-                    <div className="text-dark-3 user-location">
-                      <span className="text-manrope fs-14">Appointment </span>
-                      <b>September 8, 2022 14:00 </b>
-                      <span className="text-manrope fw-300 fs-14">
-                        Location 2
-                      </span>
+                  <div className="emboss-white br-16 py-4 px-5 mb-5">
+                    <div className="ps-xxl-5">
+                      <div className="col-12 pb-3">
+                        <div className="text-dark-3 text-manrope fw-800 fs-18">
+                          Work Order
+                        </div>
+                        <div className="text-light-5 text-manrope fw-200 fs-20">
+                          #329878316-23
+                        </div>
+                      </div>
+                      <div className="col-12 pb-4 d-flex gap-3">
+                        <img src="./assets/vectors/paste.svg" alt="client" />
+                        <div>
+                          <div className="text-dark-3 text-manrope fs-14">
+                            Noded with <b>2 profiles</b>
+                          </div>
+                          <div className="text-light-5 text-manrope fs-12">
+                            Acura MDX 2020
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-12 pb-5 d-flex gap-3">
+                        <img
+                          src="./assets/vectors/calender-3.svg"
+                          alt="calender"
+                        />
+                        <div className="text-dark-3 user-location">
+                          <span className="text-manrope fs-14">
+                            Appointment
+                          </span>
+                          <b>September 8, 2022 14:00 </b>
+                          <span className="text-manrope fw-300 fs-14">
+                            Location 2
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div className="col-12 pt-5">
-                    <div className="row pt-5">
-                      <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-12">
-                        Subtotal
-                      </div>
-                      <div className="col-6 pb-3 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
-                        100.00$
-                      </div>
-                      <div className="col-6 text-dark-4 text-manrope fw-800 fs-12">
-                        TPS
-                      </div>
-                      <div className="col-6 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
-                        5.00$
-                      </div>
-                      <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-12">
-                        TVQ
-                      </div>
-                      <div className="col-6 pb-3 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
-                        9.98$
-                      </div>
-                      <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-14">
-                        Total
-                      </div>
-                      <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-14 d-flex justify-content-end">
-                        114.98$
+                  <div className="px-5">
+                    <div className="ps-xxl-5">
+                      <div className="col-12 pt-5">
+                        <div className="row">
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-12">
+                            Subtotal
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
+                            100.00$
+                          </div>
+                          <div className="col-6 text-dark-4 text-manrope fw-800 fs-12">
+                            TPS
+                          </div>
+                          <div className="col-6 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
+                            5.00$
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-12">
+                            TVQ
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
+                            9.98$
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-14">
+                            Total
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-14 d-flex justify-content-end">
+                            114.98$
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
