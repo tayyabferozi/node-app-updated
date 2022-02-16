@@ -8,7 +8,9 @@ import ClientsList from "./screens/ClientsList";
 import Conversations from "./screens/Conversations";
 import FinancesIncome from "./screens/FinancesIncome";
 import FinancesExpense from "./screens/FinancesExpense";
+import FinancesSuppliers from "./screens/FinancesSuppliers";
 import Inventory from "./screens/Inventory";
+import InventoryArticles from "./screens/InventoryArticles";
 import FormCards from "./screens/FormCards";
 import FinancesOverview from "./screens/FinancesOverview";
 import Settings1 from "./screens/Settings1";
@@ -50,7 +52,9 @@ function App() {
           <Route path="/conversations" element={<Conversations />} />
           <Route path="finances-overview" element={<FinancesOverview />} />
           <Route path="finances-expense" element={<FinancesExpense />} />
+          <Route path="finances-suppliers" element={<FinancesSuppliers />} />
           <Route path="/inventory" element={<Inventory />} />
+          <Route path="/inventory-articles" element={<InventoryArticles />} />
           <Route path="/form-cards" element={<FormCards />} />
           <Route path="/settings" element={<Settings1 />} />
           <Route path="/business-settings" element={<Settings2 />} />

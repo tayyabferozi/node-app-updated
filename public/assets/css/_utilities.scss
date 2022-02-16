@@ -61,6 +61,16 @@
   box-shadow: -18px -18px 30px $color103, 18px 18px 30px $color102;
 }
 
+%emboss-row {
+  box-shadow: -6px -6px 10px $color110, 6px 6px 10px $color150;
+
+  @extend %br-10;
+}
+
+%emboss-inner {
+  box-shadow: inset 10px 10px 30px $color102, inset -18px -18px 30px $color103;
+}
+
 %emboss-lg {
   box-shadow: inset 10px 10px 15px $color113, inset -10px -10px 15px $color114;
 
@@ -247,6 +257,14 @@ button,
 
 .emboss-white {
   @extend %emboss-white;
+}
+
+.emboss-row {
+  @extend %emboss-row;
+}
+
+.emboss-inner {
+  @extend %emboss-inner
 }
 
 .br-6 {

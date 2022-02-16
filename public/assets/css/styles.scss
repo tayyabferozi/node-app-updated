@@ -1126,7 +1126,7 @@ button {
     }
   }
   .table-heading {
-    background-color: $color17;
+    // background-color: $color17;
   }
 
   .label {
@@ -1506,124 +1506,43 @@ button {
       min-width: 800px;
     }
   }
-  .services-offer {
-    .services-offer-record {
-      border: 1px solid rgba($color: $color41, $alpha: 0.08);
-      border-radius: 12px;
+  .services-offer-record {
+    // border: 1px solid rgba($color: $color41, $alpha: 0.08);
+    border-radius: 12px;
 
-      .box {
-        width: 20px;
-        height: 20px;
-        border-radius: 4px;
-        background-color: $color35;
-      }
-      .name {
-        color: $color34;
-        font-family: "Manrope", sans-serif;
-        font-size: 20px;
-        font-weight: lighter;
-        line-height: 24px;
-      }
-      .complete-brake {
-        color: $color7;
-        font-family: "Lato", sans-serif;
-        line-height: 21px;
-        font-size: 16px;
-
-        span {
-          color: $color1;
-          font-size: 16px;
-          font-family: "Lato", sans-serif;
-        }
-      }
-      .price {
-        font-size: 16px;
-        font-weight: bold;
-        font-family: "Lato", sans-serif;
-        color: $color1;
-      }
-      button {
-        background-color: rgba($color: $color4, $alpha: 0.08);
-        border-radius: 8px;
-        color: $color4;
-        border: none;
-        font-size: 14px;
-        font-weight: bold;
-        font-family: "Poppins", sans-serif;
-        transition: 0.4s ease;
-
-        &:hover {
-          background: $color21;
-        }
-      }
-      .services-offer-menu {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        border: 1px solid $color33;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    .box {
+      width: 20px;
+      height: 20px;
+      border-radius: 4px;
+      background-color: $color35;
     }
-  }
-  .articles {
-    .inventory-record {
-      // border: 1px solid $color33;
-      border-radius: 12px;
+    .name {
+      color: $color34;
+      font-family: "Manrope", sans-serif;
+      font-size: 20px;
+      font-weight: lighter;
+      line-height: 24px;
     }
-    .inventory-record.checked {
-      background-color: rgba($color: $color36, $alpha: 0.4);
-    }
-    .info {
-      input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-      }
-      img {
-        width: 48px;
-        height: 48px;
-        border-radius: 6px;
-      }
-      .name {
-        // padding-left: 70px;
-        .title {
-          font-size: 16px;
-          font-weight: 600;
-          color: $color34;
-        }
-        .caption {
-          font-family: "Manrope", sans-serif;
-          font-size: 14px;
-          color: $color8;
-        }
-      }
-    }
-    .quantity {
-      font-size: 16px;
+    .complete-brake {
+      color: $color7;
       font-family: "Lato", sans-serif;
       line-height: 21px;
-      color: $color1;
+      font-size: 16px;
 
-      div {
-        color: $color7;
-        font-size: 14px;
+      span {
+        color: $color1;
+        font-size: 16px;
+        font-family: "Lato", sans-serif;
       }
     }
     .price {
-      color: $color1;
-      font-family: "Lato", sans-serif;
-      font-weight: bold;
       font-size: 16px;
-
-      div {
-        color: $color7;
-        font-weight: normal;
-        font-size: 14px;
-      }
+      font-weight: bold;
+      font-family: "Lato", sans-serif;
+      color: $color1;
     }
     button {
-      background-color: rgba($color: $color4, $alpha: 0.08);
+      // background-color: rgba($color: $color4, $alpha: 0.08);
       border-radius: 8px;
       color: $color4;
       border: none;
@@ -1633,23 +1552,14 @@ button {
       transition: 0.4s ease;
 
       &:hover {
-        background: $color21;
+        // background: $color21;
       }
     }
-    // button.is-brake {
-    //   background-color: rgba($color: $color37, $alpha: 0.08);
-    //   color: $color6;
-    // }
-    // button.is-engine {
-    //   background-color: rgba($color: $color38, $alpha: 0.08);
-    //   color: $color23;
-    // }
-    .inventory-menu {
+    .services-offer-menu {
       width: 36px;
       height: 36px;
       border-radius: 8px;
       border: 1px solid $color33;
-      background-color: white;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -1679,8 +1589,12 @@ button {
       border: 1px solid rgba($color: $color41, $alpha: 0.08);
     }
     .input {
+      background-color: transparent;
       img {
         left: 0;
+      }
+      input {
+        background-color: transparent;
       }
 
       // input::placeholder {
@@ -1691,7 +1605,7 @@ button {
       //   color: $color4;
       // }
     }
-    .btn {
+    .btn:not(.btn-add):not(.btn-gradient) {
       width: auto;
       height: auto;
       padding: 10px 40px;
@@ -1724,12 +1638,100 @@ button {
         width: 52px;
         height: 52px;
         border-radius: 8px;
-        background-color: rgba($color: $color4, $alpha: 0.08);
+        // background-color: rgba($color: $color4, $alpha: 0.08);
         display: flex;
         justify-content: center;
         align-items: center;
       }
     }
+  }
+}
+#inventory-articles-main-content {
+  .inventory-record {
+    // border: 1px solid $color33;
+    border-radius: 12px;
+  }
+  .inventory-record.checked {
+    // background-color: rgba($color: $color36, $alpha: 0.4);
+  }
+  .info {
+    input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+    }
+    img {
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+    }
+    .name {
+      // padding-left: 70px;
+      .title {
+        font-size: 16px;
+        font-weight: 600;
+        color: $color34;
+      }
+      .caption {
+        font-family: "Manrope", sans-serif;
+        font-size: 14px;
+        color: $color8;
+      }
+    }
+  }
+  .quantity {
+    font-size: 16px;
+    font-family: "Lato", sans-serif;
+    line-height: 21px;
+    color: $color1;
+
+    div {
+      color: $color7;
+      font-size: 14px;
+    }
+  }
+  .price {
+    color: $color1;
+    font-family: "Lato", sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+
+    div {
+      color: $color7;
+      font-weight: normal;
+      font-size: 14px;
+    }
+  }
+  button:not(.btn-add) {
+    // background-color: rgba($color: $color4, $alpha: 0.08);
+    border-radius: 8px;
+    color: $color4;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    transition: 0.4s ease;
+
+    &:hover {
+      // background: $color21;
+    }
+  }
+  // button.is-brake {
+  //   background-color: rgba($color: $color37, $alpha: 0.08);
+  //   color: $color6;
+  // }
+  // button.is-engine {
+  //   background-color: rgba($color: $color38, $alpha: 0.08);
+  //   color: $color23;
+  // }
+  .inventory-menu {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    // border: 1px solid $color33;
+    // background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
