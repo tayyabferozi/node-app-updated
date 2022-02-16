@@ -2278,6 +2278,8 @@ button:active,
   transition: 0.4s ease;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+  -webkit-box-shadow: inset -5px -5px 6px rgba(255, 255, 255, 0.6), inset 5px 5px 6px rgba(209, 217, 230, 0.7);
+          box-shadow: inset -5px -5px 6px rgba(255, 255, 255, 0.6), inset 5px 5px 6px rgba(209, 217, 230, 0.7);
 }
 
 /* On mouse-over, add a grey background color */
@@ -2285,6 +2287,8 @@ button:active,
 .checkbox-container-5 input:checked ~ .checkmark {
   background-color: #1e55a9;
   border-color: #1e55a9;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
