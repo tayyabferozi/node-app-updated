@@ -1,7 +1,12 @@
+import clsx from "clsx";
+
 const FancyInput = ({
   id,
   vector,
+  labelClassName,
   label,
+  label2,
+  smallLabel,
   lightLabel,
   thinlabel,
   value,
@@ -16,36 +21,52 @@ const FancyInput = ({
   small,
   largePaddingBottom,
   mdPaddingBottom,
+  embossed = true,
   prominant,
   prominantBlue,
+  rootStyle,
   rootClassName,
   inputClassName,
   ...rest
 }) => {
   return (
     <div
-      className={`custom-form-control${sMargin ? " s-margin" : ""}${
-        prominant ? " prominant" : ""
-      }${small ? " small" : ""}${prominantBlue ? " prominant-blue" : ""}${
-        largePaddingBottom ? " large-padding-bottom" : ""
-      }${mdPaddingBottom ? " md-padding-bottom" : ""}${
-        rootClassName ? " " + rootClassName : ""
-      }`}
+      style={rootStyle}
+      className={clsx(
+        "custom-form-control",
+        { embossed },
+        { prominant },
+        { prominantBlue },
+        { small },
+        { "s-margin": sMargin },
+        { "large-padding-bottom": largePaddingBottom },
+        { "md-padding-bottom": mdPaddingBottom },
+        rootClassName
+      )}
     >
       <label
-        className={`${lightLabel ? " text-light-5" : ""}${
-          thinlabel ? " fw-400 text-manrope" : ""
-        }`}
+        className={clsx(
+          { "text-light-5": lightLabel },
+          { "fw-400 text-manrope": thinlabel },
+          { "fs-10": smallLabel },
+          labelClassName
+        )}
         htmlFor={id}
       >
         {label}
       </label>
+      {label2 && (
+        <label
+          className="d-block pt-3 pb-4 upload-label text-light-5 fw-300 text-manrope ps-4"
+          htmlFor={id}
+        >
+          {label2 || "Upload your attachment"}
+        </label>
+      )}
       <div className="input">
         {select ? (
           <select
-            className={`custom-input${
-              inputClassName ? " " + inputClassName : ""
-            }`}
+            className={clsx("custom-input", inputClassName)}
             placeholder={placeholder || ""}
             {...rest}
           >
@@ -55,6 +76,7 @@ const FancyInput = ({
                   key={"select" + idx}
                   value={el.value}
                   disabled={el.disabled ? "disabled" : ""}
+                  selected={el.selected ? "selected" : ""}
                 >
                   {el.text}
                 </option>
@@ -74,9 +96,7 @@ const FancyInput = ({
             )}
             <input
               {...rest}
-              className={`custom-input${
-                inputClassName ? " " + inputClassName : ""
-              }`}
+              className={clsx("custom-input", inputClassName)}
               type={type || "text"}
               id={id}
               value={value}

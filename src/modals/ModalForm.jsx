@@ -6,8 +6,8 @@ const ModalForm = (props) => {
   return (
     <div>
       <Modal
+        titleVector="./assets/vectors/modal-forms.svg"
         title="Forms"
-        subTitle="Please choose the form"
         buttonText="Add"
         {...props}
       >

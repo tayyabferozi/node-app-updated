@@ -5,8 +5,10 @@ import Modal from "./Modal";
 const ModalLifeActivity = (props) => {
   return (
     <div>
-      <Modal title="Life Activity" bottomAligned {...props}>
+      <Modal className="schedule-modal" bottomAligned {...props}>
         <div className="schedule-modal-body">
+          <h3 className="section-title mb-4">Life Activity</h3>
+
           <div className="head">
             <div className="d-flex align-items-center">
               <div className="img">
@@ -26,73 +28,70 @@ const ModalLifeActivity = (props) => {
             </div>
           </div>
 
-          <div className="items mt-4">
-            {[
-              {
-                text1: "Service Sheet",
-                text2: "Rear Brake Tab - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Oil Change - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Rear Brake Tab - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Rear Brake Tab - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Garage Lelaval - #90847867342-23",
-                text3: "23/05/2022",
-              },
-            ].map((el, idx) => {
-              return <ActvityItem {...el} key={"activity-item" + idx} />;
-            })}
-          </div>
-          <div className="items hidden">
-            <div className="blurred-overlay text-center">
-              <img src="./assets/vectors/lock-1.svg" alt="lock" />
-              <div className="fs-26 fw-600">
-                Upgrade to see <br />5 years history
-              </div>
+          <div className="py-1 mt-5 emboss-c">
+            <div className="items px-2 br-8 mt-4">
+              {[
+                {
+                  text1: "Service Sheet",
+                  text2: "Rear Brake Tab - WO #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Service Sheet",
+                  text2: "Oil Change - #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Service Sheet",
+                  text2: "Rear Brake Tab - WO #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Rear Brake Tab - WO #90847867342-23",
+                  text2: "Garage Lelaval",
+                  text3: "23/05/2022",
+                },
+              ].map((el, idx) => {
+                return <ActvityItem {...el} key={"activity-item" + idx} />;
+              })}
             </div>
-            {[
-              {
-                text1: "Service Sheet",
-                text2: "Rear Brake Tab - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Oil Change - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Rear Brake Tab - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Rear Brake Tab - #90847867342-23",
-                text3: "23/05/2022",
-              },
-              {
-                text1: "Service Sheet",
-                text2: "Garage Lelaval - #90847867342-23",
-                text3: "23/05/2022",
-              },
-            ].map((el, idx) => {
-              return <ActvityItem {...el} key={"activity-item" + idx} />;
-            })}
+            <div className="items hidden">
+              <div className="blurred-overlay text-center">
+                <img src="./assets/vectors/lock-1.svg" alt="lock" />
+                <div className="fs-26 fw-600">
+                  Upgrade to see <br />5 years history
+                </div>
+              </div>
+              {[
+                {
+                  text1: "Service Sheet",
+                  text2: "Rear Brake Tab - #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Service Sheet",
+                  text2: "Oil Change - #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Service Sheet",
+                  text2: "Rear Brake Tab - #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Service Sheet",
+                  text2: "Rear Brake Tab - #90847867342-23",
+                  text3: "23/05/2022",
+                },
+                {
+                  text1: "Service Sheet",
+                  text2: "Garage Lelaval - #90847867342-23",
+                  text3: "23/05/2022",
+                },
+              ].map((el, idx) => {
+                return <ActvityItem {...el} key={"activity-item" + idx} />;
+              })}
+            </div>
           </div>
         </div>
       </Modal>
@@ -102,7 +101,7 @@ const ModalLifeActivity = (props) => {
 
 const ActvityItem = ({ text1, text2, text3 }) => {
   return (
-    <div className="activity-item">
+    <div className="activity-item mb-5">
       <div className="text-1">
         <div className="box"></div> {text1}
       </div>

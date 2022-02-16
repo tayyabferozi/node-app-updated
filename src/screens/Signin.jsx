@@ -27,6 +27,7 @@ const SignUp = () => {
 
       <form action="" className="form">
         <FancyInput
+          embossed={false}
           lightLabel
           icon="vectors/mail.svg"
           id="email"
@@ -37,6 +38,7 @@ const SignUp = () => {
           onChange={inputChangeHandler}
         />
         <FancyInput
+          embossed={false}
           lightLabel
           icon="vectors/lock.svg"
           id="password"

@@ -5,8 +5,12 @@ import Modal from "./Modal";
 const ModalScan = (props) => {
   return (
     <div>
-      <Modal title="Scan to Move" {...props}>
-        <div className="scan-modal-body">
+      <Modal
+        titleVector="./assets/vectors/modal-scan.svg"
+        title="Scan to Move"
+        {...props}
+      >
+        <div className="scan-modal-body mb-5">
           <div className="container-fluid px-0">
             <div className="row">
               <div className="col-sm-6">

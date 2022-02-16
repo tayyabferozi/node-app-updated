@@ -29,6 +29,7 @@ const SignUp = () => {
 
       <form action="" className="form">
         <FancyInput
+          embossed={false}
           lightLabel
           id="company"
           name="company"
@@ -37,6 +38,7 @@ const SignUp = () => {
           onChange={inputChangeHandler}
         />
         <FancyInput
+          embossed={false}
           lightLabel
           id="employees"
           name="employees"
@@ -46,6 +48,7 @@ const SignUp = () => {
           onChange={inputChangeHandler}
         />
         <FancyInput
+          embossed={false}
           lightLabel
           id="enterprise"
           name="enterprise"
@@ -55,6 +58,7 @@ const SignUp = () => {
           onChange={inputChangeHandler}
         />
         <FancyInput
+          embossed={false}
           lightLabel
           id="phone"
           name="phone"

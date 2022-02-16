@@ -11,12 +11,15 @@ const ModalProfile = (props) => {
       <Modal
         title="Order Rear Light"
         className="order-modal"
-        buttonText="Update"
+        buttonText="SAVE"
         headInput={{
+          embossed: false,
           add: true,
           id: "assigned",
           name: "assigned",
-          label: "Assigned to",
+          label: "Assign to",
+          labelClassName: "mb-0 fs-14",
+          prominant: true,
         }}
         headRightComp={
           <div className="options d-flex ms-3 align-items-end pb-3">
@@ -49,7 +52,13 @@ const ModalProfile = (props) => {
                 <div className="col-sm-6">
                   <FancyInput
                     select
-                    options={[{ text: "Select in the menu" }]}
+                    options={[
+                      {
+                        text: "Select in the menu",
+                        disabled: true,
+                        selected: true,
+                      },
+                    ]}
                     prominant
                     id="client"
                     name="client"
@@ -58,89 +67,102 @@ const ModalProfile = (props) => {
                   />
                 </div>
                 <div className="col-sm-6">
-                  <div className="fw-600">Description</div>
-                  <div className="text-small text-dark">
-                    Clay is a new type of tool that brings together the best
-                    parts of spreadsheets, coding &amp; simple automation.
-                    Quickly connect your apps and code into automated workflows.
+                  <div className="emboss-input pb-3">
+                    <div className="fw-600">Description</div>
+                    <div className="text-small text-dark">
+                      Clay is a new type of tool that brings together the best
+                      parts of spreadsheets, coding &amp; simple automation.
+                      Quickly connect your apps and code into automated
+                      workflows.
+                    </div>
                   </div>
                 </div>
                 <div className="col-sm-6">
                   <FancyInput
                     select
-                    options={[{ text: "Select in the menu" }]}
+                    options={[
+                      {
+                        text: "INTERNAL (IR)",
+                      },
+                    ]}
                     prominant
-                    prominantBlue
-                    sMargin
-                    id="client"
-                    name="client"
-                    placeholder="Select in the menu"
+                    id="internal"
+                    name="internal"
                   />
                 </div>
               </div>
             </div>
 
-            <div className="mt-5 d-flex justify-content-between">
-              <div className="fw-700 fs-12 sub-title">Sub-Tasks</div>
-              <AddBtn black title="NEW" />
-            </div>
+            <div className="ps-3">
+              <div className="mt-4 d-flex justify-content-between">
+                <div className="fw-700 fs-12 sub-title">Sub-Tasks</div>
+                <AddBtn pale small />
+              </div>
 
-            <div className="sub-tasks">
-              {[
-                {
-                  checked: true,
-                  text: "Create real-time seeket for agenda",
-                  day: "Tommorrow",
-                },
-                {
-                  text: "Suggest a discussion of statistics",
-                },
-              ].map((el, idx) => {
-                return (
-                  <div
-                    key={"sub-task" + idx}
-                    className={`sub-task${el.checked ? " checked" : ""}`}
-                  >
-                    <Input
-                      defaultChecked={el.checked}
-                      greenCheckbox
-                      options={[{ text: el.text }]}
-                      checkbox
-                    />
-                    <div>
-                      {!el.day && (
-                        <img
-                          src="./assets/vectors/calender-4.svg"
-                          alt="calender"
-                        />
-                      )}
-                      {el.day && (
-                        <div className="day">
+              <div className="sub-tasks">
+                {[
+                  {
+                    checked: true,
+                    text: "Create real-time seeket for agenda",
+                    day: "Tommorrow",
+                  },
+                  {
+                    text: "Suggest a discussion of statistics",
+                  },
+                ].map((el, idx) => {
+                  return (
+                    <div
+                      key={"sub-task" + idx}
+                      className={`sub-task${el.checked ? " checked" : ""}`}
+                    >
+                      <Input
+                        defaultChecked={el.checked}
+                        greenCheckbox
+                        options={[{ text: el.text }]}
+                        checkbox
+                      />
+                      <div>
+                        {!el.day && (
                           <img
-                            className="me-2"
-                            src="./assets/vectors/calender-4-red.svg"
+                            src="./assets/vectors/calender-4.svg"
                             alt="calender"
                           />
-                          {el.day}
-                        </div>
-                      )}
+                        )}
+                        {el.day && (
+                          <div className="day">
+                            <img
+                              className="me-2"
+                              src="./assets/vectors/calender-4-red.svg"
+                              alt="calender"
+                            />
+                            {el.day}
+                          </div>
+                        )}
+                      </div>
                     </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            <div className="d-flex justify-content-between mt-4">
+              <div className="emboss-c flex-grow-1 me-4">
+                <div className="p-4 py-3">
+                  <div className="fw-700 fs-12 sub-title mb-3">Attachments</div>
+
+                  <div className="attachment-sm ms-2">
+                    <img
+                      src="./assets/img/comment-attachment.jpg"
+                      alt="attachment"
+                    />
                   </div>
-                );
-              })}
-            </div>
-
-            <div className="mt-5 d-flex justify-content-between">
-              <div className="fw-700 fs-12 sub-title">Attachments</div>
-              <AddBtn black title="NEW" />
-            </div>
-
-            <div className="attachment-sm">
-              <img src="./assets/img/comment-attachment.jpg" alt="attachment" />
+                </div>
+              </div>
+              <AddBtn className="mt-3" pale small />
             </div>
           </div>
 
-          <div className="comments">
+          <div className="comments mt-4">
             {[
               {
                 name: "Moinul Hasan",
@@ -187,7 +209,7 @@ const ModalProfile = (props) => {
                 </div>
               );
             })}
-            <div className="comment-item">
+            <div className="comment-item mt-5">
               <div className="img">
                 <img
                   src="./assets/vectors/comment-user.svg"
@@ -195,7 +217,11 @@ const ModalProfile = (props) => {
                 />
               </div>
               <div className="text">
-                <input type="text" placeholder="Write a comment..." />
+                <input
+                  className=""
+                  type="text"
+                  placeholder="Write a comment..."
+                />
               </div>
             </div>
           </div>

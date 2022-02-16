@@ -1,8 +1,8 @@
 import React from "react";
-
 import clsx from "clsx";
 
 import FancyInput from "../components/FancyInput";
+import AddBtn from "../components/AddBtn";
 
 const Modal = ({
   isOpen,
@@ -12,6 +12,7 @@ const Modal = ({
   headClassName,
   bodyClassName,
   headRightComp,
+  titleVector,
   title,
   subTitle,
   forText,
@@ -29,6 +30,7 @@ const Modal = ({
       <div
         className={clsx(
           "custom-modal",
+          "br-16",
           "short-scrollbar",
           className,
           isOpen && "show",
@@ -41,11 +43,12 @@ const Modal = ({
             className={`modal-head${headClassName ? " " + headClassName : ""}`}
           >
             <div className="text">
-              <h2 className="main-title">{title}</h2>
+              {titleVector && <img src={titleVector} alt={title} />}
+              <h3 className="section-title">{title}</h3>
               <div className="title-label fs-10">{subTitle}</div>
               {forText && (
-                <div className="fs-12 mt-1">
-                  For : <span className="fs-12 fw-600">{forText}</span>
+                <div className="fs-12 mt-1 text-neum">
+                  For :<span className="fs-12 fw-600 text-neum">{forText}</span>
                 </div>
               )}
             </div>
@@ -62,12 +65,7 @@ const Modal = ({
         </div>
         {buttonText && (
           <div className="modal-foot">
-            <button
-              onClick={modalCloseHandler}
-              className="btn btn-blue btn-rounded"
-            >
-              {buttonText}
-            </button>
+            <AddBtn onClick={modalCloseHandler} gradient title={buttonText} />
           </div>
         )}
       </div>

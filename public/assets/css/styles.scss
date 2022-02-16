@@ -3403,7 +3403,11 @@ button {
   display: flex;
 
   .item {
-    margin-right: 32px;
+    border-radius: 8px;
+    margin-right: 18px;
+    padding: 20px 12px 10px;
+    box-shadow: 5px 5px 10px $color123, -6px -6px 10px $color114;
+    text-align: center;
   }
 }
 
@@ -3411,6 +3415,8 @@ button {
   border-radius: 6px;
   padding: 20px 15px;
   border: 1px dashed $color33;
+  background-color: #fff;
+  border: 1px dashed $color101;
 
   .left {
     img {
@@ -3457,6 +3463,11 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 6px 6px 10px $color125,
+      -6px -6px 10px rgba($color: #fff, $alpha: 0.4);
+    padding: 14px 12px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
 
     & > *:not(img) {
       flex-grow: 1;
@@ -3501,8 +3512,16 @@ button {
   }
 }
 
+.schedule-modal {
+  max-width: 375px;
+}
+
 .schedule-modal-body {
   .head {
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: -12px -12px 15px $color103, 12px 12px 15px $color102;
+
     .img {
       width: 40px;
       height: 40px;
@@ -3510,7 +3529,6 @@ button {
       justify-content: center;
       align-items: center;
       border-radius: 50%;
-      background: $color15;
     }
   }
 
@@ -3578,6 +3596,7 @@ button {
 
 .invoice-modal {
   max-width: 1080px;
+  background-color: #fff;
 
   .modal-body {
     padding: 0;
@@ -3595,7 +3614,11 @@ button {
     .left {
       flex-grow: 1;
       flex-shrink: 1;
-      padding: 20px 30px;
+      padding: 40px 50px 20px 26px;
+
+      @media screen and (max-width: 860px) {
+        padding: 20px 30px;
+      }
 
       .invoice-head {
         margin-top: 18px;
@@ -3699,6 +3722,7 @@ button {
       padding: 74px 18px;
       flex-shrink: 0;
       min-width: 340px;
+      background-color: $color101;
 
       @media screen and (max-width: 860px) {
         width: 100%;
@@ -3734,12 +3758,17 @@ button {
       input,
       textarea,
       select {
-        border: 1px solid $color80;
+        border: none;
         border-radius: 6px;
         padding: 12px;
         font-family: "inter", sans-serif;
         background: transparent;
         margin-top: 0.25rem;
+      }
+
+      input,
+      textarea {
+        @extend %emboss-input;
       }
 
       select {
@@ -3756,20 +3785,31 @@ button {
 
       .transactions {
         overflow-y: auto;
+        margin-left: -18px;
+        margin-right: -18px;
+        padding-left: 18px;
+        padding-right: 18px;
 
         .transaction-item {
           min-width: 300px;
-          background: #fff;
           border-radius: 5px;
-          padding: 22px;
-          margin-bottom: 8px;
+          padding: 12px 20px;
+          margin-bottom: 28px;
           display: flex;
           justify-content: space-between;
+          box-shadow: 6px 6px 10px $color125,
+            -6px -6px 10px rgba($color: #fff, $alpha: 0.4);
 
           * {
             font-family: "inter", sans-serif;
             font-weight: 400;
             font-size: 16px;
+            display: flex;
+            align-items: center;
+
+            img {
+              margin-left: 12px;
+            }
           }
         }
       }
@@ -3865,7 +3905,6 @@ button {
     .comments {
       background: $color17;
       padding: 20px 0;
-      margin-top: 4rem;
 
       .comment-item {
         margin-top: 12px;
@@ -3899,11 +3938,13 @@ button {
           padding: 10px;
           font-family: "inter", sans-serif;
           border-radius: 4px;
-          background: #fff;
+          background: transparent;
           font-size: 10px;
           width: 100%;
           display: block;
           border: 1px solid $color5;
+          box-shadow: inset 4px 4px 6px $color126,
+            inset -4px -4px 6px rgba(255, 255, 255, 0.25);
 
           &::placeholder {
             color: $color2;

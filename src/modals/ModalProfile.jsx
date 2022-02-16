@@ -7,15 +7,24 @@ const ModalProfile = (props) => {
   return (
     <div>
       <Modal
+        titleVector="./assets/vectors/modal-profile.svg"
         title="Profile"
         className="profile-modal"
-        buttonText="Add"
+        buttonText="Save"
+        // headInput={{
+        //   prominantBlue: true,
+        //   id: "type",
+        //   name: "type",
+        //   label: "Profile type",
+        //   value: "VEHICLE",
+        // }}
         headInput={{
           prominantBlue: true,
+          select: true,
           id: "type",
           name: "type",
           label: "Profile type",
-          value: "VEHICLE",
+          options: [{ text: "VEHICLE" }],
         }}
         {...props}
       >
@@ -26,7 +35,6 @@ const ModalProfile = (props) => {
                 <FancyInput
                   prominant
                   sMargin
-                  largePaddingBottom
                   id="vin"
                   name="vin"
                   label="VIN"
@@ -37,7 +45,6 @@ const ModalProfile = (props) => {
                 <FancyInput
                   prominant
                   sMargin
-                  largePaddingBottom
                   id="client"
                   name="client"
                   label="Node Client"
@@ -46,10 +53,8 @@ const ModalProfile = (props) => {
               </div>
               <div className="col-sm-4">
                 <FancyInput
-                  lightLabel
                   prominant
                   sMargin
-                  largePaddingBottom
                   id="year"
                   name="year"
                   label="YEAR"
@@ -58,10 +63,8 @@ const ModalProfile = (props) => {
               </div>
               <div className="col-sm-4">
                 <FancyInput
-                  lightLabel
                   prominant
                   sMargin
-                  largePaddingBottom
                   id="make"
                   name="make"
                   label="MAKE"
@@ -70,10 +73,8 @@ const ModalProfile = (props) => {
               </div>
               <div className="col-sm-4">
                 <FancyInput
-                  lightLabel
                   prominant
                   sMargin
-                  largePaddingBottom
                   id="model"
                   name="model"
                   label="MODEL"
@@ -81,14 +82,16 @@ const ModalProfile = (props) => {
                 />
               </div>
               <div className="col-12">
-                <div className="fw-600 mt-2 mb-4">Attachments</div>
-                <label
-                  className="upload-label text-light-5 fw-300 text-manrope ps-4"
-                  htmlFor="upload"
-                >
-                  Upload your attachment
-                </label>
-                <input type="file" id="upload" />
+                <FancyInput
+                  prominant
+                  sMargin
+                  type="file"
+                  id="upload"
+                  name="model"
+                  label="Attachments"
+                  label2="Upload your attachment"
+                  placeholder="Type a Valide VIN"
+                />
               </div>
             </div>
           </div>

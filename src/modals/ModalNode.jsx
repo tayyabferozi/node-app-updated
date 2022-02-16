@@ -13,13 +13,10 @@ const ModalNode = (props) => {
         {...props}
       >
         <div className="node-modal-body">
-          <div className="fs-26 fw-500 text-blue lh-1">
-            Node <br />
-            Something
-          </div>
+          <h3 className="mb-3 section-title">Node Something</h3>
 
           <FancyInput
-            prominantBlue
+            smallLabel
             id="tires"
             name="tires"
             label="Choose from the List "

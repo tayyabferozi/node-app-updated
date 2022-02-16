@@ -9,12 +9,14 @@ const ModalArticle = (props) => {
     <div>
       <Modal
         className="article-modal"
+        titleVector="./assets/vectors/modal-article.svg"
         title="Article"
-        buttonText="Update list"
+        buttonText="SAVE"
         {...props}
       >
         <div className="article-modal-body">
           <FancyInput
+            sMargin
             prominant
             id="articleName"
             name="articleName"
@@ -26,15 +28,17 @@ const ModalArticle = (props) => {
             <div className="row">
               <div className="col-sm-6">
                 <FancyInput
+                  sMargin
                   prominant
-                  id="serialNum"
-                  name="serialNum"
-                  label="Serial Number"
+                  id="sku"
+                  name="sku"
+                  label="SKU"
                   placeholder="Start typing..."
                 />
               </div>
               <div className="col-sm-6">
                 <FancyInput
+                  sMargin
                   prominant
                   id="availQuan"
                   name="availQuan"
@@ -44,6 +48,7 @@ const ModalArticle = (props) => {
               </div>
               <div className="col-sm-6">
                 <FancyInput
+                  sMargin
                   prominant
                   id="price"
                   name="price"
@@ -53,17 +58,49 @@ const ModalArticle = (props) => {
               </div>
               <div className="col-sm-6">
                 <FancyInput
+                  sMargin
                   prominant
                   id="category"
                   name="category"
                   label="Category"
+                  placeholder="Select category"
+                />
+              </div>
+              <div className="col-sm-6">
+                <FancyInput
+                  sMargin
+                  prominant
+                  id="waranty"
+                  name="waranty"
+                  label="Waranty"
                   placeholder="Start typing..."
                 />
               </div>
               <div className="col-sm-6">
-                <div className="d-flex justify-content-between align-items-center">
-                  <div className="fw-600">Picture</div>
-                  <AddBtn blue />
+                <FancyInput
+                  sMargin
+                  prominant
+                  id="dimensions"
+                  name="dimensions"
+                  label="Dimensions (W x H x L)"
+                  placeholder="Select category"
+                />
+              </div>
+              <div className="col-sm-12">
+                <div className="d-flex align-items-start ">
+                  <FancyInput
+                    sMargin
+                    rootStyle={{ width: "75%" }}
+                    prominant
+                    sMargin
+                    type="file"
+                    id="upload"
+                    name="model"
+                    label="Attachments"
+                    label2="Upload your picture"
+                    placeholder="Type a Valide VIN"
+                  />
+                  <AddBtn className="ms-4 mt-4" small blue />
                 </div>
               </div>
             </div>

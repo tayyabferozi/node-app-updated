@@ -1,4 +1,5 @@
 import React from "react";
+import AddBtn from "../components/AddBtn";
 
 import Modal from "./Modal";
 
@@ -11,15 +12,30 @@ const ModalLifeActivity = ({ modalCloseHandler, ...rest }) => {
         {...rest}
       >
         <div className="left">
-          <h2 className="main-title">Invoice #AA-04-19-1890</h2>
+          <h2 className="section-title">Invoice #AA-04-19-1890</h2>
 
           <div className="invoice-head">
-            <div className="head-left mt-4">
-              <div className="fw-600 mb-2">Garage Lelaval</div>
-              <div className="text-small text-dark-4">61 Wellfield Road</div>
-              <div className="text-small text-dark-4">Cardiff, CF24 3DG</div>
-              <div className="text-small text-dark-4">mail@wonw.xyz</div>
-              <div className="text-small text-dark-4">+1 456–980-3004</div>
+            <div className="head-left mt-4 ms-2">
+              <div className="d-flex">
+                <img
+                  width={42}
+                  height={42}
+                  className="me-3"
+                  src="./assets/img/user-placeholder.png"
+                  alt="garage"
+                />
+                <div>
+                  <div className="fw-600 mb-2">Garage Lelaval</div>
+                  <div className="text-small text-dark-4">
+                    61 Wellfield Road
+                  </div>
+                  <div className="text-small text-dark-4">
+                    Cardiff, CF24 3DG
+                  </div>
+                  <div className="text-small text-dark-4">mail@wonw.xyz</div>
+                  <div className="text-small text-dark-4">+1 456–980-3004</div>
+                </div>
+              </div>
             </div>
 
             <div className="head-right">
@@ -39,9 +55,9 @@ const ModalLifeActivity = ({ modalCloseHandler, ...rest }) => {
                 <div className="fw-600">GoodRich tires</div>
               </div>
             </div>
-            <div className="bill-to-right">
-              <div className="text-lato fs-12 text-blue fw-700">Bill to:</div>
-              <div className="fw-600 mb-2 mt-4">Johanne Larose</div>
+            <div className="bill-to-right text-end">
+              <div className="text-lato fs-12 text-neum fw-700">Bill to:</div>
+              <div className="fw-600 mb-2 mt-3">Johanne Larose</div>
               <div className="text-small text-dark-4">3 Edgar Buildings</div>
               <div className="text-small text-dark-4">George Street</div>
               <div className="text-small text-dark-4">England, BA1 2FJ</div>
@@ -107,8 +123,8 @@ const ModalLifeActivity = ({ modalCloseHandler, ...rest }) => {
                 <div className="item fw-600">114.98$</div>
               </div>
               <div className="line">
-                <div className="item fw-600">Balance</div>
-                <div className="item fw-600">0.00$</div>
+                <div className="item fw-600 text-neum">Balance</div>
+                <div className="item fw-600 text-neum">0.00$</div>
               </div>
             </div>
           </div>
@@ -123,7 +139,9 @@ const ModalLifeActivity = ({ modalCloseHandler, ...rest }) => {
           </div>
 
           <div className="custom-form-control">
-            <label htmlFor="amount">Ammount</label>
+            <label className="text-dark-3" htmlFor="amount">
+              Ammount
+            </label>
             <div className="d-flex">
               <div className="select-container">
                 <select className="custom-input" name="currency" id="">
@@ -137,35 +155,44 @@ const ModalLifeActivity = ({ modalCloseHandler, ...rest }) => {
             </div>
           </div>
 
-          <label htmlFor="description">Description (Optional)</label>
+          <label className="text-dark-3" htmlFor="description">
+            Description (Optional)
+          </label>
           <textarea name="" id="" rows="4"></textarea>
 
           <div className="d-flex justify-content-end mt-4 pb-5">
-            <button
+            {/* <button
               onClick={modalCloseHandler}
               className="btn btn-blue btn-rounded"
             >
               Add Transaction
-            </button>
+            </button> */}
+            <AddBtn gradient title="SAVE" />
           </div>
 
-          <div className="transactions short-vertical-scrollbar mt-4">
+          <div className="transactions short-vertical-scrollbar mt-5">
             <h3 className="section-title mb-3">Transactions</h3>
 
             <div className="transaction-item">
               <div>Jun 22, 2021</div>
               <div>10.00$</div>
-              <div>VISA</div>
+              <div>
+                VISA <img src="./assets/vectors/cash.svg" alt="cash" />
+              </div>
             </div>
             <div className="transaction-item">
               <div>Jun 23, 2021</div>
               <div>4.98$</div>
-              <div>VISA</div>
+              <div>
+                VISA <img src="./assets/vectors/cash.svg" alt="cash" />
+              </div>
             </div>
             <div className="transaction-item">
               <div>Jun 24, 2021</div>
               <div>100.00$</div>
-              <div>CASH</div>
+              <div>
+                CASH <img src="./assets/vectors/cash.svg" alt="cash" />
+              </div>
             </div>
           </div>
         </div>
