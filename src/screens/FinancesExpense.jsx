@@ -133,7 +133,7 @@ const purchases = [
 ];
 
 const FinancesExpense = () => {
-  const [purchaseAddSelected, setPurchaseAddSelected] = useState(true);
+  const [purchaseAddSelected, setPurchaseAddSelected] = useState(false);
   return (
     <MainLayout
       title={"Expenses"}

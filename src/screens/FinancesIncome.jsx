@@ -73,7 +73,7 @@ const dummyData = [
 ];
 
 const FinancesIncome = () => {
-  const [incomeConvertedSelected, setIncomeConvertedSelected] = useState(true);
+  const [incomeConvertedSelected, setIncomeConvertedSelected] = useState(false);
   const [paymentModalOpenState, setPaymentModalOpenState] = useState(false);
 
   const modalOpenHandler = (func) => {
@@ -118,13 +118,13 @@ const FinancesIncome = () => {
         {!incomeConvertedSelected ? (
           <div className="container-fluid">
             <div className="row">
-              <div className="col-1 d-flex justify-content-center align-items-center">
-                <img src="./assets/vectors/filter-contained.svg" alt="filter" />
+              <div className="col-12 col-md-6">
+                <SearchInput
+                  withFilter
+                  placeholder="Search Users by Name or Email"
+                />
               </div>
-              <div className="col-11 col-md-4">
-                <SearchInput placeholder="Search Users by Name or Email" />
-              </div>
-              <div className="col-4 d-flex align-items-center">
+              <div className="col-12 pt-4 pt-md-0 col-md-3 d-flex align-items-center">
                 <Tabs
                   verticalButtons
                   tabClassName="mb-4 mb-sm-0 px-2 mx-2"
