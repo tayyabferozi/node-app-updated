@@ -35,6 +35,7 @@ import ModalSchedule from "./modals/ModalSchedule";
 import ModalLiveActivity from "./modals/ModalLifeActivity";
 import ModalInvoice from "./modals/ModalInvoice";
 import ModalOrder from "./modals/ModalOrder";
+import WorkorderDetails from "./screens/WorkorderDetails";
 
 function App() {
   return (
@@ -68,6 +69,7 @@ function App() {
           <Route path="/workshop-storage" element={<WorkshopStorage />} />
           <Route path="/workshop-articles" element={<WorkshopArticles />} />
           <Route path="/workshop-noded" element={<WorkshopNoded />} />
+          <Route path="/workshop-workorder-details" element={<WorkorderDetails />} />
 
           <Route path="/modal-1" element={<ModalForm isOpen />} />
           <Route path="/modal-2" element={<ModalScan isOpen />} />
