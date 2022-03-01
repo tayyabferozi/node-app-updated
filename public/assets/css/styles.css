@@ -134,6 +134,28 @@
   background: linear-gradient(to right, #1e55a9, #2bbfc7);
 }
 
+.vertical-scrollbar {
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+
+.vertical-scrollbar::-webkit-scrollbar {
+  height: 2px;
+}
+
+.vertical-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.vertical-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+.vertical-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 body {
   background-color: #ecf0f3;
 }

@@ -149,7 +149,7 @@ const WorkshopArticles = () => {
           </div>
 
           <div className="mt-3 br-16 emboss-white px-3 py-4">
-            <div className="table-container">
+            <div className="table-container vertical-scrollbar">
               <table style={{ minWidth: 500 }}>
                 <tr>
                   <td style={{ width: "35%" }}>Order Rear Light</td>
