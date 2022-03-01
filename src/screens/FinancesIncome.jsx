@@ -5,6 +5,7 @@ import FancyInput from "../components/FancyInput";
 import Tabs from "../components/Tabs";
 import MainLayout from "../layouts/MainLayout";
 import ModalInvoice from "../modals/ModalInvoice";
+import Accordion from "../components/Accordion";
 
 const dummyData = [
   {
@@ -256,242 +257,662 @@ const FinancesIncome = () => {
               <div className="col-12 col-lg-7">
                 <div className="collapses-container">
                   <div className="collapse">
-                    <div className="head">
-                      <div className="text-dark-3 text-lato fw-800 fs-12">
-                        Service: Front Back Change
-                      </div>
+                    <Accordion
+                      headComp={
+                        <div className="head">
+                          <div className="text-dark-3 text-lato fw-800 fs-12">
+                            Service: Front Back Change
+                          </div>
 
-                      <div className="options">
-                        <div className="btn p-0">
-                          <img
-                            src="./assets/vectors/arrow-down-1.svg"
-                            alt="arrow-down"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="body">
-                      <div className="collapse-section">
-                        <div className="container-fluid px-0">
-                          <div className="row">
-                            <div className="col-6">
-                              <FancyInput
-                                embossed={false}
-                                icon="/vectors/cart.svg"
-                                prominantBlue
-                                mdPaddingBottom
-                                sMargin
-                                label="&nbsp;"
-                                id="pad"
-                                name="pad"
-                                placeholder="Start typing..."
-                                value="Front Pad"
-                              />
-                            </div>
-                            <div className="col-6">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="sku"
-                                name="sku"
-                                label="SKU"
-                                placeholder="Start typing..."
-                                value="873244424343-32"
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="quantity"
-                                name="quantity"
-                                label="Quantity"
-                                placeholder="Start typing..."
-                                value="2"
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="availability"
-                                name="availability"
-                                label="Availability"
-                                placeholder="Start typing..."
-                                value="76"
-                                disabled
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="price"
-                                name="price"
-                                label="Unit Price"
-                                placeholder="Start typing..."
-                                value="20.00%"
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="price"
-                                name="price"
-                                label="Categorie"
-                                placeholder="Start typing..."
-                                value="BRAKE"
+                          <div className="options">
+                            <div className="btn p-0">
+                              <img
+                                className="arrow"
+                                src="./assets/vectors/arrow-down-1.svg"
+                                alt="arrow-down"
                               />
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div className="collapse-section">
-                        <div className="container-fluid px-0">
-                          <div className="row">
-                            <div className="col-6">
-                              <FancyInput
-                                embossed={false}
-                                icon="/vectors/cart.svg"
-                                prominantBlue
-                                mdPaddingBottom
-                                sMargin
-                                label="&nbsp;"
-                                id="pad"
-                                name="pad"
-                                placeholder="Start typing..."
-                                value="Front Brake Change with OP"
-                              />
+                      }
+                    >
+                      <div className="body">
+                        <div className="collapse-section">
+                          <div className="container-fluid px-0">
+                            <div className="row">
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  icon="/vectors/cart.svg"
+                                  prominantBlue
+                                  mdPaddingBottom
+                                  sMargin
+                                  label="&nbsp;"
+                                  id="pad"
+                                  name="pad"
+                                  placeholder="Start typing..."
+                                  value="Front Pad"
+                                />
+                              </div>
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="sku"
+                                  name="sku"
+                                  label="SKU"
+                                  placeholder="Start typing..."
+                                  value="873244424343-32"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="quantity"
+                                  name="quantity"
+                                  label="Quantity"
+                                  placeholder="Start typing..."
+                                  value="2"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="availability"
+                                  name="availability"
+                                  label="Availability"
+                                  placeholder="Start typing..."
+                                  value="76"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Unit Price"
+                                  placeholder="Start typing..."
+                                  value="20.00%"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Categorie"
+                                  placeholder="Start typing..."
+                                  value="BRAKE"
+                                />
+                              </div>
                             </div>
-                            <div className="col-6">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="sku"
-                                name="sku"
-                                label="SKU"
-                                placeholder="Start typing..."
-                                value="L-FBC-OP"
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="quantity"
-                                name="quantity"
-                                label="Quantity"
-                                placeholder="Start typing..."
-                                value="1"
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="availability"
-                                name="availability"
-                                label="Availability"
-                                placeholder="Start typing..."
-                                value="NA"
-                                disabled
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="price"
-                                name="price"
-                                label="Unit Price"
-                                placeholder="Start typing..."
-                                value="47.00$"
-                              />
-                            </div>
-                            <div className="col-6 col-sm-3">
-                              <FancyInput
-                                embossed={false}
-                                prominant
-                                lightLabel
-                                thinlabel
-                                mdPaddingBottom
-                                sMargin
-                                id="price"
-                                name="price"
-                                label="Categorie"
-                                placeholder="Start typing..."
-                                value="LABOR"
-                              />
+                          </div>
+                        </div>
+                        <div className="collapse-section">
+                          <div className="container-fluid px-0">
+                            <div className="row">
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  icon="/vectors/cart.svg"
+                                  prominantBlue
+                                  mdPaddingBottom
+                                  sMargin
+                                  label="&nbsp;"
+                                  id="pad"
+                                  name="pad"
+                                  placeholder="Start typing..."
+                                  value="Front Brake Change with OP"
+                                />
+                              </div>
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="sku"
+                                  name="sku"
+                                  label="SKU"
+                                  placeholder="Start typing..."
+                                  value="L-FBC-OP"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="quantity"
+                                  name="quantity"
+                                  label="Quantity"
+                                  placeholder="Start typing..."
+                                  value="1"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="availability"
+                                  name="availability"
+                                  label="Availability"
+                                  placeholder="Start typing..."
+                                  value="NA"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Unit Price"
+                                  placeholder="Start typing..."
+                                  value="47.00$"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Categorie"
+                                  placeholder="Start typing..."
+                                  value="LABOR"
+                                />
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Accordion>
                   </div>
-                  <div className="collapse closed">
-                    <div className="head">
-                      <div className="text">Unit : Oil - (1L) 5W30 Syn.</div>
+                  <div className="collapse">
+                    <Accordion
+                      headComp={
+                        <div className="head">
+                          <div className="text-dark-3 text-lato fw-800 fs-12">
+                            Unit : Oil - (1L) 5W30 Syn.
+                          </div>
 
-                      <div className="options">
-                        <div className="btn p-0">
-                          <img
-                            src="./assets/vectors/arrow-down-1.svg"
-                            alt="arrow-down"
-                          />
+                          <div className="options">
+                            <div className="btn p-0">
+                              <img
+                                className="bin"
+                                src="./assets/vectors/bin-3.svg"
+                                alt="bin"
+                              />
+                              <img
+                                className="arrow"
+                                src="./assets/vectors/arrow-down-1.svg"
+                                alt="arrow-down"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      }
+                    >
+                      <div className="body">
+                        <div className="collapse-section">
+                          <div className="container-fluid px-0">
+                            <div className="row">
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  icon="/vectors/cart.svg"
+                                  prominantBlue
+                                  mdPaddingBottom
+                                  sMargin
+                                  label="&nbsp;"
+                                  id="pad"
+                                  name="pad"
+                                  placeholder="Start typing..."
+                                  value="Front Pad"
+                                />
+                              </div>
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="sku"
+                                  name="sku"
+                                  label="SKU"
+                                  placeholder="Start typing..."
+                                  value="873244424343-32"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="quantity"
+                                  name="quantity"
+                                  label="Quantity"
+                                  placeholder="Start typing..."
+                                  value="2"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="availability"
+                                  name="availability"
+                                  label="Availability"
+                                  placeholder="Start typing..."
+                                  value="76"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Unit Price"
+                                  placeholder="Start typing..."
+                                  value="20.00%"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Categorie"
+                                  placeholder="Start typing..."
+                                  value="BRAKE"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="collapse-section">
+                          <div className="container-fluid px-0">
+                            <div className="row">
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  icon="/vectors/cart.svg"
+                                  prominantBlue
+                                  mdPaddingBottom
+                                  sMargin
+                                  label="&nbsp;"
+                                  id="pad"
+                                  name="pad"
+                                  placeholder="Start typing..."
+                                  value="Front Brake Change with OP"
+                                />
+                              </div>
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="sku"
+                                  name="sku"
+                                  label="SKU"
+                                  placeholder="Start typing..."
+                                  value="L-FBC-OP"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="quantity"
+                                  name="quantity"
+                                  label="Quantity"
+                                  placeholder="Start typing..."
+                                  value="1"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="availability"
+                                  name="availability"
+                                  label="Availability"
+                                  placeholder="Start typing..."
+                                  value="NA"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Unit Price"
+                                  placeholder="Start typing..."
+                                  value="47.00$"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Categorie"
+                                  placeholder="Start typing..."
+                                  value="LABOR"
+                                />
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Accordion>
                   </div>
-                  <div className="collapse closed">
-                    <div className="head">
-                      <div className="text">Unit : 7C Battery</div>
+                  <div className="collapse">
+                    <Accordion
+                      headComp={
+                        <div className="head">
+                          <div className="text-dark-3 text-lato fw-800 fs-12">
+                            Unit : 7C Battery
+                          </div>
 
-                      <div className="options">
-                        <div className="btn p-0">
-                          <img
-                            src="./assets/vectors/arrow-down-1.svg"
-                            alt="arrow-down"
-                          />
+                          <div className="options">
+                            <div className="btn p-0">
+                              <img
+                                className="bin"
+                                src="./assets/vectors/bin-3.svg"
+                                alt="bin"
+                              />
+                              <img
+                                className="arrow"
+                                src="./assets/vectors/arrow-down-1.svg"
+                                alt="arrow-down"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      }
+                    >
+                      <div className="body">
+                        <div className="collapse-section">
+                          <div className="container-fluid px-0">
+                            <div className="row">
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  icon="/vectors/cart.svg"
+                                  prominantBlue
+                                  mdPaddingBottom
+                                  sMargin
+                                  label="&nbsp;"
+                                  id="pad"
+                                  name="pad"
+                                  placeholder="Start typing..."
+                                  value="Front Pad"
+                                />
+                              </div>
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="sku"
+                                  name="sku"
+                                  label="SKU"
+                                  placeholder="Start typing..."
+                                  value="873244424343-32"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="quantity"
+                                  name="quantity"
+                                  label="Quantity"
+                                  placeholder="Start typing..."
+                                  value="2"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="availability"
+                                  name="availability"
+                                  label="Availability"
+                                  placeholder="Start typing..."
+                                  value="76"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Unit Price"
+                                  placeholder="Start typing..."
+                                  value="20.00%"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Categorie"
+                                  placeholder="Start typing..."
+                                  value="BRAKE"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="collapse-section">
+                          <div className="container-fluid px-0">
+                            <div className="row">
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  icon="/vectors/cart.svg"
+                                  prominantBlue
+                                  mdPaddingBottom
+                                  sMargin
+                                  label="&nbsp;"
+                                  id="pad"
+                                  name="pad"
+                                  placeholder="Start typing..."
+                                  value="Front Brake Change with OP"
+                                />
+                              </div>
+                              <div className="col-6">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="sku"
+                                  name="sku"
+                                  label="SKU"
+                                  placeholder="Start typing..."
+                                  value="L-FBC-OP"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="quantity"
+                                  name="quantity"
+                                  label="Quantity"
+                                  placeholder="Start typing..."
+                                  value="1"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="availability"
+                                  name="availability"
+                                  label="Availability"
+                                  placeholder="Start typing..."
+                                  value="NA"
+                                  disabled
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Unit Price"
+                                  placeholder="Start typing..."
+                                  value="47.00$"
+                                />
+                              </div>
+                              <div className="col-6 col-sm-3">
+                                <FancyInput
+                                  embossed={false}
+                                  prominant
+                                  lightLabel
+                                  thinlabel
+                                  mdPaddingBottom
+                                  sMargin
+                                  id="price"
+                                  name="price"
+                                  label="Categorie"
+                                  placeholder="Start typing..."
+                                  value="LABOR"
+                                />
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </Accordion>
                   </div>
                 </div>
 

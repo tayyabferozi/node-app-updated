@@ -47,17 +47,39 @@ const navItems = [
   },
 ];
 
+const tabData = {
+  img: true,
+  groupName: "workshop-articles-tabs",
+  tabs: [
+    {
+      icon: "./assets/vectors/workshop-articles.svg",
+      iconActive: "./assets/vectors/workshop-articles-active.svg",
+      target: "forms",
+      active: true,
+    },
+    {
+      icon: "./assets/vectors/workshop-services.svg",
+      iconActive: "./assets/vectors/workshop-services-active.svg",
+      target: "articles",
+    },
+    {
+      icon: "./assets/vectors/workshop-partner.svg",
+      iconActive: "./assets/vectors/workshop-partner-active.svg",
+      target: "partners",
+    },
+  ],
+};
+
 const WorkshopWorkorderLayout = ({
-  tabData,
-  activeLink,
+  activeLink = "workshop",
   contentClassName,
   children,
   title,
-  minimalNavRight,
 }) => {
   const itemsRef = useRef([]);
   const itemContainersRef = useRef([]);
   const [scanModalOpenState, setScanModalOpenState] = useState(false);
+  const [nodeOpenState, setNodeOpenState] = useState(false);
 
   const modalOpenHandler = (func) => {
     func(true);
@@ -67,80 +89,9 @@ const WorkshopWorkorderLayout = ({
     func(false);
   };
 
-  useEffect(() => {
-    itemContainersRef.current = itemContainersRef.current.slice(
-      0,
-      navItems.length
-    );
-    itemsRef.current = itemsRef.current.slice(0, navItems.length);
-
-    const lottieOptions = {
-      renderer: "svg",
-      loop: false,
-      autoplay: false,
-    };
-
-    const anim1 = lottie.loadAnimation({
-      ...lottieOptions,
-      container: itemsRef.current[0],
-      animationData: require("../animations/animation_kybu5p0h.json"),
-    });
-    const anim2 = lottie.loadAnimation({
-      ...lottieOptions,
-      container: itemsRef.current[1],
-      animationData: require("../animations/animation_kyc2cdig.json"),
-    });
-    const anim3 = lottie.loadAnimation({
-      ...lottieOptions,
-      container: itemsRef.current[2],
-      animationData: require("../animations/animation_kyc25zsj.json"),
-    });
-    const anim4 = lottie.loadAnimation({
-      ...lottieOptions,
-      container: itemsRef.current[3],
-      animationData: require("../animations/animation_kyc27m1g.json"),
-    });
-    const anim5 = lottie.loadAnimation({
-      ...lottieOptions,
-      container: itemsRef.current[4],
-      animationData: require("../animations/animation_kyc28kpf.json"),
-    });
-    const anim6 = lottie.loadAnimation({
-      ...lottieOptions,
-      container: itemsRef.current[5],
-      animationData: require("../animations/animation_kyc29iw0.json"),
-    });
-
-    const anims = [anim1, anim2, anim3, anim4, anim5, anim6];
-
-    const animLastFrame = 200;
-
-    anim1.goToAndStop(animLastFrame, true);
-    anim3.goToAndStop(animLastFrame, true);
-
-    itemContainersRef.current.forEach((el, idx) => {
-      el.addEventListener("mouseenter", (e) => {
-        anims[idx].goToAndStop(0, true);
-        anims[idx].setDirection(1);
-        anims[idx].play();
-      });
-      el.addEventListener("mouseleave", (e) => {
-        let frame = 0;
-        if (idx === 0 || idx === 2) {
-          frame = animLastFrame;
-        }
-        anims[idx].goToAndStop(frame, true);
-      });
-    });
-  }, []);
-
   const toggleSideNav = () => {
     $("#sidenav").toggleClass("active");
     $(".dark-overlay.overlay-sidenav").toggleClass("active");
-  };
-
-  const toggleTopMenu = () => {
-    $(".sidemenu").toggleClass("active");
   };
 
   return (
@@ -193,43 +144,52 @@ const WorkshopWorkorderLayout = ({
             </div>
             <button
               className="btn d-flex align-items-center"
-              onClick={toggleTopMenu}
+              // onClick={toggleTopMenu}
             >
               <img src="./assets/vectors/sidemenu-close.svg" alt="close" />
             </button>
           </div>
         </div>
-        <div className="d-flex flex-column align-items-center pt-4">
-          <Link to="/360">
+        <div className="d-flex align-items-start">
+          <div className="d-flex flex-column align-items-center pt-2">
+            <Link to="/360">
+              <img
+                className="logo"
+                src="./assets/vectors/logo-new.svg"
+                alt="logo"
+              />
+            </Link>
+            <div className="mt-2 text-center fw-500">{title}</div>
+          </div>
+          <div className="page-heading d-flex">
             <img
-              className="logo"
-              src="./assets/vectors/logo-new.svg"
-              alt="logo"
+              className="me-lg-5 me-4 hamburger d-1300-none"
+              src="./assets/vectors/hamburger.svg"
+              alt="hamburger"
+              onClick={toggleSideNav}
             />
-          </Link>
-          <div className="mt-2 text-center fw-500">{title}</div>
 
-        </div>
-        <div className="page-heading">
-
-
-          {tabData && (
-            <Tabs
-              tabGroupName={tabData.groupName}
-              data={tabData.tabs}
-              img={tabData.img}
-              {...tabData}
-            />
-          )}
+            {tabData && (
+              <Tabs
+                tabGroupName={tabData.groupName}
+                data={tabData.tabs}
+                img={tabData.img}
+                {...tabData}
+              />
+            )}
+          </div>
         </div>
         <div className="info">
           <SearchInput
             onQrClick={() => modalOpenHandler(setScanModalOpenState)}
             placeholder="Search Clients or Things "
-          // icon="./assets/vectors/qr.svg"
+            // icon="./assets/vectors/qr.svg"
           />
           <div className="nav">
-            <div className="dark-menu" onClick={toggleTopMenu}>
+            <div
+              className="dark-menu"
+              // onClick={toggleTopMenu}
+            >
               <img src="./assets/vectors/dark-bg-menu.svg" alt="menu" />
             </div>
             <Link to="/settings" className="settings">
@@ -255,7 +215,6 @@ const WorkshopWorkorderLayout = ({
         <div id="sidenav">
           <div className={`desc`}>
             <div className="workshop-workorder-layout">
-
               <div className="nav">
                 {[
                   {
@@ -299,13 +258,16 @@ const WorkshopWorkorderLayout = ({
                     vectorActive: "./assets/vectors/workorder-nav-7-active.svg",
                     to: "/workshop-realtime",
                     thisActiveLink: "workshop",
+                    active: true,
                   },
                 ].map((el, idx) => {
                   const { to, thisActiveLink, vector, vectorActive, text } = el;
 
                   return (
                     <Link
-                      className={clsx({ active: activeLink === thisActiveLink })}
+                      className={clsx({
+                        active: activeLink === thisActiveLink,
+                      })}
                       to={to}
                       key={"nav-item-" + idx}
                     >
@@ -329,11 +291,262 @@ const WorkshopWorkorderLayout = ({
             </div>
           </div>
         </div>
-        <div className="page-container">
+        {/* <div className="page-container"> */}
+        <div className="body flex-grow-1">
+          <div id="workshop-forms-main-content">
+            <div className="container-fluid px-0">
+              <div className="row gy-5">
+                <div className="col-xxl col-lg-5">
+                  <div className="car-main">
+                    <div className="text-center">
+                      <div className="fs-18 fw-bold">JFTK9887263312</div>
+                      <div className="fs-18 fw-500 lh-1 mt-2">
+                        2020 Toyota Prius Prime
+                      </div>
+                      <div className="fs-18 fw-300">LE HATCHBACK 4-DR</div>
+                    </div>
 
+                    <div className="car-info">
+                      <div className="date-time">
+                        <div className="d-flex align-items-center">
+                          <div
+                            style={{ background: "#1E55A9" }}
+                            className="circle round-box"
+                          ></div>
+                          <div className="fs-12 fw-bold text-blue">
+                            September 8, 2022
+                          </div>
+                        </div>
+                        <div className="fs-12" style={{ paddingLeft: "13px" }}>
+                          14:00 - 15:20
+                        </div>
+                      </div>
 
-          <div className="body">{children}</div>
+                      <div className="location">
+                        <div className="fw-bold">Location 1</div>
+                      </div>
+                    </div>
+
+                    <div className="car-container text-center">
+                      <img
+                        className="car mt-5"
+                        src="./assets/vectors/car.svg"
+                        alt="car"
+                      />
+                    </div>
+
+                    <div className="details mt-5 px-3">
+                      <div className="item">
+                        1. Check for <strong> Noise </strong> located
+                        <strong> Rear </strong> on
+                        <strong> Left </strong>
+                        Side, when <strong>He drives fast</strong>
+                      </div>
+                      <div className="item">
+                        2. Check for <strong> Malfunction </strong> located
+                        <strong> Front </strong> on <strong> Center </strong>{" "}
+                        Side, when <strong> evening is coming</strong>
+                      </div>
+                    </div>
+
+                    <div className="live pt-5 my-5">
+                      <h3 className="section-title text-center">Live Stuff</h3>
+
+                      <div className="item">
+                        <div className="d-flex justify-content-center align-items-center mt-4">
+                          <img
+                            className="flex-shrink-0 me-3"
+                            src="./assets/img/live-stuff.png"
+                            alt="live-stuff"
+                          />
+                          <div>
+                            <div className="fs-14 lh-1 fw-600">
+                              Repair Scratch
+                            </div>
+                            <div className="fs-10 lh-1 mt-2 fw-400">
+                              7 min ago
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xxl-5 col-lg-7">
+                  <div className="wrap">{children}</div>
+                </div>
+                <div className="col-xxl col-lg-3 d-xxl-none"></div>
+                <div className="col-xxl col-lg-5">
+                  <div className="card">
+                    <div className="user-info mb-5">
+                      <div className="">
+                        <h3 className="section-title">
+                          Bryandy Boyd
+                          <img
+                            className="ms-2"
+                            src="./assets/vectors/verified-black.svg"
+                            alt="noded"
+                          />
+                        </h3>
+                        <div>ernest.mason@gmail.com</div>
+                        <div className="fs-16 text-light-5">
+                          WO #329878316-23
+                        </div>
+                      </div>
+                      <div className="d-flex align-items-center pt-2">
+                        <div className="ms-4">561-303-6106</div>
+                        <img
+                          className="ms-2"
+                          src="./assets/vectors/user-placeholder.svg"
+                          alt="client"
+                        />
+                      </div>
+                    </div>
+
+                    <h3 className="section-title mb-4">Details</h3>
+
+                    <div className="details-main">
+                      <div className="item">
+                        <div
+                          className="c-pointer img"
+                          onClick={() => modalOpenHandler(setNodeOpenState)}
+                        >
+                          <img
+                            src="./assets/vectors/details-img.svg"
+                            alt="img"
+                          />
+                        </div>
+                        <div className="text">
+                          <div className="line">
+                            <div className="fw-600">Front Brake Change</div>
+                            <h4 className="sub-title">87.00$</h4>
+                          </div>
+                          <div className="line">
+                            <div className="sub-title text-light-5 fs-12">
+                              Front Brake Change
+                            </div>
+                            <div className="fw-600 text-blue">x1</div>
+                          </div>
+                          <h5 className="mt-3 sub-title fw-500 text-blue mb-1">
+                            Front brake change with original parts
+                          </h5>
+                          <div className="line">
+                            <div className="radio-container">
+                              <label className="custom-radio">
+                                Front Pad X2
+                                <input
+                                  defaultChecked={true}
+                                  type="checkbox"
+                                  name="gender"
+                                  defaultValue={"checked"}
+                                />
+                                <span className="checkmark"></span>
+                              </label>
+                            </div>
+                            <h5 className="sub-title">40.00$</h5>
+                          </div>
+                          <div className="line">
+                            <div className="radio-container">
+                              <label className="custom-radio">
+                                Labor X1
+                                <input
+                                  defaultChecked={true}
+                                  type="checkbox"
+                                  name="gender"
+                                  defaultValue={"checked"}
+                                />
+                                <span className="checkmark"></span>
+                              </label>
+                            </div>
+                            <h5 className="sub-title">47.00$</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="item">
+                        <div
+                          className="c-pointer img"
+                          onClick={() => modalOpenHandler(setNodeOpenState)}
+                        >
+                          <img
+                            src="./assets/vectors/details-img.svg"
+                            alt="img"
+                          />
+                        </div>
+                        <div className="text">
+                          <div className="line">
+                            <div className="fw-600">Oil - (1L) 5W30 Syn.</div>
+                            <h4 className="sub-title">5.49$</h4>
+                          </div>
+                          <div className="line">
+                            <div className="sub-title text-light-5 fs-12">
+                              5W30-23
+                            </div>
+                            <div className="fw-600 text-blue">x2</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="item">
+                        <div
+                          className="c-pointer img"
+                          onClick={() => modalOpenHandler(setNodeOpenState)}
+                        >
+                          <img
+                            src="./assets/vectors/details-img.svg"
+                            alt="img"
+                          />
+                        </div>
+                        <div className="text">
+                          <div className="line">
+                            <div className="fw-600">7C Battery</div>
+                            <h4 className="sub-title">2.00$</h4>
+                          </div>
+                          <div className="line">
+                            <div className="sub-title text-light-5 fs-12">
+                              B-7C-9762
+                            </div>
+                            <div className="fw-600 text-blue">x1</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="details-foot">
+                      <div className="col-12">
+                        <div className="row px-3 pt-4">
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-12">
+                            Subtotal
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
+                            100.00$
+                          </div>
+                          <div className="col-6 text-dark-4 text-manrope fw-800 fs-12">
+                            TPS
+                          </div>
+                          <div className="col-6 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
+                            5.00$
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-12">
+                            TVQ
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fs-12 d-flex justify-content-end">
+                            9.98$
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-14">
+                            Total
+                          </div>
+                          <div className="col-6 pb-3 text-dark-4 text-manrope fw-800 fs-14 d-flex justify-content-end">
+                            114.98$
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        {/* </div> */}
       </div>
       <div className="copyright">
         © Node Technologies 2022 | All Rights Reserved

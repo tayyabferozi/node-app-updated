@@ -3,7 +3,7 @@
 }
 
 .block-events.e-schedule .e-vertical-view .e-resource-cells {
-  height: 58px;
+  /* height: 58px; */
 }
 
 .block-events.e-schedule .e-timeline-view .e-resource-left-td,
@@ -129,7 +129,7 @@
 
 .e-schedule .e-timeline-view .e-time-cells-wrap table td,
 .e-schedule .e-timeline-view .e-work-cells {
-  height: 22px;
+  /* height: 22px; */
 }
 
 .e-schedule .e-timeline-view .e-work-cells,
@@ -198,7 +198,7 @@
 }
 
 .schedular-template-event.progress .tick path {
-  fill: #d9cc9e;
+  fill: #4acbd3;
 }
 
 .schedular-template-event.progress {
@@ -206,15 +206,15 @@
 }
 
 .schedular-template-event.progress .subject {
-  color: #d9cc9e;
+  color: #4acbd3;
 }
 
 .schedular-template-event.progress .progress-bar {
-  background-color: #d9cc9e;
+  background-color: #4acbd3;
 }
 
 .schedular-template-event.next .tick path {
-  fill: #c26666;
+  fill: #eca0a0;
 }
 
 .schedular-template-event.next {
@@ -222,15 +222,15 @@
 }
 
 .schedular-template-event.next .subject {
-  color: #c26666;
+  color: #eca0a0;
 }
 
 .schedular-template-event.next .progress-bar {
-  background-color: #c26666;
+  background-color: #eca0a0;
 }
 
 .schedular-template-event.done .tick path {
-  fill: #7e8876;
+  fill: #1e55a9;
 }
 
 .schedular-template-event.done {
@@ -238,11 +238,11 @@
 }
 
 .schedular-template-event.done .subject {
-  color: #7e8876;
+  color: #1e55a9;
 }
 
 .schedular-template-event.done .progress-bar {
-  background-color: #7e8876;
+  background-color: #1e55a9;
 }
 
 .e-content-wrap::-webkit-scrollbar {
@@ -279,4 +279,23 @@
 
 .e-schedule-table {
   padding-bottom: 2rem;
+}
+
+.e-content-wrap::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+.e-content-wrap::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.e-content-wrap::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.e-content-wrap::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

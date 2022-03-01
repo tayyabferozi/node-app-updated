@@ -2576,6 +2576,10 @@ button {
 // ***********************************************************************************************************************************
 
 #workshop-main-content {
+  select {
+    box-shadow: none;
+  }
+
   .tabs.workshop-tabs {
     padding-left: 0;
     padding-right: 0;
@@ -3079,7 +3083,7 @@ button {
       border-radius: 16px;
       @extend %emboss-lg;
       padding: 34px 65px;
-      border: 14px solid $color101;
+      // border: 14px solid $color101;
     }
 
     .week-load {
@@ -3205,21 +3209,82 @@ button {
     }
   }
 
+  .car-main {
+    .details {
+      .item {
+        font-size: 11px;
+        margin-bottom: 10px;
+
+        strong {
+          font-size: inherit;
+        }
+      }
+    }
+  }
+
+  .car-info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-bottom: 2px solid rgba(69, 69, 69, 0.4);
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    & > * {
+      flex-grow: 1;
+      padding-bottom: 14px;
+
+      &.date-time {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -3px;
+          right: 0;
+          height: 4px;
+          border-radius: 2px;
+          width: 32px;
+          background-color: $color4;
+        }
+      }
+    }
+  }
+  .user-info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .table-container {
+    max-width: calc(100vw - 40px - 28px);
+    padding-bottom: 0.5rem;
+  }
+
   .files {
     display: flex;
     margin-top: 10px;
+    padding: 24px;
+    height: calc(100% - 36px);
+    flex-wrap: wrap;
 
     .file-item {
-      margin-right: 50px;
+      margin-right: 24px;
+      margin-bottom: 0.5rem;
+
+      img {
+        width: 58px;
+        height: 56px;
+      }
 
       .bg {
-        width: 58px;
-        height: 68px;
         display: flex;
         justify-content: center;
         align-items: center;
         background: $color5;
         border-radius: 6px;
+        margin-bottom: 10px;
       }
 
       .text {
