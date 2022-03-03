@@ -92,7 +92,6 @@ const ModalArticle = (props) => {
                     sMargin
                     rootStyle={{ width: "75%" }}
                     prominant
-                    sMargin
                     type="file"
                     id="upload"
                     name="model"

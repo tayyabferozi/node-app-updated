@@ -71,7 +71,6 @@ const Inventory = () => {
   const [variantModalOpenState, setVariantModalOpenState] = useState(false);
   const [formModalOpenState, setFormModalOpenState] = useState(false);
   const [scheduleModalOpenState, setScheduleModalOpenState] = useState(false);
-  const [serviceBrakeSelected, setServiceBrakeSelected] = useState(false);
 
   const modalOpenHandler = (func) => {
     func(true);
@@ -187,7 +186,6 @@ const Inventory = () => {
                     </div>
                     <div className="col-2 d-flex justify-content-center align-items-center">
                       <button
-                        onClick={() => setServiceBrakeSelected(true)}
                         className={`${
                           data.isBrake ? "is-brake" : "is-engine"
                         }  py-2 px-5`}

@@ -25,7 +25,6 @@ const SearchInput = ({ onQrClick, withFilter, icon, placeholder, ...rest }) => {
             id="search"
             placeholder={placeholder || "Start typing.."}
             value=""
-            readOnly
             {...rest}
           />
           {icon && (

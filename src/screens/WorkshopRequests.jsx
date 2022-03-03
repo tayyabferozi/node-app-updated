@@ -17,7 +17,7 @@ const WorkshopRequests = () => {
   };
 
   return (
-    <WorkshopLayout>
+    <WorkshopLayout title="Requests">
       <ModalOrder
         isOpen={isModalOpenState}
         modalCloseHandler={modalCloseHandler}

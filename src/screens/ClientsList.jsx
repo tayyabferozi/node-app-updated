@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import clsx from "clsx";
+import { useNavigate } from "react-router-dom";
 
 import MainLayout from "../layouts/MainLayout";
 import TabContents from "../components/TabContents";
@@ -12,6 +13,7 @@ const ClientsList = () => {
   const [activityOpenState, setActivityOpenState] = useState(false);
   const [orderModalOpenState, setOrderModalOpenState] = useState(false);
   const [clientSelected, setClientSelected] = useState(false);
+  const navigate = useNavigate();
 
   const modalOpenHandler = (func) => {
     func(true);
@@ -221,7 +223,11 @@ const ClientsList = () => {
                                   Services &amp; Products
                                 </div>
                               </div>
-                              <AddBtn title="NEW" blue />
+                              <AddBtn
+                                onClick={() => navigate("/workshop-articles")}
+                                title="NEW"
+                                blue
+                              />
                             </div>
                             <div className="emboss-white br-16">
                               <div className="listing-container short-vertical-scrollbar">

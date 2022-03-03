@@ -534,7 +534,7 @@ const Business360 = () => {
               </div>
             </div>
             <div className="col-xxl-3 col-sm col-xs-12">
-              <div className="stats card pt-0 px-2 d-flex justify-content-between">
+              <div className="stats card pt-0 px-2 d-flex justify-content-between align-items-center">
                 <div className="stats-text d-flex justify-content-between text-center flex-column">
                   <div className="item">
                     <div className="top text-cyan">15 670$</div>
@@ -637,17 +637,23 @@ const Business360 = () => {
               <div className="card emboss-white bs-16 px-4 mt-4">
                 <div className="d-flex justify-content-between px-3">
                   <div>
-                    <img
-                      src="./assets/vectors/db-messages.svg"
-                      alt="messages"
-                    />
+                    <div className="d-flex justify-content-between">
+                      <img
+                        src="./assets/vectors/db-messages.svg"
+                        alt="messages"
+                      />
+                      <span className="text-blue fw-bold fs-20 ms-2">28</span>
+                    </div>
                     <h4 className="mt-3 sub-title">Messages</h4>
                   </div>
                   <div>
-                    <img
-                      src="./assets/vectors/db-requests.svg"
-                      alt="requests"
-                    />
+                    <div className="d-flex justify-content-between">
+                      <img
+                        src="./assets/vectors/db-requests.svg"
+                        alt="requests"
+                      />
+                      <span className="text-blue fw-bold fs-20 ms-2">34</span>
+                    </div>
                     <h4 className="mt-3 sub-title">Requests</h4>
                   </div>
                 </div>

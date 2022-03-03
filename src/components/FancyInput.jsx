@@ -57,7 +57,10 @@ const FancyInput = ({
       </label>
       {label2 && (
         <label
-          className="d-block pt-3 pb-4 upload-label text-light-5 fw-300 text-manrope ps-4"
+          className={clsx(
+            labelClassName,
+            "d-block pt-3 pb-4 upload-label text-light-5 fw-300 text-manrope ps-4"
+          )}
           htmlFor={id}
         >
           {label2 || "Upload your attachment"}

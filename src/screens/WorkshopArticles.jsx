@@ -5,7 +5,6 @@ import AddBtn from "../components/AddBtn";
 import Input from "../components/Input";
 import TabContents from "../components/TabContents";
 import TabContentItem from "../components/TabContentItem";
-import Tabs from "../components/Tabs";
 import WorkshopWorkorderLayout from "../layouts/WorkshopWorkorderLayout";
 import ModalOrder from "../modals/ModalOrder";
 import ModalArticle from "../modals/ModalArticle";

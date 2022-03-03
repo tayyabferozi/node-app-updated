@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import lottie from "lottie-web";
 import clsx from "clsx";
 import Tabs from "../components/Tabs";
 
@@ -50,22 +49,26 @@ const navItems = [
 const tabData = {
   img: true,
   groupName: "workshop-articles-tabs",
+  changeTitle: true,
   tabs: [
     {
       icon: "./assets/vectors/workshop-articles.svg",
       iconActive: "./assets/vectors/workshop-articles-active.svg",
       target: "forms",
       active: true,
+      title: "Details",
     },
     {
       icon: "./assets/vectors/workshop-services.svg",
       iconActive: "./assets/vectors/workshop-services-active.svg",
       target: "articles",
+      title: "Service Sheet",
     },
     {
       icon: "./assets/vectors/workshop-partner.svg",
       iconActive: "./assets/vectors/workshop-partner-active.svg",
       target: "partners",
+      title: "Connectors",
     },
   ],
 };
@@ -79,7 +82,6 @@ const WorkshopWorkorderLayout = ({
   const itemsRef = useRef([]);
   const itemContainersRef = useRef([]);
   const [scanModalOpenState, setScanModalOpenState] = useState(false);
-  const [nodeOpenState, setNodeOpenState] = useState(false);
 
   const modalOpenHandler = (func) => {
     func(true);
@@ -151,7 +153,10 @@ const WorkshopWorkorderLayout = ({
           </div>
         </div>
         <div className="d-flex align-items-start">
-          <div className="d-flex flex-column align-items-center pt-2">
+          <div
+            className="d-flex flex-column align-items-center pt-2"
+            id="title-container"
+          >
             <Link to="/360">
               <img
                 className="logo"
@@ -159,7 +164,9 @@ const WorkshopWorkorderLayout = ({
                 alt="logo"
               />
             </Link>
-            <div className="mt-2 text-center fw-500">{title}</div>
+            <div className="mt-2 text-center fw-500" id="side-main-title">
+              {title}
+            </div>
           </div>
           <div className="page-heading d-flex">
             <img
@@ -232,7 +239,7 @@ const WorkshopWorkorderLayout = ({
                   {
                     vector: "./assets/vectors/workorder-nav-3.svg",
                     vectorActive: "./assets/vectors/nav-desk-active.svg",
-                    to: "#0",
+                    to: "/conversations",
                     thisActiveLink: "desk",
                   },
                   {
@@ -407,10 +414,7 @@ const WorkshopWorkorderLayout = ({
 
                     <div className="details-main">
                       <div className="item">
-                        <div
-                          className="c-pointer img"
-                          onClick={() => modalOpenHandler(setNodeOpenState)}
-                        >
+                        <div className="c-pointer img">
                           <img
                             src="./assets/vectors/details-img.svg"
                             alt="img"
@@ -463,10 +467,7 @@ const WorkshopWorkorderLayout = ({
                         </div>
                       </div>
                       <div className="item">
-                        <div
-                          className="c-pointer img"
-                          onClick={() => modalOpenHandler(setNodeOpenState)}
-                        >
+                        <div className="c-pointer img">
                           <img
                             src="./assets/vectors/details-img.svg"
                             alt="img"
@@ -486,10 +487,7 @@ const WorkshopWorkorderLayout = ({
                         </div>
                       </div>
                       <div className="item">
-                        <div
-                          className="c-pointer img"
-                          onClick={() => modalOpenHandler(setNodeOpenState)}
-                        >
+                        <div className="c-pointer img">
                           <img
                             src="./assets/vectors/details-img.svg"
                             alt="img"

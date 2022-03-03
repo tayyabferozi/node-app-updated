@@ -2,12 +2,12 @@ import React from "react";
 
 import MainLayout from "../layouts/MainLayout";
 
-const WorkshopLayout = ({ children, ...rest }) => {
+const WorkshopLayout = ({ title, children, ...rest }) => {
   return (
     <MainLayout
       headVector="./assets/vectors/workshop.svg"
       activeLink="workshop"
-      title="Real-Time"
+      title={title || "Real-Time"}
       titleClassName="ms-2"
       tabData={{
         tabLinks: true,

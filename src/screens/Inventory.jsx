@@ -58,64 +58,64 @@ const servicesOfferData = [
   },
 ];
 
-const inventoryData = [
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: true,
-    isChecked: true,
-  },
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: false,
-    isChecked: true,
-  },
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: true,
-    isChecked: false,
-  },
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: true,
-    isChecked: false,
-  },
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: false,
-    isChecked: false,
-  },
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: true,
-    isChecked: false,
-  },
-  {
-    name: "Macbook Pro 15’ 2019",
-    number: "SKU 345-091",
-    quantity: 4890,
-    price: 2642,
-    isBrake: true,
-    isChecked: false,
-  },
-];
+// const inventoryData = [
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: true,
+//     isChecked: true,
+//   },
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: false,
+//     isChecked: true,
+//   },
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: true,
+//     isChecked: false,
+//   },
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: true,
+//     isChecked: false,
+//   },
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: false,
+//     isChecked: false,
+//   },
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: true,
+//     isChecked: false,
+//   },
+//   {
+//     name: "Macbook Pro 15’ 2019",
+//     number: "SKU 345-091",
+//     quantity: 4890,
+//     price: 2642,
+//     isBrake: true,
+//     isChecked: false,
+//   },
+// ];
 
 const Inventory = () => {
   const [articleModalOpenState, setArticleModalOpenState] = useState(false);

@@ -1,7 +1,5 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import TabContentItem from "../components/TabContentItem";
-import TabContents from "../components/TabContents";
 
 import MainLayout from "../layouts/MainLayout";
 

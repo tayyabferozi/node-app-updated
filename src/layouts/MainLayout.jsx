@@ -7,6 +7,7 @@ import Tabs from "../components/Tabs";
 import $ from "jquery";
 import SearchInput from "../components/SearchInput";
 import ModalScan from "../modals/ModalScan";
+import TopNav from "./partials/TopNav";
 
 const navItems = [
   {
@@ -58,6 +59,7 @@ const MainLayout = ({
   const itemsRef = useRef([]);
   const itemContainersRef = useRef([]);
   const [scanModalOpenState, setScanModalOpenState] = useState(false);
+  const [formState, setFormState] = useState({ search: "" });
 
   const modalOpenHandler = (func) => {
     func(true);
@@ -65,6 +67,14 @@ const MainLayout = ({
 
   const modalCloseHandler = (func) => {
     func(false);
+  };
+
+  const inputChangeHandler = (e) => {
+    const { name, value } = e.target;
+
+    setFormState((prevState) => {
+      return { ...prevState, [name]: value };
+    });
   };
 
   useEffect(() => {
@@ -139,10 +149,6 @@ const MainLayout = ({
     $(".dark-overlay.overlay-sidenav").toggleClass("active");
   };
 
-  const toggleTopMenu = () => {
-    $(".sidemenu").toggleClass("active");
-  };
-
   return (
     <div id="main">
       <ModalScan
@@ -163,7 +169,9 @@ const MainLayout = ({
                 alt="logo"
               />
             </Link>
-            <div className="mt-2 text-center fw-500">{title}</div>
+            <div className="mt-2 text-center fw-500" id="side-main-title">
+              {title}
+            </div>
             <img
               className="hamburger d-1300-none"
               src="./assets/vectors/hamburger.svg"
@@ -190,7 +198,7 @@ const MainLayout = ({
                 {
                   vector: "./assets/vectors/nav-desk.svg",
                   vectorActive: "./assets/vectors/nav-desk-active.svg",
-                  to: "#0",
+                  to: "/conversations",
                   thisActiveLink: "desk",
                   text: "Desk",
                 },
@@ -256,55 +264,6 @@ const MainLayout = ({
       <div id="content" className={contentClassName ? contentClassName : ""}>
         <div className="page-container">
           <div className="head">
-            <div className="sidemenu">
-              <h3 className="d-none d-sm-flex">
-                <img
-                  src="./assets/vectors/menu-outline.svg"
-                  className="me-3"
-                  alt="menu"
-                />
-                menu
-              </h3>
-              <div className="sidemenu-nav">
-                {navItems.map((el, idx) => {
-                  const { link, title } = el;
-                  return (
-                    <Link
-                      ref={(el) => {
-                        itemContainersRef.current[idx] = el;
-                      }}
-                      key={"nav-item" + idx}
-                      to={link}
-                      className="item"
-                    >
-                      <div
-                        className="img"
-                        ref={(el) => (itemsRef.current[idx] = el)}
-                      >
-                        {/* <img src={vector} alt={title} /> */}
-                      </div>
-                      <div className="text">{title}</div>
-                    </Link>
-                  );
-                })}
-              </div>
-              <div className="options">
-                <div className="d-flex flex-column justify-content-center me-2 me-sm-4">
-                  <Link to="/settings" className="text">
-                    Logout
-                  </Link>
-                  <Link to="/settings" className="text">
-                    Settings
-                  </Link>
-                </div>
-                <button
-                  className="btn d-flex align-items-center"
-                  onClick={toggleTopMenu}
-                >
-                  <img src="./assets/vectors/sidemenu-close.svg" alt="close" />
-                </button>
-              </div>
-            </div>
             <div className="page-heading">
               <img
                 className="me-lg-5 me-4 hamburger d-1300-none"
@@ -326,28 +285,12 @@ const MainLayout = ({
               <SearchInput
                 onQrClick={() => modalOpenHandler(setScanModalOpenState)}
                 placeholder="Search Clients or Things "
+                value={formState.search}
+                name="search"
+                onChange={inputChangeHandler}
                 // icon="./assets/vectors/qr.svg"
               />
-              <div className="nav">
-                <div className="dark-menu" onClick={toggleTopMenu}>
-                  <img src="./assets/vectors/dark-bg-menu.svg" alt="menu" />
-                </div>
-                <Link to="/settings" className="settings">
-                  {/* < to="/settings"> */}
-                  <img src="./assets/vectors/settings.svg" alt="settings" />
-                  {/* </> */}
-                </Link>
-                <div className="notifications">
-                  <img
-                    src="./assets/vectors/notifications.svg"
-                    alt="notifications"
-                  />
-                </div>
-                <div className="user d-flex align-items-center">
-                  <div className="fs-11 fw-600 mx-4">Stephan</div>
-                  <img src="./assets/vectors/nav-user.svg" alt="user" />
-                </div>
-              </div>
+              <TopNav />
             </div>
           </div>
 

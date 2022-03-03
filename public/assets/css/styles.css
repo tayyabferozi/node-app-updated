@@ -1679,6 +1679,10 @@ button:active,
   height: 17px !important;
 }
 
+#workshop-workorder-layout #title-container {
+  min-width: 100px;
+}
+
 @media screen and (max-width: 1299px) {
   #workshop-workorder-layout #sidenav {
     position: static;
@@ -3928,6 +3932,15 @@ button {
 
 #dashboard-main-content .card.stats .item {
   min-width: 64px;
+  margin-bottom: 1.5rem;
+}
+
+#dashboard-main-content .card.stats .item:first-child {
+  margin-top: 1.5rem;
+}
+
+#dashboard-main-content .card.stats .item:last-child {
+  margin-bottom: 0;
 }
 
 #dashboard-main-content .card.stats .top {
@@ -4569,6 +4582,7 @@ button {
 #client-overview-main-content .listing .list-item .order-price {
   max-width: 78px;
   text-align: right;
+  min-width: 70px;
 }
 
 #client-overview-main-content .listing .list-item .order-price,
@@ -5293,7 +5307,7 @@ button {
 }
 
 #inventory-main-content .services-offer-record .complete-brake {
-  color: #8181a5;
+  color: #9c9c9c;
   font-family: "Lato", sans-serif;
   line-height: 21px;
   font-size: 16px;
@@ -5581,7 +5595,11 @@ button {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  margin-right: 1rem;
+  width: unset;
+}
+
+#conversations-main-content .left-content .custom-form-control input {
+  width: 100%;
 }
 
 #conversations-main-content .left-content .chat-list .chat {
@@ -5886,7 +5904,6 @@ button {
   height: 36px;
   color: #fff;
   text-align: center;
-  line-height: 2.5;
   border-radius: 50px;
 }
 
@@ -6362,7 +6379,9 @@ button {
 
 #workshop-main-content select {
   font-weight: 600;
-  padding: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 1rem;
   padding-right: 2rem;
   background-position-y: 2px;
   font-size: 12px;
@@ -6560,7 +6579,7 @@ button {
 }
 
 #workshop-main-content .realtime-container .done .card-body .progress-bar .progress {
-  background: #7e8876;
+  background: #1e55a9;
 }
 
 #workshop-main-content .realtime-container .done .card-foot .time {
@@ -6871,6 +6890,12 @@ button {
           justify-content: space-between;
 }
 
+@media screen and (min-width: 1350px) {
+  #workshop-main-content .appointment-container .week-load .right .load-main {
+    margin: 0 4rem;
+  }
+}
+
 @media screen and (max-width: 470px) {
   #workshop-main-content .appointment-container .week-load .right .load-main {
     -ms-flex-wrap: wrap;
@@ -6960,19 +6985,19 @@ button {
   border-radius: 4px;
 }
 
-@media screen and (min-width: 992px) {
-  #workshop-forms-main-content .row .wrap {
-    max-width: 647px;
-  }
-}
-
-#workshop-forms-main-content .car-main .details .item {
+.car-work-details .item {
   font-size: 11px;
   margin-bottom: 10px;
 }
 
-#workshop-forms-main-content .car-main .details .item strong {
+.car-work-details .item strong {
   font-size: inherit;
+}
+
+@media screen and (min-width: 992px) {
+  #workshop-forms-main-content .row .wrap {
+    max-width: 647px;
+  }
 }
 
 #workshop-forms-main-content .car-info {
@@ -7334,6 +7359,22 @@ button {
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.modal-appointment {
+  max-width: 1242px;
+}
+
+.modal-appointment table tr {
+  border-bottom: 1px solid #e3e5e5;
+}
+
+.modal-appointment table tr:last-child {
+  border-bottom: 0;
+}
+
+.modal-appointment table tr td {
+  padding: 0.75rem;
 }
 
 .varient-modal .modal-head .custom-form-control {

@@ -8,7 +8,7 @@ import WorkshopLayout from "../layouts/WorkshopLayout";
 
 const WorkshopStorage = () => {
   return (
-    <WorkshopLayout>
+    <WorkshopLayout title="Storage">
       <div className="location-container">
         <div className="container-fluid mt-4">
           <div className="row gy-4 gx-lg-5">

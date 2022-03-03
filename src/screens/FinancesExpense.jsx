@@ -35,53 +35,53 @@ const dummyData = [
     currency: "CAD",
   },
 ];
-const dummySuppliersData = [
-  {
-    imgUrl: "./assets/img/suppliers-1.png",
-    name: "Napa Pièce Auto",
-    phoneNo: "(450) 322-2134",
-    contact: "Manon Latulippe",
-    poste: 23,
-    lastOne: "15/APR/2020",
-    balance: 1200,
-  },
-  {
-    imgUrl: "./assets/img/suppliers-1.png",
-    name: "Napa Pièce Auto",
-    phoneNo: "(450) 322-2134",
-    contact: "Manon Latulippe",
-    poste: 0,
-    lastOne: "",
-    balance: 1200,
-  },
-  {
-    imgUrl: "./assets/img/suppliers-1.png",
-    name: "Napa Pièce Auto",
-    phoneNo: "(450) 322-2134",
-    contact: "Manon Latulippe",
-    poste: 23,
-    lastOne: "15/APR/2020",
-    balance: 1200,
-  },
-  {
-    imgUrl: "./assets/img/suppliers-1.png",
-    name: "Napa Pièce Auto",
-    phoneNo: "(450) 322-2134",
-    contact: "Manon Latulippe",
-    poste: 23,
-    lastOne: "15/APR/2020",
-    balance: 1200,
-  },
-  {
-    imgUrl: "./assets/img/suppliers-1.png",
-    name: "Napa Pièce Auto",
-    phoneNo: "(450) 322-2134",
-    contact: "Manon Latulippe",
-    poste: 23,
-    lastOne: "15/APR/2020",
-    balance: 1200,
-  },
-];
+// const dummySuppliersData = [
+//   {
+//     imgUrl: "./assets/img/suppliers-1.png",
+//     name: "Napa Pièce Auto",
+//     phoneNo: "(450) 322-2134",
+//     contact: "Manon Latulippe",
+//     poste: 23,
+//     lastOne: "15/APR/2020",
+//     balance: 1200,
+//   },
+//   {
+//     imgUrl: "./assets/img/suppliers-1.png",
+//     name: "Napa Pièce Auto",
+//     phoneNo: "(450) 322-2134",
+//     contact: "Manon Latulippe",
+//     poste: 0,
+//     lastOne: "",
+//     balance: 1200,
+//   },
+//   {
+//     imgUrl: "./assets/img/suppliers-1.png",
+//     name: "Napa Pièce Auto",
+//     phoneNo: "(450) 322-2134",
+//     contact: "Manon Latulippe",
+//     poste: 23,
+//     lastOne: "15/APR/2020",
+//     balance: 1200,
+//   },
+//   {
+//     imgUrl: "./assets/img/suppliers-1.png",
+//     name: "Napa Pièce Auto",
+//     phoneNo: "(450) 322-2134",
+//     contact: "Manon Latulippe",
+//     poste: 23,
+//     lastOne: "15/APR/2020",
+//     balance: 1200,
+//   },
+//   {
+//     imgUrl: "./assets/img/suppliers-1.png",
+//     name: "Napa Pièce Auto",
+//     phoneNo: "(450) 322-2134",
+//     contact: "Manon Latulippe",
+//     poste: 23,
+//     lastOne: "15/APR/2020",
+//     balance: 1200,
+//   },
+// ];
 const dummypurchase = [
   {
     name: "CarQuest",
@@ -257,6 +257,18 @@ const FinancesExpense = () => {
                     );
                   })}
                 </div>
+              </div>
+
+              <div className="d-flex justify-content-between mt-5 gap-3">
+                <button className={`btn btn-emboss`}>
+                  Add &amp; Pay Later
+                </button>
+                <button
+                  onClick={() => setPurchaseAddSelected(false)}
+                  className={`btn btn-gradient`}
+                >
+                  Add Payment
+                </button>
               </div>
             </>
           ) : (
@@ -459,16 +471,6 @@ const FinancesExpense = () => {
               </div>
             </>
           )}
-
-          <div className="d-flex justify-content-between mt-5 gap-3">
-            <button className={`btn btn-emboss`}>Add &amp; Pay Later</button>
-            <button
-              onClick={() => setPurchaseAddSelected(false)}
-              className={`btn btn-gradient`}
-            >
-              Add Payment
-            </button>
-          </div>
         </div>
       </div>
     </MainLayout>

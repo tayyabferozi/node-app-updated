@@ -173,8 +173,20 @@ button {
     }
 
     &.stats {
+      .stats-text {
+      }
+
       .item {
         min-width: 64px;
+        margin-bottom: 1.5rem;
+
+        &:first-child {
+          margin-top: 1.5rem;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
 
       .top {
@@ -765,6 +777,7 @@ button {
       .order-price {
         max-width: 78px;
         text-align: right;
+        min-width: 70px;
 
         &,
         & * {
@@ -1127,6 +1140,10 @@ button {
 
     .table {
       min-width: 780px;
+      // margin-left: -12px;
+      // margin-right: -12px;
+      // padding-left: 12px;
+      // padding-right: 12px;
     }
   }
   .table-heading {
@@ -1554,7 +1571,7 @@ button {
       line-height: 24px;
     }
     .complete-brake {
-      color: $color7;
+      color: $color2;
       font-family: "Lato", sans-serif;
       line-height: 21px;
       font-size: 16px;
@@ -1859,7 +1876,14 @@ button {
 
     .custom-form-control {
       flex-grow: 1;
-      margin-right: 1rem;
+      width: unset;
+
+      .main-search {
+      }
+
+      input {
+        width: 100%;
+      }
     }
 
     .chat-list {
@@ -2126,7 +2150,6 @@ button {
         // transform: translateY(-50%);
         // right: 0;
         text-align: center;
-        line-height: 2.5;
         border-radius: 50px;
 
         &:hover {
@@ -2605,7 +2628,9 @@ button {
 
   select {
     font-weight: 600;
-    padding: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 1rem;
     padding-right: 2rem;
     background-position-y: 2px;
     font-size: 12px;
@@ -2810,7 +2835,7 @@ button {
           background: $color67;
 
           .progress {
-            background: $color31;
+            background: $color4;
           }
         }
       }
@@ -3126,6 +3151,10 @@ button {
           align-items: flex-start;
           justify-content: space-between;
 
+          @media screen and (min-width: 1350px) {
+            margin: 0 4rem;
+          }
+
           @media screen and (max-width: 470px) {
             flex-wrap: wrap;
 
@@ -3199,6 +3228,16 @@ button {
     }
   }
 }
+.car-work-details {
+  .item {
+    font-size: 11px;
+    margin-bottom: 10px;
+
+    strong {
+      font-size: inherit;
+    }
+  }
+}
 
 #workshop-forms-main-content {
   .row {
@@ -3210,16 +3249,6 @@ button {
   }
 
   .car-main {
-    .details {
-      .item {
-        font-size: 11px;
-        margin-bottom: 10px;
-
-        strong {
-          font-size: inherit;
-        }
-      }
-    }
   }
 
   .car-info {
@@ -3542,6 +3571,24 @@ button {
         right: 0;
         top: 50%;
         transform: translateY(-50%);
+      }
+    }
+  }
+}
+
+.modal-appointment {
+  max-width: 1242px;
+
+  table {
+    tr {
+      border-bottom: 1px solid #e3e5e5;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      td {
+        padding: 0.75rem;
       }
     }
   }

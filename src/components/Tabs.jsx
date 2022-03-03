@@ -12,6 +12,7 @@ const Tabs = ({
   tabClassName,
   verticalButtons,
   tabLinks,
+  changeTitle,
 }) => {
   let Comp = ButtonComp;
 
@@ -19,12 +20,16 @@ const Tabs = ({
     Comp = LinkComp;
   }
 
-  const changeTab = (target) => {
+  const changeTab = (target, title) => {
     $(`.tabs.${tabGroupName} .tab`).removeClass("active");
     $(`.tabs.${tabGroupName} .tab.${target}`).addClass("active");
 
     $(`.tabContents.${tabGroupName} .tabContent`).removeClass("active");
     $(`.tabContents.${tabGroupName} .tabContent.${target}`).addClass("active");
+
+    if (changeTitle) {
+      $("#side-main-title").html(title);
+    }
   };
   useEffect(() => {
     function showActive() {
@@ -57,7 +62,16 @@ const Tabs = ({
       )}
     >
       {data.map((el, idx) => {
-        const { active, icon, iconActive, label, target, to, badgeText } = el;
+        const {
+          title,
+          active,
+          icon,
+          iconActive,
+          label,
+          target,
+          to,
+          badgeText,
+        } = el;
 
         return (
           <Comp
@@ -69,7 +83,7 @@ const Tabs = ({
             }${active ? " active" : ""} ${target} ${
               tabClassName ? tabClassName : ""
             }`}
-            onClick={() => changeTab(target)}
+            onClick={() => changeTab(target, title)}
           >
             {icon && iconActive && (
               <div className="icon-container">

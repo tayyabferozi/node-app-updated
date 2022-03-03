@@ -1471,6 +1471,10 @@ button,
     height: 17px !important;
   }
 
+  #title-container {
+    min-width: 100px;
+  }
+
   #sidenav {
     // @media screen and (max-width: 1299px) {
     //   position: relative;

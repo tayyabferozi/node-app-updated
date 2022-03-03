@@ -337,7 +337,6 @@ const FinancesIncome = () => {
                                   label="Availability"
                                   placeholder="Start typing..."
                                   value="76"
-                                  disabled
                                 />
                               </div>
                               <div className="col-6 col-sm-3">
@@ -433,7 +432,6 @@ const FinancesIncome = () => {
                                   label="Availability"
                                   placeholder="Start typing..."
                                   value="NA"
-                                  disabled
                                 />
                               </div>
                               <div className="col-6 col-sm-3">
@@ -558,7 +556,6 @@ const FinancesIncome = () => {
                                   label="Availability"
                                   placeholder="Start typing..."
                                   value="76"
-                                  disabled
                                 />
                               </div>
                               <div className="col-6 col-sm-3">
@@ -654,7 +651,6 @@ const FinancesIncome = () => {
                                   label="Availability"
                                   placeholder="Start typing..."
                                   value="NA"
-                                  disabled
                                 />
                               </div>
                               <div className="col-6 col-sm-3">
@@ -779,7 +775,6 @@ const FinancesIncome = () => {
                                   label="Availability"
                                   placeholder="Start typing..."
                                   value="76"
-                                  disabled
                                 />
                               </div>
                               <div className="col-6 col-sm-3">
@@ -875,7 +870,6 @@ const FinancesIncome = () => {
                                   label="Availability"
                                   placeholder="Start typing..."
                                   value="NA"
-                                  disabled
                                 />
                               </div>
                               <div className="col-6 col-sm-3">
