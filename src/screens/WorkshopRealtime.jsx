@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
 
 import WorkshopLayout from "../layouts/WorkshopLayout";
-import Input from "../components/Input";
+import Select from "../components/select/select";
+import Option from "../components/select/option";
 import Switch from "../components/Switch";
 
 const WorkshopRealtime = () => {
+  const [startDate, setStartDate] = useState(new Date());
+
   return (
     <WorkshopLayout>
       <div className="realtime-container">
@@ -12,13 +16,35 @@ const WorkshopRealtime = () => {
           <div className="row gy-4">
             <div className="col-12">
               <div className="d-flex justify-content-end align-items-center mb-4">
-                <h3 className="section-title">September7, 2022</h3>
-                <img
-                  className="ms-5"
-                  src="./assets/vectors/calendar.svg"
-                  alt="calendar"
-                />
-                <Input
+                <div className="date-picker-root">
+                  <DatePicker
+                    selected={startDate}
+                    onChange={(date) => setStartDate(date)}
+                    dateFormat="MMMM dd, yyyy"
+                  />
+                  <img
+                    className="calendar ms-4 me-5"
+                    src="./assets/vectors/calendar.svg"
+                    alt="calendar"
+                  />
+                </div>
+                <Select
+                  placeholder="All Employee"
+                  style={{ marginLeft: 50, minWidth: 110 }}
+                >
+                  <Option value="All Employee">All Employee</Option>
+                  <Option value="Employee 1">Employee 1</Option>
+                  <Option value="Employee 2">Employee 2</Option>
+                </Select>
+                <Select
+                  placeholder="All Employee"
+                  style={{ marginLeft: 50, minWidth: 110 }}
+                >
+                  <Option value="All Employee">All Locations</Option>
+                  <Option value="Location 1">Location 1</Option>
+                  <Option value="Location 2">Location 2</Option>
+                </Select>
+                {/* <Input
                   select
                   id="employee"
                   name="employee"
@@ -29,7 +55,7 @@ const WorkshopRealtime = () => {
                   id="locations"
                   name="locations"
                   options={[{ text: "All Locations" }]}
-                />
+                /> */}
               </div>
             </div>
             <div className="col-md-6 col-lg-4">

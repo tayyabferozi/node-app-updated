@@ -5,6 +5,8 @@ import Input from "../components/Input";
 import AddBtn from "../components/AddBtn";
 import SearchInput from "../components/SearchInput";
 import WorkshopLayout from "../layouts/WorkshopLayout";
+import Select from "../components/select/select";
+import Option from "../components/select/option";
 
 const WorkshopStorage = () => {
   return (
@@ -30,13 +32,14 @@ const WorkshopStorage = () => {
                   </h4>
                 </div>
                 <div className="d-flex align-items-center">
-                  <Input
-                    className="me-5"
-                    select
-                    id="locations"
-                    name="locations"
-                    options={[{ text: "External Storage" }]}
-                  />
+                  <Select
+                    style={{ marginRight: 42, marginLeft: 50, minWidth: 130 }}
+                    placeholder="External Storage"
+                  >
+                    <Option value="All Employee">External Storage</Option>
+                    <Option value="Storage 1">Storage 1</Option>
+                    <Option value="Storage 2">Storage 2</Option>
+                  </Select>
                   <AddBtn title="NEW" pale />
                 </div>
               </div>

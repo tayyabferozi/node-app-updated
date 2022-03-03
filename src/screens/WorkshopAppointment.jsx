@@ -20,16 +20,18 @@ const WorkshopAppointment = () => {
       <WorkshopLayout title="Appointments">
         <div className="appointment-container">
           <div className="d-flex justify-content-end align-items-center my-4">
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-            />
-            <h3 className="section-title">September 7, 2022</h3>
-            <img
-              className="ms-4 me-5"
-              src="./assets/vectors/calendar.svg"
-              alt="calendar"
-            />
+            <div className="date-picker-root">
+              <DatePicker
+                selected={startDate}
+                onChange={(date) => setStartDate(date)}
+                dateFormat="MMMM dd, yyyy"
+              />
+              <img
+                className="calendar ms-4 me-5"
+                src="./assets/vectors/calendar.svg"
+                alt="calendar"
+              />
+            </div>
             <AddBtn
               onClick={() => setIsModalOpenState(true)}
               blue

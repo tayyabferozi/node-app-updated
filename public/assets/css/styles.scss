@@ -1691,6 +1691,12 @@ button {
         align-items: center;
       }
     }
+
+    .variants-container {
+      @media screen and (min-width: 992px) {
+        margin-top: 120px;
+      }
+    }
   }
 }
 #inventory-articles-main-content {

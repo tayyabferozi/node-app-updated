@@ -575,6 +575,15 @@ const Inventory = () => {
                       </div>
                     </div>
                   </div>
+
+                  <div className="variants-container">
+                    <h3 className="section-title">Variants</h3>
+
+                    <div
+                      className="mt-3 w-100 emboss-inner br-16"
+                      style={{ height: 347 }}
+                    ></div>
+                  </div>
                 </div>
               </div>
             </div>
