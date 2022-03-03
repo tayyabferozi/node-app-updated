@@ -192,7 +192,10 @@ const Inventory = () => {
                   return (
                     <div
                       key={"services-offer-data" + idx}
-                      className="row my-2 align-items-center emboss-row py-3 mb-4 gx-0 services-offer-record"
+                      className="row my-2 align-items-center emboss-row py-3 mb-4 gx-0 services-offer-record c-pointer"
+                      onClick={() => {
+                        setServiceBrakeSelected(true);
+                      }}
                     >
                       <div className="col-3 d-flex gap-3 ps-4 align-items-center">
                         {/* <div className="box"></div> */}
@@ -215,14 +218,7 @@ const Inventory = () => {
                       </div>
                       <div className="col-1 price fw-700">{data.price}$</div>
                       <div className="col-2">
-                        <button
-                          className="py-2 px-4"
-                          onClick={() => {
-                            setServiceBrakeSelected(true);
-                          }}
-                        >
-                          Location
-                        </button>
+                        <button className="py-2 px-4">Location</button>
                       </div>
                       <div className="col-1 d-flex justify-content-center align-items-center">
                         <div className="services-offer-menu">
