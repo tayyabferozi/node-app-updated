@@ -3082,6 +3082,12 @@ button {
   }
 
   .location-container {
+    .main-search {
+      .custom-form-control {
+        width: 100%;
+      }
+    }
+
     .location-card {
       text-align: center;
       padding: 50px 10px 25px;
