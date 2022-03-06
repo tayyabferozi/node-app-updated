@@ -157,6 +157,44 @@ const dataSource = {
       EmployeeId: 6,
     },
   ],
+  courseScheduleData: [
+    {
+      Id: 1,
+      status: "progress",
+      courseName: "Zumba Class",
+      additionalInfo: "3/8",
+      EmployeeId: 3,
+      StartTime: "2021-08-02T04:30:00.000Z",
+      EndTime: "2021-08-02T07:30:00.000Z",
+    },
+    {
+      Id: 2,
+      status: "progress",
+      courseName: "Swim Course",
+      additionalInfo: "4/8",
+      EmployeeId: 4,
+      StartTime: "2021-08-02T06:00:00.000Z",
+      EndTime: "2021-08-02T08:00:00.000Z",
+    },
+    {
+      Id: 3,
+      status: "next",
+      courseName: "Private event",
+      additionalInfo: "1/2",
+      EmployeeId: 7,
+      StartTime: "2021-08-02T04:30:00.000Z",
+      EndTime: "2021-08-02T07:30:00.000Z",
+    },
+    {
+      Id: 4,
+      status: "progress",
+      courseName: "Zumba Class",
+      additionalInfo: "3/8",
+      EmployeeId: 9,
+      StartTime: "2021-08-02T06:30:00.000Z",
+      EndTime: "2021-08-02T08:30:00.000Z",
+    },
+  ],
 };
 
 export default dataSource;

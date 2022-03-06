@@ -22,6 +22,11 @@ import WorkshopRequests from "./screens/WorkshopRequests";
 import WorkshopStorage from "./screens/WorkshopStorage";
 import WorkshopArticles from "./screens/WorkshopArticles";
 import WorkshopNoded from "./screens/WorkshopNoded";
+import CoursesLive from "./screens/CoursesLive";
+import CoursesSchedule from "./screens/CoursesSchedule";
+import CoursesRequests from "./screens/CoursesRequests";
+import CoursesDiscounts from "./screens/CoursesDiscounts";
+import CoursesRegistration from "./screens/CoursesRegistration";
 
 import ModalForm from "./modals/ModalForm";
 import ModalScan from "./modals/ModalScan";
@@ -35,7 +40,7 @@ import ModalSchedule from "./modals/ModalSchedule";
 import ModalLiveActivity from "./modals/ModalLifeActivity";
 import ModalInvoice from "./modals/ModalInvoice";
 import ModalOrder from "./modals/ModalOrder";
-import WorkorderDetails from "./screens/WorkorderDetails";
+import WorkshopEye from "./screens/WorkshopEye";
 
 function App() {
   return (
@@ -69,7 +74,15 @@ function App() {
           <Route path="/workshop-storage" element={<WorkshopStorage />} />
           <Route path="/workshop-articles" element={<WorkshopArticles />} />
           <Route path="/workshop-noded" element={<WorkshopNoded />} />
-          <Route path="/workshop-workorder-details" element={<WorkorderDetails />} />
+          <Route path="/workshop-eye" element={<WorkshopEye />} />
+          <Route path="/courses-live" element={<CoursesLive />} />
+          <Route path="/courses-schedule" element={<CoursesSchedule />} />
+          <Route path="/courses-requests" element={<CoursesRequests />} />
+          <Route path="/courses-discounts" element={<CoursesDiscounts />} />
+          <Route
+            path="/courses-registration"
+            element={<CoursesRegistration />}
+          />
 
           <Route path="/modal-1" element={<ModalForm isOpen />} />
           <Route path="/modal-2" element={<ModalScan isOpen />} />

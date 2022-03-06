@@ -1,9 +1,17 @@
 import React from "react";
+import clsx from "clsx";
 
-const SearchInput = ({ onQrClick, withFilter, icon, placeholder, ...rest }) => {
+const SearchInput = ({
+  rootClassName,
+  onQrClick,
+  withFilter,
+  icon,
+  placeholder,
+  ...rest
+}) => {
   return (
     <div className="main-search">
-      <div className="custom-form-control d-flex">
+      <div className={clsx(rootClassName, "custom-form-control d-flex")}>
         {withFilter && (
           <button className="btn">
             <img

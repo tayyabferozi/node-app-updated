@@ -1,8 +1,10 @@
 import React from "react";
 
-const Switch = ({ ...rest }) => {
+import clsx from "clsx";
+
+const Switch = ({ className, ...rest }) => {
   return (
-    <label className="switch">
+    <label className={clsx("switch", className)}>
       <input type="checkbox" {...rest} />
       <span className="slider round"></span>
     </label>

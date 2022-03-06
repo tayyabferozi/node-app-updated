@@ -172,7 +172,7 @@ const Converstaions = () => {
                   </div>
                 </div>
                 <div className="col-lg-8 short-scrollbar">
-                  <div className="right-content">
+                  <div className="right-chat-main-content">
                     <div className="main-chat">
                       {videoCallActiveState && (
                         <div className="video-call-container">

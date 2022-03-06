@@ -230,6 +230,13 @@ const MainLayout = ({
                   thisActiveLink: "workshop",
                   text: "Workshop",
                 },
+                {
+                  vector: "./assets/vectors/nav-workshop.svg",
+                  vectorActive: "./assets/vectors/nav-workshop-active.svg",
+                  to: "/courses-live",
+                  thisActiveLink: "courses",
+                  text: "Courses & Activities",
+                },
               ].map((el, idx) => {
                 const { to, thisActiveLink, vector, vectorActive, text } = el;
 
