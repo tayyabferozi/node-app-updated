@@ -34,7 +34,7 @@ const EventsAndBlocks = () => {
                 moveRangeOnFirstSelection={false}
                 onChange={(item) => setDate([item.selection])}
               />
-              <div className="mt-5 emboss-white br-16 px-lg-3 py-4 h-100">
+              <div className="mt-5 emboss-white br-16 px-lg-3 py-4">
                 <div className="funcs my-4 px-2 d-flex justify-content-between">
                   <SearchInput
                     inputStyle={{ maxWidth: 220 }}
@@ -72,7 +72,7 @@ const EventsAndBlocks = () => {
                         className={clsx("item p-3", { active })}
                       >
                         <div className="d-flex justify-content-between">
-                          <div className="fw-500">{name}</div>
+                          <div className="fw-600">{name}</div>
                           <h5 className="text-light-5 sub-title">{tag}</h5>
                         </div>
                         <h5 className="mt-2 text-light-5 sub-title">{type}</h5>
@@ -139,7 +139,7 @@ const EventsAndBlocks = () => {
                           })}
                         >
                           <div className="d-flex justify-content-between me-4">
-                            <div className="fw-500">{name}</div>
+                            <div className="fw-600">{name}</div>
                             <h5 className="text-grad-blue">{tag}</h5>
                           </div>
                           <h5 className="text-light-5 sub-title">{type}</h5>
