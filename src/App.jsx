@@ -25,8 +25,9 @@ import WorkshopNoded from "./screens/WorkshopNoded";
 import CoursesLive from "./screens/CoursesLive";
 import CoursesSchedule from "./screens/CoursesSchedule";
 import CoursesRequests from "./screens/CoursesRequests";
-import CoursesDiscounts from "./screens/CoursesDiscounts";
+// import CoursesDiscounts from "./screens/CoursesDiscounts";
 import CoursesRegistration from "./screens/CoursesRegistration";
+import EventsAndBlocks from "./screens/Courses&Activities/Events&Blocks";
 
 import ModalForm from "./modals/ModalForm";
 import ModalScan from "./modals/ModalScan";
@@ -78,7 +79,7 @@ function App() {
           <Route path="/courses-live" element={<CoursesLive />} />
           <Route path="/courses-schedule" element={<CoursesSchedule />} />
           <Route path="/courses-requests" element={<CoursesRequests />} />
-          <Route path="/courses-discounts" element={<CoursesDiscounts />} />
+          <Route path="/courses-discounts" element={<EventsAndBlocks />} />
           <Route
             path="/courses-registration"
             element={<CoursesRegistration />}

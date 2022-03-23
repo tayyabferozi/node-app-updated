@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 
 const SearchInput = ({
+  inputStyle,
   rootClassName,
   onQrClick,
   withFilter,
@@ -21,7 +22,7 @@ const SearchInput = ({
             />
           </button>
         )}
-        <div className="input">
+        <div className="input" style={inputStyle}>
           <img
             src="./assets/vectors/search.svg"
             alt="search"

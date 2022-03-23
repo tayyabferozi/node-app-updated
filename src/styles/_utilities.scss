@@ -126,6 +126,10 @@
   background: linear-gradient(to right, $color108, $color109);
 }
 
+.text-grad-blue {
+  @extend %text-grad-blue;
+}
+
 %text-grad-inc-linear {
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent;
@@ -338,6 +342,10 @@ button,
 
 .br-16 {
   @extend %br-16;
+}
+
+.br-50 {
+  border-radius: 50%;
 }
 
 .lh-1 {
